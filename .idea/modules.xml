@@ -9,8 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp-demo/jspDemo.iml" filepath="$PROJECT_DIR$/jsp-demo/jspDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-proxy-demo/myProxyDemo.iml" filepath="$PROJECT_DIR$/java-proxy-demo/myProxyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projects.iml" filepath="$PROJECT_DIR$/projects.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/projects-spring-cloud.iml" filepath="$PROJECT_DIR$/spring-cloud/projects-spring-cloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/projects1.iml" filepath="$PROJECT_DIR$/projects1.iml" />
       <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit.iml" filepath="$PROJECT_DIR$/rabbit/rabbit.iml" />
       <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit-receive/rabbit-receive.iml" filepath="$PROJECT_DIR$/rabbit/rabbit-receive/rabbit-receive.iml" />
       <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit-send/rabbit-send.iml" filepath="$PROJECT_DIR$/rabbit/rabbit-send/rabbit-send.iml" />
