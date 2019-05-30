@@ -1,0 +1,4 @@
+com\rabbit\controller\TestController.class
+com\rabbit\Application.class
+com\rabbit\config\TopicRabbitConfig.class
+com\rabbit\service\HandleService.class

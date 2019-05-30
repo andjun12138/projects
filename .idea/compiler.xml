@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="business-client" />
+        <module name="config-server" />
+        <module name="eureka-client" />
+        <module name="eureka-server" />
+        <module name="jsp-demo" />
+        <module name="jspDemo" />
+        <module name="projects-spring-cloud" />
+        <module name="projectsSpringCloud" />
+        <module name="rabbit-receive" />
+        <module name="rabbit-send" />
+        <module name="redis" />
+        <module name="redisDemo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="business-client" target="1.5" />
+      <module name="config-server" target="1.5" />
+      <module name="eureka-client" target="1.5" />
+      <module name="eureka-server" target="1.5" />
+      <module name="jsp-demo" target="1.5" />
+      <module name="jspDemo" target="1.5" />
+      <module name="loginDemo" target="1.5" />
+      <module name="projects" target="1.5" />
+      <module name="projects-spring-cloud" target="1.5" />
+      <module name="projectsSpringCloud" target="1.5" />
+      <module name="rabbit" target="1.5" />
+      <module name="rabbit-receive" target="1.5" />
+      <module name="rabbit-send" target="1.5" />
+      <module name="rabbitMQ" target="1.5" />
+      <module name="rabbitMQ1" target="1.5" />
+      <module name="redis" target="1.8" />
+      <module name="redisDemo" target="1.8" />
+      <module name="spring-cloud" target="1.5" />
+      <module name="springCloudConfigClient" target="1.5" />
+      <module name="weixinDemo" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

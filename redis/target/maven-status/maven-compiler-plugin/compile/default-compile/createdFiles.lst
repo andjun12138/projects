@@ -1,0 +1,5 @@
+com\redis\MydemoApplication.class
+com\redis\config\RedisConfig.class
+com\redis\controller\TestController.class
+com\redis\config\RedisConfig$1.class
+com\redis\service\RedisService.class

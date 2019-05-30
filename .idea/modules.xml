@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/business-client/business-client.iml" filepath="$PROJECT_DIR$/spring-cloud/business-client/business-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/config-server/config-server.iml" filepath="$PROJECT_DIR$/spring-cloud/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-client/eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsp-demo/jspDemo.iml" filepath="$PROJECT_DIR$/jsp-demo/jspDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-proxy-demo/myProxyDemo.iml" filepath="$PROJECT_DIR$/java-proxy-demo/myProxyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/projects-spring-cloud.iml" filepath="$PROJECT_DIR$/spring-cloud/projects-spring-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projects1.iml" filepath="$PROJECT_DIR$/projects1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit.iml" filepath="$PROJECT_DIR$/rabbit/rabbit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit-receive/rabbit-receive.iml" filepath="$PROJECT_DIR$/rabbit/rabbit-receive/rabbit-receive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbit/rabbit-send/rabbit-send.iml" filepath="$PROJECT_DIR$/rabbit/rabbit-send/rabbit-send.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis/redisDemo.iml" filepath="$PROJECT_DIR$/redis/redisDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/spring-cloud.iml" filepath="$PROJECT_DIR$/spring-cloud/spring-cloud.iml" />
+    </modules>
+  </component>
+</project>
