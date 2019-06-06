@@ -14,22 +14,16 @@
     <packaging>pom</packaging>
     <modules>
         <module>config-server</module>
-        <module>business-client</module>
+        <module>service-ribbon</module>
+        <module>eureka-client-one</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
     </modules>
     <dependencies>
+<!--
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,10 +31,9 @@
             <version>1.5.8.RELEASE</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
+-->
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -62,7 +55,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
+   <repositories>
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
