@@ -16,6 +16,7 @@
         <module name="rabbit-receive" />
         <module name="rabbit-send" />
         <module name="redis" />
+        <module name="service-feign" />
         <module name="service-ribbon" />
       </profile>
     </annotationProcessing>
@@ -32,6 +33,7 @@
       <module name="rabbit-receive" target="1.5" />
       <module name="rabbit-send" target="1.5" />
       <module name="redis" target="1.8" />
+      <module name="service-feign" target="1.5" />
       <module name="service-ribbon" target="1.5" />
       <module name="spring-cloud" target="1.5" />
     </bytecodeTargetLevel>

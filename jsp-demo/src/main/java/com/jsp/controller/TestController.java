@@ -33,12 +33,10 @@ public class TestController {
         return "view/success";
     }
 
-
     @RequestMapping("/test")
     public String test(Model model) throws UnknownHostException {
         Map<String,Object> map = demandMapper.getByIdForMap(1);
         model.addAttribute("hostAddress",map);
         return "view/success";
     }
-
 }
