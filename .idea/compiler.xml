@@ -18,6 +18,7 @@
         <module name="redis" />
         <module name="service-feign" />
         <module name="service-ribbon" />
+        <module name="service-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -35,6 +36,7 @@
       <module name="redis" target="1.8" />
       <module name="service-feign" target="1.5" />
       <module name="service-ribbon" target="1.5" />
+      <module name="service-zuul" target="1.5" />
       <module name="spring-cloud" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,5 +1,6 @@
 package com.cloud.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,12 @@ public class TestService{
     @Autowired
     public RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "getHelloContentFailure")
     public String getHelloContent(){
         return restTemplate.getForObject("http://eureka-client/test/index",String.class);
+    }
+
+    public String getHelloContentFailure(){
+        return "service is not available !(ribbon)";
     }
 }

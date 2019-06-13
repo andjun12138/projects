@@ -16,6 +16,7 @@
         <module>config-server</module>
         <module>service-ribbon</module>
         <module>service-feign</module>
+        <module>service-zuul</module>
         <module>eureka-client-one</module>
         <module>eureka-server</module>
         <module>eureka-client</module>

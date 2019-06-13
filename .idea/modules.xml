@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/service-feign/service-feign.iml" filepath="$PROJECT_DIR$/spring-cloud/service-feign/service-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/service-ribbon/service-ribbon.iml" filepath="$PROJECT_DIR$/spring-cloud/service-ribbon/service-ribbon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud/service-zuul/service-zuul.iml" filepath="$PROJECT_DIR$/spring-cloud/service-zuul/service-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/spring-cloud.iml" filepath="$PROJECT_DIR$/spring-cloud/spring-cloud.iml" />
     </modules>
   </component>
