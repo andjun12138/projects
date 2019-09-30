@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能通关</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/common/css/statistical.css">
+    <link rel="stylesheet" href="/static/common/css/common.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<div class="main">
+
+    <input type="hidden" id="tableName" th:value="${tableName}">
+    <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#all" data-toggle="tab">操作记录</a></li>
+        <li role="presentation"><a href="#bug" data-toggle="tab">操作1</a></li>
+        <li role="presentation"><a href="#sale" data-toggle="tab">操作2</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="all">
+            <div class="search-pad">
+                <div class="search-pad-div" id="allConditions">
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                        <label class="search-label">最近操作次数</label>
+                        <select class="search-control" id="allTimes" >
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="40">40</option>
+                            <option value="80">80</option>
+                            <option value="160" >160</option>
+                            <option value="320" >320</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="allMap">
+                    <table id="allTable" data-classes="table table-hover table-responsive table-sm">
+                        <thead>
+                        <tr>
+                            <th data-checkbox="true" data-field="state"></th>
+                            <th data-title="最近操作" data-field="id" data-align="center"></th>
+                            <th data-title="数量" data-field="many" data-align="center"></th>
+                            <th data-title="单价" data-field="account" data-align="center"></th>
+                            <th data-title="总价" data-field="total" data-align="center"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="bug">
+            <div class="search-pad">
+                <div class="search-pad-div" id="bugConditions">
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                        <label class="search-label">最近操作次数</label>
+                        <select class="search-control" id="bugTimes" >
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="40">40</option>
+                            <option value="80">80</option>
+                            <option value="160" >160</option>
+                            <option value="320" >320</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="bugMap">
+                    <table id="bugTable" data-classes="table table-hover table-responsive table-sm">
+                        <thead>
+                        <tr>
+                            <th data-checkbox="true" data-field="state"></th>
+                            <th data-title="最近操作" data-field="lastNum" data-align="center"></th>
+                            <th data-title="数量" data-field="many" data-align="center"></th>
+                            <th data-title="总价" data-field="total" data-align="center"></th>
+                            <th data-title="平均" data-field="avg" data-align="center"></th>
+                            <th data-title="实际平均" data-field="realAvg" data-align="center"></th>
+                            <th data-title="预计平均一" data-field="bugAvg1" data-align="center"></th>
+                            <th data-title="预计平均二" data-field="bugAvg2" data-align="center"></th>
+                            <th data-title="预计平均三" data-field="bugAvg3" data-align="center"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="sale">
+            <div class="search-pad">
+                <div class="search-pad-div" id="saleConditions">
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                        <label class="search-label">最近操作次数</label>
+                        <select class="search-control" id="saleTimes" >
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="40">40</option>
+                            <option value="80">80</option>
+                            <option value="160" >160</option>
+                            <option value="320" >320</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="saleMap">
+                    <table id="saleTable" data-classes="table table-hover table-responsive table-sm">
+                        <thead>
+                        <tr>
+                            <th data-checkbox="true" data-field="state"></th>
+                            <th data-title="最近操作" data-field="lastNum" data-align="center"></th>
+                            <th data-title="数量" data-field="many" data-align="center"></th>
+                            <th data-title="总价" data-field="total" data-align="center"></th>
+                            <th data-title="平均" data-field="avg" data-align="center"></th>
+                            <th data-title="预计平均一" data-field="saleAvg1" data-align="center"></th>
+                            <th data-title="预计平均二" data-field="saleAvg2" data-align="center"></th>
+                            <th data-title="预计平均三" data-field="saleAvg3" data-align="center"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static//common.js"></script>
+<script src="/static/plugin/echarts/echarts.min.js"></script>
+<script src="/static/index.js"></script>
+</body>
+</html>

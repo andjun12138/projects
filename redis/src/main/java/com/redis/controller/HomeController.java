@@ -16,6 +16,7 @@ public class HomeController {
 
     @RequestMapping(value = "/login.html", method = RequestMethod.GET)
     public String login() throws Exception {
+        System.out.println(this.hashCode());
         return "login";
     }
 }

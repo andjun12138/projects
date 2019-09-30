@@ -12,6 +12,7 @@
     <!--有使用thymeleaf模板-->
     <modules>
         <module>jsp-demo</module>
+        <module>mongodb</module>
         <module>rabbit</module>
         <module>redis</module>
         <module>spring-cloud</module>

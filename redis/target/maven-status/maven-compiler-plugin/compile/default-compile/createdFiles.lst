@@ -1,5 +1,14 @@
 com\redis\MydemoApplication.class
-com\redis\config\RedisConfig.class
 com\redis\controller\TestController.class
+com\redis\config\MvcConfig.class
+com\redis\help\CalUtils.class
+com\redis\config\RedisConfig.class
+com\redis\controller\HomeController.class
+com\redis\service\BaseEntityService.class
+com\redis\help\TestUtils.class
+com\redis\mapper\BaseEntityMapper.class
 com\redis\config\RedisConfig$1.class
 com\redis\service\RedisService.class
+com\redis\entity\BaseEntity.class
+com\redis\config\MybatisConfig.class
+com\redis\interceptor\AuthInterceptor.class

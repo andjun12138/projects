@@ -1,0 +1,20 @@
+.global-table{
+    width: 100%;
+    table-layout: fixed;
+}
+.global-table th, .global-table td{
+    box-sizing: border-box;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.global-table tr:nth-child(odd){
+    background-color: #fafafa;
+}
+.global-table tr:nth-child(even){
+    background-color: #ffffff;
+}
+.global-table tr:first-child{
+    background-color: #f0f0f0;
+}

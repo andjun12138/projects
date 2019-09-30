@@ -19,7 +19,6 @@ public class Cgliber implements MethodInterceptor{
      }
 
      public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-         proxy.invokeSuper(obj, args);
-         return null;
+         return proxy.invokeSuper(obj, args);;
      }
 }

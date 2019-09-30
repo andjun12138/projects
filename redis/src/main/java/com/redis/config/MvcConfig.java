@@ -36,8 +36,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authInterceptor).addPathPatterns("/**")
                 //静态文件
-                .excludePathPatterns(new String[]{"/static/**","/error/**"})
-                .excludePathPatterns(new String[]{"/test/result"})
+                .excludePathPatterns(new String[]{"/**","/error/**"})
+                .excludePathPatterns(new String[]{"/test/**"})
                 .excludePathPatterns(new String[]{"/login.html"});
         super.addInterceptors(registry);
     }

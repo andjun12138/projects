@@ -1,5 +1,6 @@
 package com.redis.controller;
 
+import com.redis.service.BaseEntityService;
 import com.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -20,6 +21,9 @@ import java.net.UnknownHostException;
 public class TestController {
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private BaseEntityService baseEntityService;
+
 
     @RequestMapping("/index")
     public String index(Model model) throws UnknownHostException {

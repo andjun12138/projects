@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redis.mapper.BaseEntityMapper" >
+    <resultMap id="baseEntityMap" type="com.redis.entity.BaseEntity" >
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+        <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="many" property="many" jdbcType="VARCHAR"/>
+        <result column="total" property="total" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getByTableName" resultMap="baseEntityMap">
+      select * from ${tableName}
+    </select>
+
+    <select id="lastBugRecord" resultMap="baseEntityMap">
+      select * from ${tableName}
+      where type = 0
+      ORDER BY id desc
+      limit 0,10
+    </select>
+
+    <select id="lastSaleRecord" resultMap="baseEntityMap">
+        select * from ${tableName}
+        where type = 1
+        ORDER BY id desc
+        limit 0,10
+    </select>
+
+    <select id="getRecords" resultMap="baseEntityMap">
+        select * from ${tableName}
+        where
+          <if test="type != null">
+              type = ${type} and
+          </if>
+        1 = 1
+        ORDER BY id desc
+        limit 0,${times}
+    </select>
+</mapper>

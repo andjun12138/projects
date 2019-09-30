@@ -1,0 +1,10 @@
+com\jsp\entiy\BaseEntity.class
+com\jsp\mapper\BaseEntityMapper.class
+com\jsp\BaseEntityService.class
+com\jsp\help\CalUtils.class
+com\jsp\config\TestTask.class
+com\jsp\help\TestUtils.class
+com\jsp\config\AppConfig.class
+com\jsp\controller\TestController.class
+com\jsp\thread\CalculatorThread.class
+com\jsp\MydemoApplication.class

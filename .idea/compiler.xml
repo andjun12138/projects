@@ -12,6 +12,7 @@
         <module name="eureka-client-one" />
         <module name="eureka-server" />
         <module name="jsp-demo" />
+        <module name="mongodb" />
         <module name="project-common" />
         <module name="rabbit-receive" />
         <module name="rabbit-send" />
@@ -28,6 +29,7 @@
       <module name="eureka-client-one" target="1.5" />
       <module name="eureka-server" target="1.5" />
       <module name="jsp-demo" target="1.5" />
+      <module name="mongodb" target="1.8" />
       <module name="project-common" target="1.5" />
       <module name="projects" target="1.5" />
       <module name="rabbit" target="1.5" />
