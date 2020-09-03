@@ -1,8 +1,11 @@
 package com.redis.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author system
@@ -18,5 +21,17 @@ public class HomeController {
     public String login() throws Exception {
         System.out.println(this.hashCode());
         return "login";
+    }
+
+    /**
+     * 云通关统计分析
+     * @param model
+     * @param session
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "iCustoms.html", method = RequestMethod.GET)
+    public String iCustoms(Model model, HttpSession session) throws Exception {
+        return "admin/statistical/iCustoms";
     }
 }

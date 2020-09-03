@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="apply-intelligent">
+<body>
+<div id="apply-intelligent" class="model-item-div apply-intelligent-model-container" style="display: none">
+    <p class="apply-intelligent-title-v">申请知网账号</p>
+    <div class="review-status" style="border-color: rgb(170, 170, 170); color: rgb(170, 170, 170);">
+        审核中
+    </div>
+    <form class="apply-intelligent-form personal-form" action="#">
+        <div class="form-group" title="姓名" data-required="true">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="operate-item name-input" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="公司名称" data-required="true">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="operate-item company-name-input" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="职务" data-required="true">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="operate-item position-input" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="联系方式" data-required="true">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="operate-item contact-input" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="申请理由" data-required="true">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <textarea class="operate-item apply-reason-input" type="text" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group button-model">
+            <button class="form-active-btn submit" type="button">提交</button>
+            <button class="form-active-btn reset" type="reset">重置</button>
+            <button class="form-active-btn rewrite" type="button">修改</button>
+        </div>
+    </form>
+    <div class="reject-reason" title="拒绝原因">
+        <p class="content"></p>
+    </div>
+</div>
+</body>
+</html>

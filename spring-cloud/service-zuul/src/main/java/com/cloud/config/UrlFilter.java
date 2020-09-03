@@ -35,7 +35,7 @@ public class UrlFilter extends ZuulFilter{
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         System.out.println(request.getRequestURL());
-        return false;
+        return true;
     }
     //过滤器的具体逻辑，这里只是将请求的URL简单些到日志中
     public Object run() {
@@ -44,4 +44,8 @@ public class UrlFilter extends ZuulFilter{
         String message = String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString());
         return message;
     }
+
+    /*
+    * 如果eureka-client 没有启动，eureka-ribbon 中的    @HystrixCommand(fallbackMethod = "getHelloContentFailure") 不起作用
+     * */
 }

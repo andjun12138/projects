@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>用户渠道分析</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css?v=123">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#userView" data-toggle="tab">用户访问量</a></li>
+            <li role="presentation"><a href="#userViewAgv" data-toggle="tab">时间内均用户访问量</a></li>
+            <li role="presentation"><a href="#repVisUserCount" data-toggle="tab">重复访问用户量</a></li>
+            <li role="presentation"><a href="#visitDepth" data-toggle="tab">访问深度</a></li>
+            <li role="presentation"><a href="#maxVisitPage" data-toggle="tab">访问最多页面</a></li>
+            <li role="presentation"><a href="#register" data-toggle="tab">新增注册用户数</a></li>
+            <li role="presentation"><a href="#trafficGrowth" data-toggle="tab">流量增长百分比</a></li>
+            <li role="presentation"><a href="#searchKeyWord" data-toggle="tab">关键词搜索排名</a></li>
+            <li role="presentation"><a href="#userBounce" data-toggle="tab">用户跳出率</a></li>
+            <li role="presentation"><a href="#increasePercentage" data-toggle="tab">用户增长百分比</a></li>
+            <li role="presentation"><a href="#userRetention" data-toggle="tab">周期内留存率</a></li>
+            <li role="presentation"><a href="#userActive" data-toggle="tab">用户活跃数</a></li>
+            <li role="presentation"><a href="#enterpriseStyle" data-toggle="tab">企业类型</a></li>
+
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="userView">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="userViewConditions">
+                        <label>时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="hour" >时</option>
+                            <option value="day" selected>日</option>
+                            <option value="week" >周</option>
+                            <option value="month" >月</option>
+                            <option value="quarter" >季度</option>
+                            <option value="year" >年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="userViewStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="userViewEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="userViewSearch">搜索</button>
+                    </div>
+                    <div>
+                        <div class="echart-table">
+                            <div class="echart-table-item">
+                                <div class="tab-item">
+                                    <div class="item-title">
+                                        <span >访问总量:</span>
+                                    </div>
+                                    <div class="item-text" id="total">-</div>
+                                </div>
+                                <div class="tab-item">
+                                    <div class="item-title">
+                                        <span >平均访问量:</span>
+                                    </div>
+                                    <div class="item-text" id="avg">-</div>
+                                </div>
+                            </div>
+                            <div id="userViewMap"  class="echart-table-min-model"></div>
+                        </div>
+                        <div class="echart-table-note">
+                            <div class="item-text"><strong>session量：</strong>访客访问网站的会话数量。 <br><br><strong>用户量：</strong>登录用户访问网站的用户数量
+                                <br><br><strong>ip量：</strong>访问网站的IP地址数量
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="userViewAgv">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="userViewAgvConditions">
+                        <label>时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>日均</option>
+                            <option value="month" >月均</option>
+                            <option value="year" >年均</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="userViewAgvStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="userViewAgvEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="userViewAgvSearch">搜索</button>
+                        <div id="userViewAgvMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="repVisUserCount">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="repVisUserCountConditions">
+                        <label>时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="hour" >时</option>
+                            <option value="day" selected>日</option>
+                            <option value="week" >周</option>
+                            <option value="month" >月</option>
+                            <option value="quarter" >季度</option>
+                            <option value="year" >年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="repVisUserCountStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="repVisUserCountEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="repVisUserCountSearch">搜索</button>
+                        <div id="repVisUserCountMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="visitDepth">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="visitDepthConditions">
+                        <!--其他可以共用的-->
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="month">按月</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="visitDepthStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="visitDepthEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="visitDepthSearch">搜索</button>
+                    </div>
+
+                    <div>
+                        <div id="visitDepthMap"  class="echart-table-note-model"></div>
+                        <div class="echart-table-note">
+                                <div class="item-text"><strong>访问深度：</strong>在一次完整的访问过程中，访客所浏览的页面数。 <br><br><strong>平均深度：</strong>用户总访问页面数/用户总量</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="maxVisitPage">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="maxVisitPageConditions">
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="maxVisitPageStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="maxVisitPageEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="maxVisitPageSearch">搜索</button>
+                    </div>
+                    <div id="maxVisitPageMap"  class="echart-table-model"></div>
+
+                    <!--<div id="maxVisitPageMapLeft"  class="echart-table-model-float"></div>-->
+                    <!--<div id="maxVisitPageMapRight"  class="echart-table-model-float"></div>-->
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane " id="register">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="registerConditions">
+                        <label >类型:</label>
+                        <select id = "userType"  class="select-model">
+                            <option value="" selected>全部</option>
+                            <option value="enterprise">企业</option>
+                            <option value="personal" >个人</option>
+                        </select>
+                        <!--其他可以共用的-->
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="registerStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="registerEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="registerSearch">搜索</button>
+                        <div id="registerMap" class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="trafficGrowth">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="trafficGrowthConditions">
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="month">按月</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="trafficGrowthStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="trafficGrowthEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="trafficGrowthSearch">搜索</button>
+                    <div id="trafficGrowthMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="searchKeyWord">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="searchKeyWordConditions">
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="searchKeyWordStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="searchKeyWordEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="searchKeyWordSearch">搜索</button>
+                    </div>
+
+                    <div id="searchKeyWordMapLeft"  class="echart-table-model-float"></div>
+                    <div id="searchKeyWordMapRight"  class="echart-table-model-float"></div>
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="increasePercentage">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="increasePercentageConditions">
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="increasePercentageStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="increasePercentageEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="increasePercentageSearch">搜索</button>
+                        <div id="increasePercentageMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="userRetention">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="userRetentionConditions">
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="userRetentionStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="userRetentionEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="userRetentionSearch">搜索</button>
+                        <div id="userRetentionMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="userBounce">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="userBounceConditions">
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="userBounceStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="userBounceEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="userBounceSearch">搜索</button>
+                        <div id="userBounceMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane " id="userActive">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="userActiveConditions">
+                        <!--其他可以共用的-->
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="userActiveStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="userActiveEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="userActiveSearch">搜索</button>
+                        <div id="userActiveMap" class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="enterpriseStyle">
+                <div class="search-pad">
+                    <div class="search-pad-div">
+                        <div id="enterpriseStyleMap" class="echart-table-model"></div>
+                    </div>j
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="/static/plugin/jquery-1.10.2.min.js"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/plugin/layer/layer.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+    <!--日期插件-->
+    <script src="/static/plugin/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/plugin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/admin/js/statistical/userBehavior.js?app_v=${app.build.version}"></script>
+</body>
+</html>

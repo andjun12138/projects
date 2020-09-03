@@ -1,0 +1,138 @@
+.search {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+}
+.search .search-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .25rem auto;
+    width: 12rem;
+    background: #ffffff;
+}
+.search .search-container .list-title{
+    height: .4rem;
+    line-height: .4rem;
+    background-color: #f9f9f9;
+    color: #2F2F2F;
+    overflow: hidden;
+}
+.search .search-container .list-title .title-left,
+.search .search-container .list-title .title-right{
+    float: left;
+    width: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: .3rem;
+}
+/*.search .search-container .search-result {*/
+    /*height: .4rem;*/
+    /*line-height: .4rem;*/
+    /*background-color: #ebebeb;*/
+    /*font-size: .14rem;*/
+    /*padding-left: .2rem;*/
+/*}*/
+/*.search .search-container .search-result .highlight-number {*/
+    /*color: #19a0e5;*/
+/*}*/
+.search .search-container .search-list-container{
+    padding: .2rem .3rem .8rem;
+}
+.search .search-container .search-list-container .search-list{
+
+}
+.search .search-container .search-list-container .search-item{
+    border-bottom: .01rem solid #dcdcdc;
+    overflow: hidden;
+    padding: .3rem 0;
+}
+.search .search-container .search-list-container .search-item .item-left,
+.search .search-container .search-list-container .search-item .item-right{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+.search .search-container .search-list-container .search-item .item-left .job-title{
+    display: inline-block;
+    width: 2rem;
+    color: #0088c0;
+    font-size: .18rem;
+}
+.search .search-container .search-list-container .search-item .item-left .job-salary{
+    display: inline-block;
+    width: 2rem;
+    color: #ff4e00;
+    font-size: .18rem;
+}
+.search .search-container .search-list-container .search-item .item-left .job-info-list{
+    margin-top: .25rem;
+}
+.search .search-container .search-list-container .search-item .item-left .job-info-list .job-info-item{
+    display: inline-block;
+}
+.search .search-container .search-list-container .search-item .item-left .job-info-list .job-info-item:first-child{
+    width: 0.5rem;
+    text-align: left;
+}
+.search .search-container .search-list-container .search-item .item-left .job-info-list .job-info-item:nth-child(2){
+    width: 1.2rem;
+    text-align: center;
+    border-left: 1px solid #acacac;
+}
+.search .search-container .search-list-container .search-item .item-left .job-info-list .job-info-item:nth-child(3){
+    width: 2rem;
+    text-align: center;
+    border-left: 1px solid #acacac;
+}
+.search .search-container .search-list-container .search-item .item-right{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: .3rem;
+    overflow: hidden;
+}
+.search .search-container .search-list-container .search-item .item-right .img-container{
+    float: left;
+    width: .6rem;
+    height: .6rem;
+    margin-right: .27rem;
+}
+.search .search-container .search-list-container .search-item .item-right .img-container img.company-logo{
+    width: 100%;
+    height: 100%;
+}
+.search .search-container .search-list-container .search-item .item-right .company-info{
+    float: left;
+}
+.search .search-container .search-list-container .search-item .item-right .company-info .company-name-div{
+    margin-bottom: .2rem;
+}
+.search .search-container .search-list-container .search-item .item-right .company-info .company-name-div .company-name{
+    display: inline-block;
+    margin-right: .24rem;
+    color: #4a4a4a;
+}
+.search .search-container .search-list-container .search-item .item-right .company-info .company-name-div .company-address{
+    display: inline-block;
+    color: #19a0e5;
+}
+.search .search-container .search-list-container .search-item .item-right .company-info .company-tag-list .company-tag-item{
+    display: inline-block;
+    height: .22rem;
+    line-height: .22rem;
+    margin-right: .2rem;
+    font-size: .14rem;
+    color: #7c7c7c;
+    padding: 0 .2rem;
+    border: .01rem solid #d5d5d5;
+    border-radius: .05rem;
+}
+.search .search-container .search-list-container .search-page-pagination {
+    float: left;
+    margin-top: .2rem;
+    width: 100%;
+}

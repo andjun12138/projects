@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="stylesheet" href="/static/front/css/module/home/home.css">
+</head>
+<body layout:fragment="content">
+<div class="home">
+    <div class="home-container">
+        <div class="home-slider-notice-model">
+            <div class="home-slider-model">
+                <ul class="slider-list">
+                </ul>
+                <div class="slider-title-div">
+                    <p class="slider-title"></p>
+                    <ul class="slider-points-list"></ul>
+                </div>
+                <div class="left-right-div">
+                    <span class="left-btn"><i class="icon-arrow-left"></i></span>
+                    <span class="right-btn"><i class="icon-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="slider-news-model">
+                <ul class="news-nav-list">
+                    <li class="news-nav-item active" data-type="industry">行业资讯</li>
+                    <li class="news-nav-item" data-type="park">园区动态</li>
+                    <li class="news-nav-item" data-type="notice">通知公告</li>
+                </ul>
+                <ul class="news-content-list"></ul>
+                <a class="news-more-link" href="/informationNews.html" >
+                    更多
+                </a>
+                <a class="home-link-div" >
+                    <img src="/static/front/assets/image/module/home/home-link1.png" alt="" class="home-link-image">
+                </a>
+            </div>
+        </div>
+        <div class="home-pass-news-model">
+            <div class="home-left-part" type="pass">
+                <div class="number-div">
+                    <p class="title">
+                        <i class="title-icon icon-customs"></i>
+                        <span class="title-content">
+                            智能通关
+                        </span>
+                    </p>
+                    <p style="font-size: .16rem;">2019年至今惠州市共有</p>
+                    <p class="content">
+                        <span class="number"  th:text="${imaginaryManage.intelligentEnterprisesNum} + '家'">528</span>
+                        <p style="font-size: .16rem;">企业使用智能通关平台<br/>完成通关金额共</p>
+                    </p>
+                    <p class="content" style="margin-top: 0;">
+                        <span class="number" th:text="${imaginaryManage.intelligentCompleteMoney} + '万'">7833</span>
+                    </p>
+                </div>
+                <div class="flow-eCharts-div">
+                    <div class="flow-eCharts-title-div">
+                        <span class="flow-eCharts-time"></span>
+                        <select class="flow-eCharts-time-select" name="" id="echart-time-select">
+                            <!--<option value="0">2019Q1</option>
+                            <option value="1">2018Q4</option>
+                            <option value="2">2018Q3</option>
+                            <option value="3">2018Q2</option>-->
+                        </select>
+                    </div>
+                    <div id="home-flow-eCharts" class="flow-eCharts-content-div" ></div>
+                    <div class="flow-eCharts-content-div-line" ></div>
+                    <!--<img src="/static/front/assets/image/module/home/temporary/column-chart-temporary.png" alt="临时图片">-->
+                </div>
+            </div>
+            <div class="intelligent-news-model">
+                <div class="title-div">
+                    <span class="intelligent-news-title">智能通关资讯</span>
+                    <a class="intelligent-news-more-link" href="/intelligentList.html" >
+                        更多
+                    </a>
+                </div>
+
+                <ul class="news-list"></ul>
+            </div>
+        </div>
+        <div class="home-incubation-model">
+            <div class="number-div">
+                <p class="title">
+                    <i class="title-icon"></i>
+                    <span class="title-content">
+                        创业孵化
+                    </span>
+                </p>
+                <p class="content" style="font-size: .18rem;" id="title">截止2019年4月，孵化中心共孵化企业</p>
+                <p class="content">
+                    <span class="number" th:text="${imaginaryManage.incubationEnterprisesNum}">368</span>
+                </p>
+                <p class="content" style="font-size: .18rem;">家，在孵</p>
+                <p class="content">
+                    <span class="number" th:text="${imaginaryManage.incubationTeamNum}">1285</span>
+                </p>
+                <p class="content" style="font-size: .18rem;">家</p>
+            </div>
+            <ul class="incubation-func-list">
+                <li class="incubation-func-item" name="property">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-config-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--知识产权服务-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="incubation">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-config-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--在线入孵-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="lease">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-money-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--物业租凭-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="activity">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-file-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--活动服务-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="info">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-share-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--信息推送-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="resource">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-report-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--资源管理-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="device">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-form-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--仪器设备共享-->
+                        </p>
+                    </a>
+                </li>
+                <li class="incubation-func-item" name="new-business">
+                    <a href="javaScript:void (0);" class="incubation-func-link" rel="nofollow" target="_blank">
+                        <!--<i class="incubation-func-icon icon-folder-round"></i>-->
+                        <i class="incubation-func-icon "></i>
+                        <p class="incubation-func-title">
+                            <!--创业填报-->
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            <div class="home-show-info-title-div">
+                <span class="home-show-info-title">
+                    基础设施
+                </span>
+                <a href="/infrastructure/baseStation.html?typeId=c229241a-9523-4cf7-810a-4e013a80d202" class="home-show-info-more-link" target="_blank">
+                    更多
+                </a>
+            </div>
+            <ul class="incubation-environment-list">
+                <li class="incubation-environment-item">
+                    <div class="incubation-environment-image-div">
+                        <img src="/static/front/assets/image/module/home/temporary/environment-1.png" alt="" class="incubation-environment-image">
+                    </div>
+                    <p class="incubation-environment-title">
+                        外部环境
+                    </p>
+                </li>
+                <li class="incubation-environment-item">
+                    <div class="incubation-environment-image-div">
+                        <img src="/static/front/assets/image/module/home/temporary/environment-2.png" alt="" class="incubation-environment-image">
+                    </div>
+                    <p class="incubation-environment-title">
+                        办公室
+                    </p>
+                </li>
+                <li class="incubation-environment-item">
+                    <div class="incubation-environment-image-div">
+                        <img src="/static/front/assets/image/module/home/temporary/environment-3.png" alt="" class="incubation-environment-image">
+                    </div>
+                    <p class="incubation-environment-title">
+                        外部环境
+                    </p>
+                </li>
+                <li class="incubation-environment-item">
+                    <div class="incubation-environment-image-div">
+                        <img src="/static/front/assets/image/module/home/temporary/environment-4.png" alt="" class="incubation-environment-image">
+                    </div>
+                    <p class="incubation-environment-title">
+                        办公室
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="home-resource-model">
+            <div class="number-div">
+                <p class="title">
+                    <i class="title-icon"></i>
+                    <span class="title-content">
+                       300个企业动态账号注册即送，6千万份知网重要文献免费下载，领先掌握核心技术
+                    </span>
+                </p>
+                <!--<p class="content" type="tip"></p>-->
+                <!--<p class="content" type="literature">-->
+                    <!--<span class="number" th:text="${imaginaryManage.scienceLiteratureNum}">2348</span>-->
+                <!--</p>-->
+                <!--<p class="content" type="downloads">-->
+                    <!--<span class="number" th:text="${imaginaryManage.scienceResourceDownload}">3277</span>-->
+                <!--</p>-->
+            </div>
+            <div class="resource-content-div">
+                <!--<div class="resource-type-list-div">
+                    <div class="resource-type-title">
+                        技术前沿
+                    </div>
+                    <ul class="resource-type-list">
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;机器人技术&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;航空航天&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;无人驾驶&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;大数据&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;AI智能&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;工业能效&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;5G通信&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;检测系统&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;软件开发&ndash;&gt;
+                            </a>
+                        </li>
+                        <li class="resource-type-item">
+                            <a href="javascript:void(0)" class="resource-type-link">
+                                &lt;!&ndash;基建&ndash;&gt;
+                            </a>
+                        </li>
+                    </ul>
+                </div>-->
+                <div class="resource-goods-div">
+                    <div class="resource-goods-nav-div">
+                        <p class="resource-goods-tag">产业专题</p>
+                        <ul class="resource-goods-nav-list" style="left: 0">
+                            <li class="resource-goods-nav-item active" type="znzb">
+                                <i class="goods-icon icon-robot"></i>
+                                智能装备
+                            </li>
+                            <li class="resource-goods-nav-item" type="ydwl">
+                                <i class="goods-icon icon-mobile-wifi"></i>
+                                移动互联网
+                            </li>
+                            <li class="resource-goods-nav-item" type="pbxs">
+                                <i class="goods-icon icon-ipad"></i>
+                                平板显示
+                            </li>
+                        </ul>
+                        <!--<button class="resource-goods-refresh">换一批</button>-->
+                    </div>
+                    <div class="resource-goods-list-div">
+                        <div class="resource-goods-list-content">
+                            <ul class="resource-goods-list">
+                                <!--<li class="resource-goods-item">-->
+                                    <!--<a href="" class="resource-goods-link">-->
+                                        <!--<div class="resource-goods-image-div">-->
+                                            <!--<img src="/static/front/assets/image/module/home/temporary/technology-1.png" alt="" class="resource-goods-image">-->
+                                        <!--</div>-->
+                                        <!--<p class="good-title">无人机电磁弹射器</p>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                        <div class="goods-arrow-icon-div" type="left">
+                            <i class="goods-arrow-icon icon-arrow-left"></i>
+                        </div>
+                        <div class="goods-arrow-icon-div" type="right">
+                            <i class="goods-arrow-icon icon-arrow-right"></i>
+                        </div>
+                        <div class="resource-goods-list-load-div">
+                            <img src="/static/front/assets/image/common/loading.gif" alt="loading" class="load-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-outsourcing-model">
+            <div class="number-div">
+                <p class="title">
+                    <i class="title-icon"></i>
+                    <span class="title-content">
+                        惠州技术众包平台
+                    </span>
+                </p>
+                <p class="content" type="tip"></p>
+                <p class="content" type="demand">
+                    <span class="number" th:text="${imaginaryManage.crowdsourcedDemandNum}">3125</span>
+                </p>
+                <p class="content" type="transaction">
+                    <span class="number" th:text="${imaginaryManage.crowdsourcedDemandClinch}">6277</span>
+                </p>
+                <p class="content" type="money">
+                    <span class="number" th:text="${imaginaryManage.crowdsourcedClinchMoney}">9261</span>
+                </p>
+            </div>
+            <div class="outsourcing-content-div">
+                <div class="outsourcing-bg" style="width: 6.83rem; height: 3.27rem;float: left;">
+                    <img src="/static/front/assets/image/module/home/crowdsource-bg.jpg" alt="">
+                </div>
+                <div class="outsourcing-goods-div">
+                    <ul class="outsourcing-goods-statistics-list">
+                        <li class="outsourcing-goods-statistics-item" type="service">
+                            <a href="//zhzb.${profile.system.domain}/f/case_hall.html?pc=true" target="_blank">
+                                <div class="outsourcing-goods-statistics-title-div">
+                                    <p class="outsourcing-goods-statistics-title">找技术</p>
+                                    <!--<p class="outsourcing-goods-statistics-amount" th:text="${imaginaryManage.crowdsourcedProviderNum}">8000</p>-->
+                                    <p class="outsourcing-goods-statistics-amount">成熟技术项目</p>
+                                </div>
+                                <i class="outsourcing-goods-statistics-icon icon-skill"></i>
+                            </a>
+                        </li>
+                        <li class="outsourcing-goods-statistics-item" type="demand">
+                            <a href="//zhzb.${profile.system.domain}/f/expert_wisdom_lib.html?pc=true" target="_blank">
+                                <div class="outsourcing-goods-statistics-title-div">
+                                    <p class="outsourcing-goods-statistics-title">找专家</p>
+                                    <!--<p class="outsourcing-goods-statistics-amount" th:text="${imaginaryManage.crowdsourcedDemandNum}">10000</p>-->
+                                    <p class="outsourcing-goods-statistics-amount">顶尖专家顾问</p>
+                                </div>
+                                <i class="outsourcing-goods-statistics-icon icon-demand"></i>
+                            </a>
+                        </li>
+                        <li class="outsourcing-goods-statistics-item" type="case">
+                            <a href="//zhzb.${profile.system.domain}/f/service_provider_lib.html?pc=true" target="_blank">
+                                <div class="outsourcing-goods-statistics-title-div">
+                                    <p class="outsourcing-goods-statistics-title">找服务</p>
+                                    <!--<p class="outsourcing-goods-statistics-amount" th:text="${imaginaryManage.crowdsourcedCaseNum}">8000</p>-->
+                                    <p class="outsourcing-goods-statistics-amount">助力企业创新发展</p>
+                                </div>
+                                <i class="outsourcing-goods-statistics-icon icon-activity"></i>
+                            </a>
+                        </li>
+                        <li class="outsourcing-goods-statistics-item" type="expert">
+                            <a href="//zhzb.${profile.system.domain}/f/platform_ad.html?pc=true" target="_blank">
+                                <div class="outsourcing-goods-statistics-title-div">
+                                    <p class="outsourcing-goods-statistics-title">找资讯</p>
+                                    <!--<p class="outsourcing-goods-statistics-amount" th:text="${imaginaryManage.crowdsourcedExpertNum}">10000</p>-->
+                                    <p class="outsourcing-goods-statistics-amount">行业精英交流活动</p>
+                                </div>
+                                <i class="outsourcing-goods-statistics-icon icon-idea"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="home-show-info-model">
+            <div class="home-show-info-title-div">
+                <span class="home-show-info-title">
+                    展会信息
+                </span>
+                <a href="http://gyfw.hnesp.com/?_module=expo&_name=main&_do=index" class="home-show-info-more-link" target="_blank">
+                    更多
+                </a>
+            </div>
+            <script language="javascript" src="http://gyfw.hnesp.com/?_module=expo&_name=main&_do=expo_api"></script>
+            <!--<ul class="home-show-info-list">-->
+                <!--<li class="home-show-info-item">-->
+                    <!--<div class="home-show-info-image-div">-->
+                        <!--<img src="/static/front/assets/image/module/home/temporary/show-1.png" alt="" class="home-show-info-image-div">-->
+                    <!--</div>-->
+                    <!--<div class="home-show-info-title-div">-->
+                        <!--<p class="home-show-info-title">-->
+                            <!--cts| 2019 jike baba awards-->
+                        <!--</p>-->
+                        <!--&lt;!&ndash;<p class="home-show-info-deadline">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<i class="icon-time"></i>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="show-deadline" type="hour">24</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="home-show-info-item">-->
+                    <!--<div class="home-show-info-image-div">-->
+                        <!--<img src="/static/front/assets/image/module/home/temporary/show-2.png" alt="" class="home-show-info-image-div">-->
+                    <!--</div>-->
+                    <!--<div class="home-show-info-title-div">-->
+                        <!--<p class="home-show-info-title">-->
+                            <!--财经中国 2019 V峰会-->
+                        <!--</p>-->
+                        <!--&lt;!&ndash;<p class="home-show-info-deadline">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<i class="icon-time"></i>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="show-deadline" type="day">2</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="home-show-info-item">-->
+                    <!--<div class="home-show-info-image-div">-->
+                        <!--<img src="/static/front/assets/image/module/home/temporary/show-3.png" alt="" class="home-show-info-image-div">-->
+                    <!--</div>-->
+                    <!--<div class="home-show-info-title-div">-->
+                        <!--<p class="home-show-info-title">-->
+                            <!--EmTech 全球新兴科技峰会-->
+                        <!--</p>-->
+                        <!--&lt;!&ndash;<p class="home-show-info-deadline">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<i class="icon-time"></i>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="show-deadline" type="hour">24</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="home-show-info-item">-->
+                    <!--<div class="home-show-info-image-div">-->
+                        <!--<img src="/static/front/assets/image/module/home/temporary/show-4.png" alt="" class="home-show-info-image-div">-->
+                    <!--</div>-->
+                    <!--<div class="home-show-info-title-div">-->
+                        <!--<p class="home-show-info-title">-->
+                            <!--2018 运营人 年终活动-->
+                        <!--</p>-->
+                        <!--&lt;!&ndash;<p class="home-show-info-deadline">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<i class="icon-time"></i>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="show-deadline" type="opening"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+        <div class="home-partner-model">
+            <span class="home-partner-title">友情链接</span>
+            <ul class="home-partner-list"></ul>
+        </div>
+    </div>
+</div>
+<!-- 开发使用 -->
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js?app_v=${app.build.version}"></script>
+<!-- 生产使用 -->
+<!--<script src="/static/plugin/echarts/echarts.common.min.js"></script>-->
+<script src="/static/front/js/module/home/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

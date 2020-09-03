@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title th:if="${report['title']} == null" th:text="${'新建报表'}"></title>
+    <title th:if="${report['title']} != null" th:text="${'报表详情 - '+report['title']}"></title>
+    <link rel="icon" href="/static/assets/logo.png?app_v=${app.build.version}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/common.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css?app_v=${app.build.version}">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js?app_v=${app.build.version}"></script>
+    <script src="/static/compatibility/respond.min.js?app_v=${app.build.version}"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="showTypes" th:value="${showTypes}">
+    <input type="hidden" id="reportId" th:value="${report['id']}">
+    <input type="hidden" id="reportFields" th:value="${reportFields}">
+    <input type="hidden" id="moduleIds" th:value="${result}">
+    <input type="hidden" id="reportFormFields" th:value="${reportFormFields}"/>
+    <div id="operation" style="margin-bottom:10px;">
+        <button id="close" type="button" class="btn btn-sm btn-default" th:if="${report['id'] != null}"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-info"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div class="panel panel-default" style="clear: both">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="icon-edit"></i> 报表基本信息
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form role="form" id="newReport" name="newReport">
+                <div class="form-field" th:each="formField:${result.FormFieldList}">
+                    <div class="form-group form-group-sm" data-type="1401" th:if="${formField.pageComponentInput} == '1401'" >
+                        <label th:text="${formField.title}"></label> <span style="color:#FF3333;font-size:18px" th:if="formField.required">*</span>
+                        <input type="text" class="form-control" th:name="${formField.fieldName}" th:placeholder="${formField.description}" th:value="${report[formField.fieldName]}"/>
+                    </div>
+                    <div  class="form-group form-group-sm" data-type="1402" th:if="${formField.pageComponentInput} == '1402'">
+                        <label th:text="${formField.title}"></label>
+                        <select class="form-control" th:name="${formField.fieldName}">
+                            <option th:each="item:${result[formField.fieldName]}" th:value="${item.id}" th:text="${item.title}" th:data-text="*{fieldName}+'_text'" th:selected="${report[formField.fieldName]} == ${item.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm" data-type="1404" th:if="${formField.pageComponentInput} == '1404'">
+                        <label th:text="${formField.title}"></label>
+                        <textarea rows="4" class="form-control" th:name="${formField.fieldName}" th:placeholder="${formField.description}" th:text="${report[formField.fieldName]}"></textarea>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label>备注</label>
+                    <textarea rows="4" class="form-control" name="description" placeholder="请输入备注" th:text="${report['description']}"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ul id="reportTab" class="nav nav-tabs">
+        <li class="active"><a href="#reportFieldSetting" data-toggle="tab" data-url="/report/list/1">报表字段设置</a></li>
+        <li><a href="#diyButtonSetting" data-toggle="tab" th:data-url="'/report/dynamic_query/15?button_type=1517&display_scope=1520&target_id='+${report['id']}">自定义按钮设置</a></li>
+        <!--<li><a href="#treeRelation" data-toggle="tab" data-url="/report/list/1">树形关系</a></li>-->
+    </ul>
+    <div id="fieldTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="reportFieldSetting">
+            <div class="tab_iframe">
+                <div id="toolbar" style="margin:10px 0;">
+                    <button id="newReportField" type="button" class="btn btn-sm btn-primary"><i class="icon-plus"></i> 新增</button>
+                    <button id="removeReportField" type="button" class="btn btn-sm btn-danger" disabled="disabled"><i class="icon-minus"></i> 删除</button>
+                </div>
+                <div class="table-container">
+                    <table class="table table-responsive table-hover table-bordered" id="reportFieldTable">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">
+                                    <div class="checkbox-group" style="display: inline-block">
+                                        <span class="checkbox-input" id="selectAll">
+                                            <span class="checkbox-inner"></span>
+                                            <input type="checkbox" class="checkbox-original"/>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th style="text-align: center" th:each="item:${reportFormFields}" th:data-field="${item.fieldName}"  th:text="${item.title}" th:if="${item.hidden} == false"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="display: none" id="report_field_template">
+                                <td style="text-align: center;vertical-align: middle">
+                                    <div class="checkbox-group" style="display: inline-block">
+                                        <span class="checkbox-input">
+                                            <span class="checkbox-inner"></span>
+                                            <input type="checkbox" class="checkbox-original" name="id" value="-1"/>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td th:each="itemField:${reportFormFields}" th:class="${itemField.hidden} ? 'hidden' : ''" style="text-align: center;vertical-align: middle">
+                                    <div th:if="${itemField['pageComponentInput']} == '1401'">
+                                        <input type="text" class="form-control" th:name="${itemField['fieldName']}" th:placeholder="${itemField['title']}"/>
+                                    </div>
+                                    <div th:if="${itemField['pageComponentInput']} == '1402' and ${itemField['fieldType']} != '1003' ">
+                                        <select class="form-control" th:name="${itemField['fieldName']}">
+                                            <option th:each="item:${reportFieldData[itemField['fieldName']]}" th:value="${item.id}" th:text="${item.title}"></option>
+                                        </select>
+                                    </div>
+                                    <div th:if="${itemField['pageComponentInput']} == '1402' and ${itemField['fieldType']} == '1003' ">
+                                        <div class="checkbox-group" style="display: inline-block">
+                                            <span class="checkbox-input" th:class="'checkbox-input '+ ${itemField['fieldName']}">
+                                                <span class="checkbox-inner"></span>
+                                                <input type="checkbox" class="checkbox-original" th:name="${itemField['fieldName']}"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div th:if="${itemField['pageComponentInput']} == '1406'">
+                                        <input type="text" class="form-control" th:name="${itemField['fieldName']}" th:placeholder="${itemField['title']}" disabled/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="empty_content" style="display: none;text-align: center">
+                                <td>内容为空!</td>
+                            </tr>
+                            <tr th:each="reportField:${reportFields}">
+                                <td style="text-align: center;vertical-align: middle">
+                                    <div class="checkbox-group" style="display: inline-block">
+                                        <span class="checkbox-input">
+                                            <span class="checkbox-inner"></span>
+                                            <input type="checkbox" class="checkbox-original" name="id" th:value="${reportField.id}"/>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td th:each="itemField:${reportFormFields}" th:class="${itemField.hidden} ? 'hidden' : ''" style="text-align: center;vertical-align: middle">
+                                    <div th:if="${itemField['pageComponentInput']} == '1401'">
+                                        <input type="text" class="form-control" th:name="${itemField['fieldName']}" th:placeholder="${itemField['title']}" th:value="${reportField[itemField['fieldName']]}"/>
+                                    </div>
+                                    <div style="min-width:120px;" th:if="${itemField['pageComponentInput']} == '1402' and ${itemField['fieldType']} != '1003' ">
+                                        <select class="form-control" th:name="${itemField['fieldName']}">
+                                            <option th:each="item:${reportFieldData[itemField['fieldName']]}" th:value="${item.id}" th:text="${item.title}" th:selected="${item.id} == ${reportField[itemField['fieldName']]}"></option>
+                                        </select>
+                                    </div>
+                                    <div th:if="${itemField['pageComponentInput']} == '1402' and ${itemField['fieldType']} == '1003' ">
+                                        <div class="checkbox-group" style="display: inline-block">
+                                            <span th:class="${reportField[itemField['fieldName']]} == true ? 'checkbox-input selected ' + ${itemField['fieldName']} : 'checkbox-input '+ ${itemField['fieldName']}">
+                                                <span class="checkbox-inner"></span>
+                                                <input type="checkbox" class="checkbox-original" th:name="${itemField['fieldName']}" th:checked="${reportField[itemField['fieldName']]}"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div th:if="${itemField['pageComponentInput']} == '1406'">
+                                        <input type="text" class="form-control" th:name="${itemField['fieldName']}" th:placeholder="${itemField['title']}" th:value="${reportField[itemField['fieldName']]}" disabled/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="diyButtonSetting"></div>
+        <!--<div class="tab-pane fade" id="treeRelation"></div>-->
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/layer/layer.js?app_v=${app.build.version}"></script>
+<script src="/static/js/report/newReport.js?app_v=${app.build.version}"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <title>个人中心</title>
+    <!-- 没引用bootstrap样式时，时间插件会布局出错 -->
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <!--table样式-->
+    <link rel="stylesheet" href="/static/plugin/self/table/css/table.css?app_v=${app.build.version}">
+    <!--page样式-->
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <!--时间插件样式-->
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <!-- 主文件css -->
+    <link rel="stylesheet" href="/static/front/css/module/personal/main/main.css">
+    <!-- 富文本 -->
+    <!--<link rel="preload" href="/static/plugin/ckeditor/ckeditor.js?app_v=${app.build.version}" as="script">-->
+    <!--地区插件-->
+    <link rel="preload" href="/static/plugin/distpicker/distpicker.data.min.js?app_v=${app.build.version}" as="script">
+    <link rel="preload" href="/static/plugin/distpicker/distpicker.min.js?app_v=${app.build.version}" as="script">
+    <!-- 时间插件 -->
+    <link rel="preload" href="/static/plugin/datetimepicker/js/bootstrap-datetimepicker.min.js?app_v=${app.build.version}" as="script">
+    <link rel="preload" href="/static/plugin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}" as="script">
+    <!--table插件-->
+    <link rel="preload" href="/static/plugin/self/table/js/table.js?app_v=${app.build.version}" as="script">
+    <!--page插件-->
+    <link rel="preload" href="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" as="script">
+    <!--个人中心模块-->
+    <!--主模块js-->
+    <link rel="preload" href="/static/front/js/module/personal/main/main.js?app_v=${app.build.version}" as="script">
+    <!--首页-->
+    <link rel="preload" href="/static/front/js/module/personal/module/personalHome/personalHome.js?app_v=${app.build.version}" as="script">
+    <!-- 消息列表 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/stationNews/stationNews.js?app_v=${app.build.version}" as="script">
+    <!-- 修改密码 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/resetPassword/resetPassword.js?app_v=${app.build.version}" as="script">
+    <!-- 修改企业信息 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/resetCompanyInfo/resetCompanyInfo.js?app_v=${app.build.version}" as="script">
+    <!-- 分配用户 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/assignUser/assignUser.js?app_v=${app.build.version}" as="script">
+    <!-- 绑定手机 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/bindPhone/bindPhone.js?app_v=${app.build.version}" as="script">
+    <!-- 申请知网 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/applyIntelligent/applyIntelligent.js?app_v=${app.build.version}" as="script">
+    <!-- 发布招聘 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/releaseEmployment/releaseEmployment.js?app_v=${app.build.version}" as="script">
+    <!-- 招聘列表 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/employment/employment.js?app_v=${app.build.version}" as="script">
+    <!-- 设备列表 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/deviceList/deviceList.js?app_v=${app.build.version}" as="script">
+    <!-- 我发布的设备列表 -->
+    <link rel="preload" href="/static/front/js/module/personal/module/myDevice/myDevice.js?app_v=${app.build.version}" as="script">
+</head>
+<body layout:fragment="content">
+<div id="personal-center" class="personal-center">
+    <div class="personal-center-container">
+        <div class="top-model">
+            <!--面包屑导航-->
+            <ul class="breadcrumbs-list">
+                <li class="breadcrumbs-item">
+                    <a class="breadcrumbs-link" href="/home.html">首页</a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a class="breadcrumbs-link" href="#personalHome">个人中心</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-model">
+            <div class="left-model">
+                <!--菜单-->
+                <div class="left-model-scroll-div">
+                    <ul class="menu-model-list">
+                        <!--<li class="menu-model-item">
+                            <p class="menu-model-title" type="hide">智能通关</p>
+                            <ul class="child-menu-list">
+                                <li class="child-menu-item">
+                                    <a class="child-menu-link" href="#assignIntelligentUser">
+                                        分配子用户
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <!--二级模块-->
+            <div class="right-model">
+                <!-- 个人中心 -->
+                <div th:replace="front/module/personal/module/personalHome/index :: personal-home"></div>
+                <!-- 站内消息 -->
+                <div th:replace="front/module/personal/module/stationNews/index :: station-news"></div>
+                <!-- 修改密码 -->
+                <div th:replace="front/module/personal/module/resetPassword/index :: reset-password"></div>
+                <!-- 修改企业信息 -->
+                <div th:replace="front/module/personal/module/resetCompanyInfo/index :: reset-company-info"></div>
+                <!-- 分配用户 -->
+                <div th:replace="front/module/personal/module/assignUser/index :: assign-user"></div>
+                <!-- 绑定手机 -->
+                <div th:replace="front/module/personal/module/bindPhone/index :: bind-phone"></div>
+                <!-- 申请知网账号 -->
+                <div th:replace="front/module/personal/module/applyIntelligent/index :: apply-intelligent"></div>
+                <!-- 招聘列表 -->
+                <div th:replace="front/module/personal/module/employment/index :: employment"></div>
+                <!-- 发布招聘 -->
+                <div th:replace="front/module/personal/module/releaseEmployment/index :: release-employment"></div>
+                <!-- 设备预约列表 -->
+                <div th:replace="front/module/personal/module/deviceList/index :: device-list"></div>
+                <!-- 我发布的设备列表 -->
+                <div th:replace="front/module/personal/module/myDevice/index :: my-device"></div>
+                <!-- 模块加载load -->
+                <div class="model-load-div" style="display: none;">
+                    <img class="model-load-image" src="/static/front/assets/image/common/loading.gif" alt="模块加载中..." title="模块加载中...">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--加密-->
+<script id="encrypt"></script>
+<!-- 富文本 -->
+<!--<script src="/static/plugin/ckeditor/ckeditor.js?app_v=${app.build.version}" async defer></script>-->
+<!--地区插件-->
+<script src="/static/plugin/distpicker/distpicker.data.min.js?app_v=${app.build.version}" async defer></script>
+<script src="/static/plugin/distpicker/distpicker.min.js?app_v=${app.build.version}" async defer></script>
+<!-- 时间插件 -->
+<script src="/static/plugin/datetimepicker/js/bootstrap-datetimepicker.min.js?app_v=${app.build.version}" async defer></script>
+<script src="/static/plugin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}" async defer></script>
+<!--table插件-->
+<script src="/static/plugin/self/table/js/table.js?app_v=${app.build.version}" async defer></script>
+<!--page插件-->
+<script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" async defer></script>
+<!--主模块js-->
+<script src="/static/front/js/module/personal/main/main.js?app_v=${app.build.version}" defer></script>
+<!--个人中心模块-->
+<script class="script-js" src="/static/front/js/module/personal/module/personalHome/personalHome.js?app_v=${app.build.version}" defer></script>
+<!-- 站内消息 -->
+<script class="script-js" src="/static/front/js/module/personal/module/stationNews/stationNews.js?app_v=${app.build.version}" defer></script>
+<!-- 修改密码 -->
+<script class="script-js" src="/static/front/js/module/personal/module/resetPassword/resetPassword.js?app_v=${app.build.version}" defer></script>
+<!-- 修改企业信息 -->
+<script class="script-js" src="/static/front/js/module/personal/module/resetCompanyInfo/resetCompanyInfo.js?app_v=${app.build.version}" defer></script>
+<!-- 分配用户 -->
+<script class="script-js" src="/static/front/js/module/personal/module/assignUser/assignUser.js?app_v=${app.build.version}" defer></script>
+<!-- 绑定手机 -->
+<script class="script-js" src="/static/front/js/module/personal/module/bindPhone/bindPhone.js?app_v=${app.build.version}" defer></script>
+<!-- 申请知网 -->
+<script class="script-js" src="/static/front/js/module/personal/module/applyIntelligent/applyIntelligent.js?app_v=${app.build.version}" defer></script>
+<!-- 发布招聘 -->
+<script class="script-js" src="/static/front/js/module/personal/module/releaseEmployment/releaseEmployment.js?app_v=${app.build.version}" defer></script>
+<!-- 招聘列表 -->
+<script class="script-js" src="/static/front/js/module/personal/module/employment/employment.js?app_v=${app.build.version}" defer></script>
+<!-- 设备预约列表 -->
+<script class="script-js" src="/static/front/js/module/personal/module/deviceList/deviceList.js?app_v=${app.build.version}" defer></script>
+<!-- 我发布的设备列表 -->
+<script class="script-js" src="/static/front/js/module/personal/module/myDevice/myDevice.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

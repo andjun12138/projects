@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>企业</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .leaders-list,.experts-list {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        .avatar-info {
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+            height: 312px;
+            padding-top: 10px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .leader-item,.expert-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .leader-avatar,.expert-avatar {
+            width: 125px;
+            height: 125px;
+            display: block;
+            box-sizing: border-box;
+            margin: 0 auto;
+            border: 1px solid #a8a8a8;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .leader-item-info,.expert-item-info {
+            width: 80%;
+            padding: 10px 10px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .leader-name,.expert-name {
+            margin: 0;
+            margin-top: 10px;
+        }
+        .leader-school,.expert-school{}
+        .leader-desc,.expert-desc{}
+        .name-input {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .station-input {
+            width: 90%;
+            margin-left: 10px;
+        }
+        .remove-item {
+            float: right;
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="enterpriseId" th:value="${enterprise['id']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${enterprise['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                    <div class="form-group form-group-sm">
+                        <label for="logo">图片</label> <span style="color:#FF3333;font-size:18px"></span>
+                        <input type="file" name="logo" multiple style="display: none" id="logo" th:data-pic="'['+${enterprise['logo']}+']'"/>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="logoInput" style="background-color:#fff" placeholder="请上传一张logo图片" readonly>
+                            <span class="input-group-addon choose" onclick="upLoading('#logo')"><i class="icon-picture"></i></span>
+                        </div>
+                        <div class="file-content col-sm-12">
+                            <div class="file-list"></div>
+                            <div class="progress-container" style="padding: 5px 10px;background-color: #f0f0f0;display: none">
+                                <div class="progress progress-striped" style="margin:0;height: 10px">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemax="100"  style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="name">企业名称</label>
+                        <input type="text" class="form-control" name="name" placeholder="请输入企业名称" id="name" th:value="${enterprise['name']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="unifiedSocialCredit">社会统一信用代码</label>
+                        <input type="text" class="form-control" name="unifiedSocialCredit" placeholder="请输入社会统一信用代码" id="unifiedSocialCredit" th:value="${enterprise['unifiedSocialCredit']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="contact">联系人</label>
+                        <input type="text" class="form-control" name="contact" placeholder="请输入联系人" id="contact" th:value="${enterprise['contact']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="phone">联系电话</label>
+                        <input type="text" class="form-control" name="phone" placeholder="请输入联系电话" id="phone" th:value="${enterprise['phone']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="positions">担任职务</label>
+                        <input type="text" class="form-control" name="positions" placeholder="请输入职务" id="positions" th:value="${enterprise['positions']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="area">省市区</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <div data-toggle="distpicker" id="addressBox">
+                            <input type="text" style="display: none" id="area" name="area" required th:value="*{area}">
+                            <select id="provinceName" name="provinceName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-province="${enterprise['provinceName']}"></select>
+                            <select id="cityName" name="cityName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-city="${enterprise['cityName']}"></select>
+                            <select id="areaName" name="areaName" class="form-control" th:data-district="${enterprise['areaName']}" style="width: 30%;display: inline-block;"></select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="belongIndustry">所属企业</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="belongIndustry" id="belongIndustry">
+                            <option value="">请选择所属企业</option>
+                            <option th:selected="${enterprise['belongIndustry'] eq list.id}" th:each="list:${belongIndustries}" th:value="${list.id}" th:text="${list.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="introduction">简介</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <textarea style="height: 150px" class="form-control" name="introduction" placeholder="请输入简介" id="introduction" th:text="${enterprise['introduction']}" required></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/distpicker.data.min.js"></script>
+<script src="/static/admin/js/distpicker.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/userManage/newEnterprise.js"></script>
+</body>
+</html>

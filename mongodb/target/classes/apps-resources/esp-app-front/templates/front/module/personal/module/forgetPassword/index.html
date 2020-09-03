@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="forget-password">
+<body>
+<div id="forget-password" class="model-item-div forget-password-model-container" style="display: none">
+    <p class="forget-password-title-v">忘记密码</p>
+    <form class="forget-password-form personal-form" action="#">
+        <div class="form-group account" title="账号" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="account-input" type="text" data-name="账号" autocomplete="off">
+                </div>
+            </div>
+            <button class="form-active-btn code-btn" type="button" name="code-send">发送验证</button>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group code" title="验证码" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="code-input" type="text" data-name="验证码" autocomplete="off">
+                </div>
+            </div>
+            <button class="form-active-btn code-btn" type="button" name="code-submit">提交</button>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="新密码" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="new-password-input" type="password" data-name="新密码" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="确认密码" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="copy-password-input" type="password" data-name="确认密码" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group button-model">
+            <button class="form-active-btn" type="button" name="form-submit">提交</button>
+            <button class="form-active-btn" type="reset" name="form-reset">重置</button>
+        </div>
+    </form>
+    <script src="/static/js/system/encrypt.js?app_v=${app.build.version}"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/threeNews/detail.css">
+</head>
+<body layout:fragment="content">
+<div id="three-news-detail" class="three-news-detail">
+    <script type="text/javascript" th:inline="javascript">
+        var typeObj = [[${informationNews.type}]];
+        typeObj = JSON.parse(typeObj);
+    </script>
+    <div class="three-news-detail-container">
+        <ul class="path-list">
+            <li class="path-item">
+                <a class="path-link" href="/home.html">首页</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/informationNews.html?type=park">园区动态</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link" href="javaScript:void(0)">详情</a>
+            </li>
+        </ul>
+        <div class="content-div">
+            <p class="title" th:text="${informationNews.title}"></p>
+            <div class="book-info-div">
+                <span class="info-item" type="source" th:text="${informationNews.sources}">惠南高新科技产业园</span>
+                <span class="info-item" type="author" th:text="${informationNews.author}">阿尔法罗密欧</span>
+                <span class="info-item time-al-icon" type="time"
+                      th:text="${#dates.format(informationNews.publishDate, 'yyyy-MM-dd')}">2019-01-03</span>
+            </div>
+            <div class="content-rich-text" th:utext="${informationNews.detail}">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/threeNews/detail.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

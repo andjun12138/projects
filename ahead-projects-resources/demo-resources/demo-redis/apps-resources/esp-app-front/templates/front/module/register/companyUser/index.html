@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="front/layout">
+<head>
+    <title>企业注册</title>
+    <link rel="stylesheet" href="/static/front/css/module/register/companyUser/companyUser.css?app_v=${app.build.version}">
+    <script src="/static/plugin/distpicker/distpicker.data.min.js?app_v=${app.build.version}" defer></script>]
+    <script src="/static/plugin/distpicker/distpicker.min.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="company-user-register" class="company-user-register">
+    <div class="register-container">
+        <div class="content-div">
+            <div class="logo-div">
+                <div class="logo-content">
+                    <img src="/static/front/assets/image/module/login/logo.png" alt="logo" class="logo-image">
+                    <span class="logo-title">企业注册</span>
+                </div>
+            </div>
+            <div class="register-input-model" type="username">
+                <div class="input-div">
+                    <input id="username" type="text" class="register-input" placeholder="请输入企业名" autocomplete="off">
+                    <p class="input-tip" style="display: none">企业名不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="phone">
+                <div class="input-div">
+                    <input id="phone" type="text" class="register-input" placeholder="请输入您的手机号码" autocomplete="off">
+                    <p class="input-tip" style="display: none">手机号不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="code">
+                <div class="input-div">
+                    <input id="code" type="text" class="register-input" placeholder="请输入验证码" autocomplete="off">
+                    <p class="input-tip" style="display: none">验证码不能为空</p>
+                </div>
+                <button class="code-button">发送验证码</button>
+            </div>
+            <div class="register-input-model" type="password">
+                <div class="input-div">
+                    <input id="password" type="password" class="register-input" placeholder="请输入您的登陆密码" autocomplete="off">
+                    <p class="input-tip" style="display: none">密码不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="password-copy">
+                <div class="input-div">
+                    <input id="password-copy" type="password" class="register-input" placeholder="请确认登陆密码" autocomplete="off">
+                    <p class="input-tip" style="display: none">确认密码不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="credit-code">
+                <div class="input-div">
+                    <input id="credit-code" type="" class="register-input" placeholder="请输入统一社会信用代码" autocomplete="off">
+                    <p class="input-tip" style="display: none">统一社会信用代码不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="company-address">
+                <div id="address-select-div" class="address-select-div" data-toggle="distpicker">
+                    <select id="province" name="provinceName" class="address-select"></select>
+                    <select id="city" name="cityName" class="address-select"></select>
+                    <select id="district" name="districtName" class="address-select"></select>
+                </div>
+                <div class="input-div">
+                    <input id="company-address" type="text" class="register-input" autocomplete="off">
+                </div>
+                <p class="input-tip" style="display: none"></p>
+            </div>
+            <div class="register-input-model" type="contact-number">
+                <div class="input-div">
+                    <input id="contact-number" type="text" class="register-input" placeholder="请输入联系电话" autocomplete="off">
+                    <p class="input-tip" style="display: none">联系电话不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="contact-people">
+                <div class="input-div">
+                    <input id="contact-people" type="text" class="register-input" placeholder="请输入联系人" autocomplete="off">
+                    <p class="input-tip" style="display: none">联系人不能为空</p>
+                </div>
+            </div>
+            <div class="register-input-model" type="industry">
+                <div class="input-div">
+                    <input id="industry" type="text" class="register-input" placeholder="请选中所属行业" autocomplete="off">
+                    <p class="input-tip" style="display: none">所属行业不能为空</p>
+                </div>
+            </div>
+            <button class="register-button">注册</button>
+            <p class="register-tip">
+                已有账号？点击
+                <a href="/login.html" class="login-link">登录</a>
+            </p>
+        </div>
+        <a class="register-type-change-div" href="/register.html">
+            用户注册
+        </a>
+    </div>
+</div>
+<script id="encrypt" src=""></script>
+<script src="/static/front/js/module/register/companyUser/companyUser.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

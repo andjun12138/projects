@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>招聘信息详情</title>
+    <link rel="icon" href="/static/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="employmentId" th:value="${employment['id']}"/>
+    <div style="display: block">
+        <!--<button id="close" class="btn btn-sm btn-default" th:if="${employment['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>-->
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                    <div class="form-group form-group-sm">
+                        <label for="title">标题</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" required name="title" placeholder="请输入标题" id="title" th:value="${employment['title']}"/>
+                    </div>
+
+                    <!--所属用户-->
+                    <div class="form-group form-group-sm">
+                        <label for="enterpriseId">所属企业</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <div class="input-group">
+                            <!--<input type="text" id="publisher" style="display: none" >-->
+                            <input type="text" class="form-control" data-id="" id="enterpriseId" name="enterpriseId" placeholder="未选择任何所属企业" readonly th:data-enterprise="'['+${employment['enterpriseId']}+']'">
+                            <span class="input-group-addon choose" th:data-url="${enterprises}" onclick="openPublisher(event)"><i class="icon-external-link"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="contact">联系人</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" required name="contact" placeholder="请输入联系人" id="contact" th:value="${employment['contact']}"/>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="contactNumber">联系电话</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" required name="contactNumber" placeholder="请输入联系电话" id="contactNumber" th:value="${employment['contactNumber']}"/>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="contactEmail">联系邮箱</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" required name="contactEmail" placeholder="请输入联系邮箱" id="contactEmail" th:value="${employment['contactEmail']}"/>
+                    </div>
+
+                    <div style="height: 82px;">
+                        <label for="wageStart">工资(单位：K)</label> <span style="color:#FF3333;font-size:18px">*(填0前端显示面议)</span>
+                        <div class="form-inline">
+                            <div class="form-group form-group-sm" style="float:left">
+                                <input type="text" class="form-control" name="wageStart" placeholder="请输入工资" id="wageStart" required th:value="${employment['wageStart']}"/>
+                            </div>
+                            -
+                            <div class="form-group form-group-sm">
+                                <input type="text" class="form-control" name="wageEnd" placeholder="请输入工资" id="wageEnd" required th:value="${employment['wageEnd']}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="workExperience">工作经验</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="workExperience" required placeholder="请输入标题" id="workExperience" th:value="${employment['workExperience']}"/>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="education">学历</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="professionField" placeholder="请输入专业领域" id="professionField" th:value="${experts['professionField']}"/>-->
+                        <select class="form-control" name="education" id="education" required th:data-education="${employment['education']}">
+                            <!--<option th:selected="${experts['workplace'] eq list.id}" th:each="list:${units}" th:value="${list.id}" th:text="${list.title}"></option>-->
+                            <option th:each="module:${educations}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="industry">所属行业</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="professionField" placeholder="请输入专业领域" id="professionField" th:value="${experts['professionField']}"/>-->
+                        <select class="form-control" name="industry" id="industry" required th:data-industry="${employment['industry']}">
+                            <!--<option th:selected="${experts['workplace'] eq list.id}" th:each="list:${units}" th:value="${list.id}" th:text="${list.title}"></option>-->
+                            <option th:each="module:${industrys}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="address">省市区</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <div data-toggle="distpicker" id="addressBox">
+                            <input type="text" style="display: none" id="address" name="address" required th:value="${employment['address']}">
+                            <select id="provinceName" name="provinceName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-province="${employment['provinceName']}"></select>
+                            <select id="cityName" name="cityName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-city="${employment['cityName']}"></select>
+                            <select id="areaName" name="areaName" class="form-control" th:data-district="${employment['areaName']}" style="width: 30%;display: inline-block;"></select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="detailAddress">详细地址</label>
+                        <textarea class="form-control" name="detailAddress" id="detailAddress" rows="4" placeholder="请输入详细地址" th:text="${employment['detailAddress']}"></textarea>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="jobDescription">职位简介</label>
+                        <textarea class="form-control" name="jobDescription" id="jobDescription" rows="4" placeholder="请输入职位简介" th:text="${employment['jobDescription']}"></textarea>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="workDetail">职位详情</label>
+                        <textarea class="form-control" name="workDetail" id="workDetail" rows="4" placeholder="请输入职位详情" th:text="${employment['workDetail']}"></textarea>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/ckeditor/ckeditor.js"></script>
+<script src="/static/plugin/distpicker/distpicker.data.min.js?app_v=${app.build.version}" ></script>
+<script src="/static/plugin/distpicker/distpicker.min.js?app_v=${app.build.version}" ></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/personal/newEmployment.js?app_v=${app.build.version}"></script>
+</body>
+</html>

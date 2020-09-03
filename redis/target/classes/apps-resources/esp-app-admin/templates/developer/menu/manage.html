@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>菜单管理</title>
+    <link rel="icon" href="/static/assets/logo.png?app_v=${app.build.version}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css?app_v=${app.build.version}">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js?app_v=${app.build.version}"></script>
+    <script src="/static/compatibility/respond.min.js?app_v=${app.build.version}"></script>
+    <![endif]-->
+</head>
+<style>
+    .set-icon{
+        color: #ADADAD;
+        border: 1px solid #ADADAD;
+    }
+    .set-icon:hover{
+        color: #45B1F6;
+        border: 1px solid #45B1F6;
+    }
+</style>
+<body>
+<div style="padding: 15px;">
+    <div>
+        <ul id="menu-tree" class="ztree"></ul>
+    </div>
+    <div id="add-menu-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modal-title">菜单详情</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="menu-form">
+                        <div class="form-group">
+                            <label for="menu-title" class="col-sm-2 control-label"><span style="color:#FF3333;font-size:18px">*</span>名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="menu-title" placeholder="请输入名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-path" class="col-sm-2 control-label">路径</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="menu-path" placeholder="请输入路径">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-sort" class="col-sm-2 control-label">图标</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="menu-icon" placeholder="请输入图标">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-sort" class="col-sm-2 control-label"><span style="color:#FF3333;font-size:18px">*</span>排序</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="menu-sort" placeholder="请输入排序（数字）">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-openway" class="col-sm-2 control-label">打开方式</label>
+                            <div class="col-sm-10">
+                                <select id="menu-openway" class="form-control">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-description" class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea id="menu-description" class="form-control" rows="4" placeholder="请输入菜单描述"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="add-menu-btn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/jquery.slimscroll.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/select2/js/select2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/select2/js/i18n/zh-CN.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.core.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exedit.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/layer/layer.js?app_v=${app.build.version}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // 获取报表id
+    var menuList = [[${menuList}]];
+    // 获取参数
+</script>
+<script src="/static/js/menu/manage.js?app_v=${app.build.version}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/*=== pluginPagination: 分页插件 ===*/
+.plugin-pagination{
+    height: 50px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #000000;
+}
+.plugin-pagination *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.plugin-pagination-content-div{
+    margin-left: -1024px;
+    position: relative;
+    top: 5px;
+    left: 50%;
+    width: 2048px;
+    height: 35px;
+}
+.plugin-pagination-content{
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: auto;
+    height: 100%;
+}
+.plugin-pagination-content__ie11{
+    transform: translateX(-50%);
+}
+.plugin-pagination .plugin-pagination-content-list{
+    float: left;
+    display: inline-block;
+    min-width: 40px;
+    height: 100%;
+    text-align: center;
+}
+.plugin-pagination .plugin-pagination-content-item{
+    float: left;
+    display: inline-block;
+    margin:0 5px;
+    padding: 0 10px;
+    min-width: 35px;
+    height: 100%;
+    border: 1px solid #dcdcdc;
+    background-color: #ffffff;
+    line-height: 33px;
+    text-align: center;
+    cursor: pointer;
+}
+.plugin-pagination .plugin-pagination-content-item:hover{
+    background-color: #31baed;
+    color: #ffffff;
+}
+.plugin-pagination .plugin-pagination-content-item__disabled{
+    background-color: #fafafa;
+    color: #e0e0e0;
+    cursor: not-allowed;
+}
+.plugin-pagination .plugin-pagination-content-item__disabled:hover{
+    background-color: #fafafa;
+    color: #e0e0e0;
+}
+.plugin-pagination .plugin-pagination-content-item__activity{
+    background-color: #31baed;
+    color: #ffffff;
+}
+.plugin-pagination .plugin-pagination-Lift-div{
+    float: left;
+    display: inline-block;
+    min-width: 100px;
+    height: 100%;
+    line-height: 33px;
+    font-size: 0;
+}
+.plugin-pagination .plugin-pagination-Lift-div .plugin-pagination-Lift-tip{
+    display: inline-block;
+    padding: 0 5px;
+    height: 100%;
+    font-size: 14px;
+}
+.plugin-pagination .plugin-pagination-Lift-div .plugin-pagination-Lift-input{
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+}
+.plugin-pagination .plugin-pagination-Lift-div .plugin-pagination-Lift-btn {
+    margin-left: 5px;
+    min-width: 35px;
+    height: 35px;
+    font-size: 14px;
+    cursor: pointer;
+}

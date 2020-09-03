@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>科创中心</title>
+    <link rel="stylesheet" href="/static/front/css/module/innovationCenter/index.css?app_v=${app.build.version}">
+</head>
+<body layout:fragment="content">
+<script th:inline="javascript" type="text/javascript">
+    var centerIntro = [[${centerIntro}]];
+    var developmentPathList = [[${developmentPathList}]];
+    var leadershipCareList = [[${leadershipCareList}]];
+    var honorList = [[${honorList}]];
+</script>
+<div class="innovation-center">
+    <div class="innovation-center-item" id="introduce">
+        <div class="item-container">
+            <p class="item-title">科创中心简介</p>
+            <div class="item1-content">
+                <div class="item1-left-part">
+                    <img src="/static/front/assets/image/module/innovationCenter/honor-bg.jpg" alt="">
+                </div>
+                <div class="item1-right-part">
+                    <ul class="center-info-list">
+                        <li class="center-info-item">
+                            <p class="center-info-number center-info-time" th:text="${#dates.format(centerIntro.buildTime, 'yyyy')}"></p>
+                            <p class="center-info-title">中心成立</p>
+                        </li>
+                        <li class="center-info-item">
+                            <p class="center-info-number" th:text="${centerIntro.companyCount}"></p>
+                            <p class="center-info-title">科创企业</p>
+                        </li>
+                        <li class="center-info-item">
+                            <p class="center-info-number" th:text="${centerIntro.floorArea}"></p>
+                            <p class="center-info-title">占地面积</p>
+                        </li>
+                    </ul>
+                    <div class="center-introduction">
+                        <p th:utext="${centerIntro.introduction}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="innovation-center-item" id="development">
+        <div class="item-container">
+            <p class="item-title">科创中心发展历程</p>
+            <ul class="progress-list">
+            </ul>
+        </div>
+    </div>
+    <div class="innovation-center-item" id="leadership">
+        <div class="item-container">
+            <p class="item-title">科创中心领导关怀</p>
+            <div class="item3-content">
+                <div class="item3-left-part"></div>
+                <div class="item3-right-part"></div>
+            </div>
+        </div>
+    </div>
+    <div class="innovation-center-item" id="honor">
+        <div class="item-container">
+            <p class="item-title">科创中心荣誉</p>
+            <div class="item4-content">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/innovationCenter/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="header">
+<head>
+    <link rel="stylesheet" href="/static/front/css/common/header/header.css?app_v=${app.build.version}">
+</head>
+<body>
+<div id="header" class="header">
+    <div class="top">
+        <div class="top-container">
+            <div class="top-left-part">
+                <!--欢迎来到惠南“互联网+”企业服务平台-->
+                <a href="/dataAnalysis.html" class="header-func-item-link" style="color: #fefefe;">
+                    <span class="header-func-item-content">
+                        惠南数据中心
+                    </span>
+                </a>
+            </div>
+            <div class="top-right-part">
+                <ul class="header-func-list" style="display: none">
+                    <!--<li class="header-func-item" type="wechat">-->
+                        <!--<a href="" class="header-func-item-link">-->
+                            <!--<i class="header-func-item-icon icon-wechat"></i>-->
+                            <!--<span class="header-func-item-content">-->
+                                <!--平台微信-->
+                            <!--</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="header-func-item" type="login">
+                        <a href="/login.html" class="header-func-item-link">
+                            <i class="header-func-item-icon icon-login"></i>
+                            <span class="header-func-item-content">
+                                登录
+                            </span>
+                        </a>
+                    </li>
+                    <li class="header-func-item" type="registered">
+                        <a href="/register.html" class="header-func-item-link">
+                            <i class="header-func-item-icon icon-register"></i>
+                            <span class="header-func-item-content">
+                                注册
+                            </span>
+                        </a>
+                    </li>
+                    <li class="header-func-item" type="help">
+                        <a href="/helpCenter.html" class="header-func-item-link">
+                            <i class="header-func-item-icon icon-help"></i>
+                            <span class="header-func-item-content">
+                                帮助中心
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-top-part">
+            <div class="content-top-container">
+                <a href="/" class="company-logo-link">
+                    <img src="/static/front/assets/image/common/header/company-logo.png" alt="惠南科技园" class="company-logo">
+                </a>
+                <!--<div th:if="${incubator} != null" class="content-right-part">
+                    <span class="number-show" type="company" before="截止今日，已有" after="家企业入孵，" th:text="${imaginaryManage.incubationEnterprisesNum}">3348</span>
+                    <span class="number-show" type="result" after="项产业技术成果" th:text="${imaginaryManage.incubationAchievements}">3277</span>
+                </div>-->
+                <div class="content-right-part search-page-input-area" style="display: none">
+                    <div class="header-search-div" style="margin-top: .35rem; margin-bottom: .35rem;">
+                        <div class="header-search-model search-al-icon">
+                            <input type="text" class="header-search" placeholder="请输入关键词">
+                            <span class="search-btn">搜索</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- && incubator == null-->
+        <div th:if="${imaginaryManage != null}" class="content-middle-part">
+            <div class="content-middle-container">
+                <p class="header-title">“互联网+”加工贸易企业服务平台</p>
+                <div class="header-search-div">
+                    <div class="header-search-model search-al-icon">
+                        <input type="text" class="header-search" placeholder="请输入关键词">
+                        <span class="search-btn">搜索</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div th:if="${imaginaryManage != null && incubator == null}" class="content-bottom-part">-->
+            <!--<div class="content-bottom-container">-->
+                <!--<ul class="content-count-list">-->
+                    <!--<li class="content-count-item" name="technology" th:text="${imaginaryManage.intelligentEnterprisesNum}">438</li>-->
+                    <!--<li class="content-count-item" name="advanced" th:text="${imaginaryManage.scienceLiteratureNum}">359</li>-->
+                    <!--<li class="content-count-item" name="high-salary" th:text="${imaginaryManage.incubationEnterprisesNum}">633</li>-->
+                    <!--<li class="content-count-item" name="platform" th:text="${imaginaryManage.exhibitionsNum}">235</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!--th:unless="${incubator} != null"-->
+    <div class="bottom">
+        <div class="bottom-container">
+            <ul class="bottom-nav-list">
+                <li class="nav-item" type="home">
+                    <a href="/" class="nav-item-link">
+                        <i class="nav-item-icon icon-home"></i>
+                        <span class="nav-item-content">
+                            平台首页
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" type="intelligent">
+                    <a href="/intelligent.html" class="nav-item-link">
+                        <i class="nav-item-icon icon-cloud"></i>
+                        <span class="nav-item-content">
+                            智能通关
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" type="incubator">
+                    <a href="/incubator.html" class="nav-item-link">
+                        <i class="nav-item-icon icon-incubator"></i>
+                        <span class="nav-item-content">
+                            创业孵化
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" type="outsourcing">
+                    <a href="//zhzb.${profile.system.domain}" class="nav-item-link" target="_blank" data-type="not-open">
+                        <i class="nav-item-icon icon-navigation"></i>
+                        <span class="nav-item-content">
+                            技术众包
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" type="technology">
+                    <a href="//kjzy.${profile.system.domain}" class="nav-item-link" target="_blank">
+                        <i class="nav-item-icon icon-technology"></i>
+                        <span class="nav-item-content">
+                            科技资源
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" type="service">
+                    <a href="http://gyfw.hnesp.com/" class="nav-item-link" target="_blank">
+                        <i class="nav-item-icon icon-factory"></i>
+                        <span class="nav-item-content">
+                            工业服务
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/common/header/header.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <title>用户登录</title>
+    <link rel="stylesheet" href="/static/front/css/module/login/login.css?app_v=${app.build.version}">
+    <script src="/static/js/system/encrypt.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="login" class="login">
+    <div class="login-container">
+        <div class="content-div">
+            <div class="logo-div">
+                <div class="logo-content">
+                    <img src="/static/front/assets/image/module/login/logo.png" alt="logo" class="logo-image">
+                    <span class="logo-title">登录</span>
+                </div>
+            </div>
+            <div class="login-input-model" type="username">
+                <div class="input-div">
+                    <input id="username" type="text" class="login-input" placeholder="手机号/邮箱" autocomplete="off">
+                    <p class="input-tip" style="display: none">账号不能为空</p>
+                </div>
+            </div>
+            <div class="login-input-model" type="password">
+                <div class="input-div">
+                    <input id="password" type="password" class="login-input" placeholder="请输入您的登陆密码" autocomplete="off">
+                    <p class="input-tip" style="display: none">密码不能为空</p>
+                </div>
+            </div>
+            <div class="login-input-model" type="code">
+                <div class="input-div">
+                    <input id="code" type="text" class="login-input" placeholder="请输入验证码" autocomplete="off">
+                    <p class="input-tip" style="display: none">验证码不能为空</p>
+                </div>
+                <div class="code-image-div">
+                    <img id="code-image" class="code-image" src="/captcha" alt="">
+                </div>
+            </div>
+            <p class="login-tip forget-password">
+                <a href="/forgetPassword.html" class="forget-password-link">忘记密码</a>
+            </p>
+            <button class="login-button">登录</button>
+            <p class="login-tip">
+                没有账号？点击
+                <a href="/register.html" class="register-link">注册</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script id="encrypt" src=""></script>
+<script src="/static/front/js/module/login/login.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

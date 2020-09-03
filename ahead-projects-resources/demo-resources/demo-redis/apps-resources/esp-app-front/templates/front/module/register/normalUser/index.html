@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="front/layout">
+<head>
+    <title>用户注册</title>
+    <link rel="stylesheet" href="/static/front/css/module/register/normalUser/normalUser.css?app_v=${app.build.version}">
+    <script src="/static/plugin/distpicker/distpicker.data.min.js?app_v=${app.build.version}" defer></script>
+    <script src="/static/plugin/distpicker/distpicker.min.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<script th:inline="javascript">
+    var protocol = [[${userAgreement}]];
+</script>
+<div id="normal-user-register" class="normal-user-register">
+    <div class="register-container">
+        <div class="content-div">
+            <div class="logo-div">
+                <div class="logo-content">
+                    <img src="/static/front/assets/image/module/login/logo.png" alt="logo" class="logo-image">
+                    <span class="logo-title">注册</span>
+                </div>
+            </div>
+            <ul class="model-nav-list" data-type="user">
+                <li class="model-nav-item active" data-type="user">个人用户注册</li>
+                <li class="model-nav-item" data-type="company">企业用户注册</li>
+            </ul>
+            <form class="register-form" action="#">
+                <div class="register-input-model" data-title="用户名" type="user">
+                    <div class="input-div">
+                        <input id="username" type="text" class="register-input" placeholder="请输入用户名" autocomplete="off">
+                        <p class="input-tip" style="display: none">用户名不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="企业名" type="company">
+                    <div class="input-div">
+                        <input id="company-name" type="text" class="register-input" placeholder="请输入企业名" autocomplete="off">
+                        <p class="input-tip" style="display: none">企业名不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="手机号/邮箱" type="user">
+                    <div class="input-div">
+                        <input id="phone-email" type="text" class="register-input" placeholder="请输入您的手机号码/邮箱" autocomplete="off">
+                        <p class="input-tip" style="display: none">手机号/邮箱不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="手机号" type="company">
+                    <div class="input-div">
+                        <input id="phone" type="text" class="register-input" placeholder="请输入您的手机号码" autocomplete="off">
+                        <p class="input-tip" style="display: none">手机号不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model code" data-title="验证码">
+                    <div class="input-div">
+                        <input id="code" type="text" class="register-input" placeholder="请输入验证码" autocomplete="off">
+                        <p class="input-tip" style="display: none">验证码不能为空</p>
+                    </div>
+                    <button class="code-button" type="button">发送验证码</button>
+                </div>
+                <div class="register-input-model" data-title="密码">
+                    <div class="input-div">
+                        <input id="password" type="password" class="register-input" placeholder="请输入您的登陆密码" autocomplete="off">
+                        <p class="input-tip" style="display: none">密码不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="确认密码">
+                    <div class="input-div">
+                        <input id="password-copy" type="password" class="register-input" placeholder="请确认登录密码" autocomplete="off">
+                        <p class="input-tip" style="display: none">确认密码不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="统一社会信用代码" type="company">
+                    <div class="input-div">
+                        <input id="credit-code" type="text" class="register-input" placeholder="请输入统一社会信用代码" autocomplete="off">
+                        <p class="input-tip" style="display: none">统一社会信用代码不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model company-address" data-title="企业地址" type="company">
+                    <div id="address-select-div" class="address-select-div" data-toggle="distpicker">
+                        <select id="province" name="provinceName" class="address-select"></select>
+                        <select id="city" name="cityName" class="address-select"></select>
+                        <select id="district" name="districtName" class="address-select"></select>
+                    </div>
+                    <div class="input-div">
+                        <input id="company-address" type="text" class="register-input" autocomplete="off">
+                    </div>
+                    <p class="input-tip" style="display: none"></p>
+                </div>
+                <div class="register-input-model" data-title="联系电话" type="company">
+                    <div class="input-div">
+                        <input id="contact-number" type="text" class="register-input" placeholder="请输入联系电话" autocomplete="off">
+                        <p class="input-tip" style="display: none">联系电话不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="联系人" type="company">
+                    <div class="input-div">
+                        <input id="contact-people" type="text" class="register-input" placeholder="请输入联系人" autocomplete="off">
+                        <p class="input-tip" style="display: none">联系人不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model" data-title="职务" type="company">
+                    <div class="input-div">
+                        <input id="position" type="text" class="register-input" placeholder="请输入职务" autocomplete="off">
+                        <p class="input-tip" style="display: none"></p>
+                    </div>
+                </div>
+                <div class="register-input-model industry" data-title="所属行业" type="company">
+                    <div class="input-div">
+                        <select id="industry" type="text" class="register-input">
+                            <option class="select-item" th:each="industryItem : ${belongIndustries}" th:value="${industryItem.id}" th:text="${industryItem.title}"></option>
+                        </select>
+                        <p class="input-tip" style="display: none">所属行业不能为空</p>
+                    </div>
+                </div>
+                <div class="register-input-model checkbox" data-title="">
+                    <input id="protocol" class="protocol-checkbox" type="checkbox">
+                    <label class="select-al-icon" for="protocol"></label>
+                    <div class="protocol-link-div">
+                        <a th:if="${userAgreement != null}" class="protocol-link" href="javascript:void (0);" th:text="${userAgreement['title']}"></a>
+                        <a th:unless="${userAgreement != null}" class="protocol-link" href="javascript:void (0);">暂无数据</a>
+                    </div>
+                    <p class="input-tip" style="display: none">需勾选协议</p>
+                </div>
+                <button class="register-button" type="button">注册</button>
+            </form>
+            <p class="register-tip">
+                已有账号？点击
+                <a href="/login.html" class="login-link">登录</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script id="encrypt" src=""></script>
+<script src="/static/front/js/module/register/normalUser/normalUser.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

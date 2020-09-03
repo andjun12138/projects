@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>技术众包平台</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        html, body{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main" style="height: 100%;">
+    <div style="height: 100%">
+        <ul id="fieldTab" class="nav nav-tabs">
+            <li class="active"><a href="#serviceProvider" data-toggle="tab" data-url="/ggdzhzb/serviceProviderManage.html">注册入驻企业</a></li>
+            <li ><a href="#skillDemand" data-toggle="tab" data-url="/ggdzhzb/echarts/basicLineChart.html?tab=skillDemand">技术需求发布数</a></li>
+            <li ><a href="#matureCase" data-toggle="tab" data-url="/ggdzhzb/echarts/basicLineChart.html?tab=matureCase">科技成果录入数</a></li>
+        </ul>
+        <div id="fieldTabContent" class="tab-content" style="height: 100%">
+            <div class="tab-pane fade in active" id="serviceProvider" style="height: 100%">
+                <iframe class="tab_iframe" src="/ggdzhzb/serviceProviderManage.html" frameborder="0" height="100%" width="100%"  scrolling="auto"></iframe>
+            </div>
+            <div class="tab-pane fade" id="skillDemand" style="height: 100%">
+                <iframe class="tab_iframe" src="/ggdzhzb/echarts/basicLineChart.html?tab=skillDemand" frameborder="0" height="100%" width="100%"  scrolling="auto"></iframe>
+            </div>
+            <div class="tab-pane fade" id="matureCase" style="height: 100%">
+                <iframe class="tab_iframe" src="/ggdzhzb/echarts/basicLineChart.html?tab=matureCase" frameborder="0" height="100%" width="100%"  scrolling="auto"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+</body>
+</html>

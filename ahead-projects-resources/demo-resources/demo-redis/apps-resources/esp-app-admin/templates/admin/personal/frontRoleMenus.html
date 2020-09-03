@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>专家列表</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script th:inline="javascript">
+    var roleId = [[${roleId}]]
+    var allRoleMenus = [[${allRoleMenus}]]
+    var selectedRoleMenus = [[${selectedRoleMenus}]]
+</script>
+<div style="padding: 15px;">
+    <div style="margin-bottom: 10px;">
+        <button type="button" class="btn btn-sm btn-primary" id="modify-finished-btn"><i class="icon-ok-circle icon-large"></i> 确定</button>
+        <button type="button" class="btn btn-sm btn-danger" id="modify-cancel-btn"><i class="icon-remove-circle icon-large"></i> 取消</button>
+    </div>
+    <div>
+        <ul id="role-tree" class="ztree"></ul>
+    </div>
+</div>
+    <script src="/static/plugin/jquery-1.10.2.min.js"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.core.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.exedit.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.excheck.min.js"></script>
+    <script src="/static/plugin/pnotify/pnotify.js"></script>
+    <script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+    <script src="/static/plugin/layer/layer.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/admin/js/personal/frontRoleMenus.js"></script>
+</body>
+</html>

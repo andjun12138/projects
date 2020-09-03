@@ -11,6 +11,7 @@
         <module name="eureka-client" />
         <module name="eureka-client-one" />
         <module name="eureka-server" />
+        <module name="flowable" />
         <module name="jsp-demo" />
         <module name="mongodb" />
         <module name="project-common" />
@@ -28,6 +29,7 @@
       <module name="eureka-client" target="1.5" />
       <module name="eureka-client-one" target="1.5" />
       <module name="eureka-server" target="1.5" />
+      <module name="flowable" target="1.8" />
       <module name="jsp-demo" target="1.5" />
       <module name="mongodb" target="1.8" />
       <module name="project-common" target="1.5" />

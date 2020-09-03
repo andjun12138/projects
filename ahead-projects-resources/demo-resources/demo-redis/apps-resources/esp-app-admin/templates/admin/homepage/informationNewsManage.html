@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>平台资讯列表</title>
+    <link rel="icon" href="/static/assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="serviceProviderId" th:value="${serviceProviderId}"/>
+    <div id="search-part" class="row" style="display: none">
+        <form id="search-form" name="search-form">
+            <div>
+                <!--  标题   作者  发布时间-->
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">标题</label>
+                    <input id="title" class="search-control" type="text"/>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">作者</label>
+                    <input id="author" class="search-control" type="text"/>
+                </div>
+                <!--<div class="search-group col-sm-4 col-md-3 col-lg-3">-->
+                <!--<label class="search-label">作者</label>-->
+                <!--<input id="author" class="search-control" type="text"/>-->
+                <!--</div>-->
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">发布时间</label>
+                    <input id="releaseTimeStart" class="search-control" style="float:left;width: 45%" type="text"/>
+                    <span style="float: left;line-height: 30px">至</span>
+                    <input id="releaseTimeEnd" class="search-control" style="float:left;width: 45%" type="text"/>
+                    <!--起始字段名字 releaseTimeStart releaseTimeEnd-->
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="data-part" class="clearfix">
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" onclick="//window.open('/admin/industryInformation/to_create_update.html');
+layer.open({
+    type: 2,
+    title: '新增',
+    shadeClose: false,
+    shade: 0.8,
+    area: ['800px', '90%'],
+    content: '/informationNews/to_create_update.html'
+});" class="btn btn-sm btn-primary">
+                <i class="icon-plus"></i> <span>新增</span>
+            </button><button type="button" onclick="var selectedIds = getSelectionMessage('id');
+console.log(selectedIds);
+if(selectedIds.length != 1) {
+	layer.msg(&quot;请选择一项！&quot;, function(){});
+	return ;
+}
+var url = '/informationNews/to_create_update/' + selectedIds[0].id+ '.html';
+window.open(url);" class="btn btn-sm btn-info">
+            <i class="icon-edit"></i> <span>修改</span>
+        </button><button type="button" onclick="var selectedIds = getSelectionMessage('id');
+if(selectedIds.length === 0) {
+	layer.msg(&quot;请选择一项！&quot;, function(){});
+	return ;
+}
+var postDeleteData = []
+for(var idelete = 0; idelete < selectedIds.length; idelete++) {
+    postDeleteData.push(selectedIds[idelete].id)
+}
+layer.confirm('确定删除选中记录?', {
+	icon : 3,
+	btn : [ '确定', '取消' ] },
+	function() {
+		$.ajax({
+			url: '/informationNews/batch_delete',
+			contentType: 'application/json;charset=utf-8',
+			type: 'post',
+			dataType: 'json',
+			data: JSON.stringify(postDeleteData),
+			success: function (data) {
+				layer.msg('删除成功！',  {icon: 1});
+				layer.closeAll();
+				refreshTable();
+		   },
+			error:function(){
+				layer.alert('删除失败！',  {icon: 2});
+			}
+		});
+	}
+);" class="btn btn-sm btn-danger">
+            <i class="icon-trash"></i> <span>删除</span>
+        </button>
+            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>
+            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span></button>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+<!--            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <th data-title="标题" data-field="title" data-align="center"></th>
+                <th data-title="类型" data-field="type" data-align="center"></th>
+                <th data-title="作者" data-field="author" data-align="center"></th>
+                <th data-title="点击量" data-field="clickRate" data-align="center"></th>
+                &lt;!&ndash;<th data-title="点击量" data-field="click_num" data-align="center"></th>&ndash;&gt;
+                &lt;!&ndash;<th data-title="发布时间" data-field="release_time" data-align="center"></th>&ndash;&gt;
+                <th data-title="发布时间" data-field="publishDate" data-align="center"></th>
+                <th data-title="推荐" data-field="recommended" data-align="center"></th>
+                <th data-title="推荐指数" data-field="recommendedIndex" data-align="center"></th>
+            </tr>
+            </thead>-->
+        </table>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/homepage/informationNewsManage.js"></script>
+</body>
+</html>

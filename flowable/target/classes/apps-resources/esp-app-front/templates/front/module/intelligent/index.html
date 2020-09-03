@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="front/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>智能通关</title>
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="stylesheet" href="/static/front/css/module/intelligent/intelligent.css?app_v=${app.build.version}">
+    <!-- 开发使用 -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div class="intelligent-pass">
+    <div class="intelligent-pass-container">
+        <div class="industry-info-model">
+            <div class="industry-slider-model">
+                <ul class="slider-list" style="width: 29.4rem">
+                </ul>
+                <div class="slider-title-div">
+                    <p class="slider-title"></p>
+                    <ul class="slider-points-list"></ul>
+                </div>
+            </div>
+            <div class="slider-news-model">
+                <ul class="news-nav-list">
+                    <li class="news-nav-item active" data-type="park">通关资讯</li>
+
+                </ul>
+                <ul class="news-content-list"></ul>
+                <a class="news-more-link" href="/intelligentList.html" >
+                    更多
+                </a>
+            </div>
+            <!--<div class="title-div">-->
+                <!--行业资讯-->
+            <!--</div>-->
+
+            <!--<div class="content-div">-->
+                <!--<div class="left-part">-->
+                    <!--<div class="image-show-div">-->
+                        <!--<div class="big-image-div">-->
+                            <!--<img src="/static/front/assets/image/module/intelligent/temporary/slider-1.png" alt="" class="big-image">-->
+                        <!--</div>-->
+                        <!--<ul class="small-image-list">-->
+                            <!--<li class="small-item">-->
+                                <!--<img src="/static/front/assets/image/module/intelligent/temporary/slider-1.png" alt="" class="small-image">-->
+                            <!--</li>-->
+                            <!--<li class="small-item">-->
+                                <!--<img src="/static/front/assets/image/module/intelligent/temporary/slider-1.png" alt="" class="small-image">-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="introduction-div">-->
+                        <!--<a href="" class="introduction-link">-->
+                            <!--EmTech 全球新兴科技峰会-->
+                        <!--</a>-->
+                        <!--<p class="introduction-content">-->
+                            <!--Jikebaba Awards儿童产业年度大奖评选已经成功举办两届，极客爸爸业年度大奖评选已经成功举办两-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="right-part">-->
+                    <!--<ul class="industry-info-list">-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        </div>
+        <div class="industry-number-model">
+            <div class="number-div">
+                <p class="title">
+                    <i class="title-icon"></i>
+                    <span class="title-content">
+                        智能通关
+                    </span>
+                </p>
+                <p class="content" type="tip"></p>
+                <p class="content" type="company">
+                    <span class="number" th:text="${imaginaryManage.intelligentEnterprisesNum}">2348</span>
+                </p>
+                <p class="content" type="product">
+                    <span class="number" th:text="${imaginaryManage.intelligentProductNum}">3277</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="data-chart-model">
+            <div class="title-div">
+                数据图表
+            </div>
+            <div class="content-div">
+                <div class="left-part">
+                    <!--<div class="line-chart-title-div">-->
+                        <!--<span class="title"></span>-->
+                        <!--<select name="" id="" class="time"></select>-->
+                    <!--</div>-->
+                    <div id="line-chart" class="line-chart-content">
+
+                    </div>
+                    <!--<img src="/static/front/assets/image/module/intelligent/temporary/line-chart-temporary.png" alt="临时折线图">-->
+                </div>
+                <div class="right-part">
+                    <div id="sector-chart" class="sector-chart-content">
+
+                    </div>
+                    <!--<img src="/static/front/assets/image/module/intelligent/temporary/sector-chart-temporary.png" alt="临时扇形图">-->
+                </div>
+            </div>
+        </div>
+        <div class="func-list-model">
+            <div class="title-div">
+                TCS国际贸易全链通综合服务平台
+            </div>
+            <ul class="func-list">
+                <li class="func-item active" data-index="1">
+                    <a class="func-link"  href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-002.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">报关</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">报关</div>
+                        <p class="item-tips-content">
+                            报关申报系统可按需要开设多个申报端口，网上直接报关，打破 QP 系统单机操作的限制。三大功能“一次申报，备案清单，集报清单”与企业各种管理系统（如 ERP 等）的数据无缝对接，报关信息快速导入，自动生成报关资料如合同、发票、装箱单、舱单等，数据一次录入，多模块共享。全过程海关申报状态实时跟踪，方便企业相关人员及时跟进通关状态，提高通关时效。有效帮助企业达成“提速、提质、增效、减负”的效果。
+                        </p>
+                    </div>
+                </li>
+                <li class="func-item" data-index="2">
+                    <a class="func-link" href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-003.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">商检</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">商检</div>
+                        <p class="item-tips-content">
+                            TCS全链通平台，事先维护商品数据库，按商检要求维护申报要素，企业ERP导出EXCEL格式，直接在TCS系统导入，即可以快捷生成商检要求的报检单，原产地证书等申报信息，一键导出申报至国检等平台，实现一次录入多方申报、免人工干预，减少人为差错，有效控制检务风险。
+                        </p>
+                    </div>
+
+                </li>
+                <li class="func-item" data-index="3">
+                    <a class="func-link" href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-004.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">公路舱单</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">公路舱单</div>
+                        <p class="item-tips-content">
+                            开设客户端舱单信息网上录入窗口，实现各自录入、统一申报、进度状态实时同步查询。 舱单信息快速导入，无需手工逐项录入。异常申报状态自动置前提示，避免漏单或处理不及时。车辆捆绑状态实时自动短信通知。定期票数汇总统计查询。对舱单确报录入信息进行全面准确的逻辑校验。系统对舱单及报关单设置相应的查询条件，客户可根据自身需要随时搜索导出查询结果，方便企业统计分析。
+                        </p>
+                    </div>
+                </li>
+                <li class="func-item" data-index="4">
+                    <a class="func-link" href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-005.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">海运舱单</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">海运舱单</div>
+                        <p class="item-tips-content">
+                            开设客户端舱单信息网上录入窗口，实现各自录入、统一申报、进度状态实时同步查询。 舱单信息快速导入，无需手工逐项录入。异常申报状态自动置前提示，避免漏单或处理不及时。定期票数汇总统计查询。对舱单录入信息进行全面准确的逻辑校验。可导出舱单海关回执和申报明细。
+                        </p>
+                    </div>
+                </li>
+                <li class="func-item" data-index="5">
+                    <a class="func-link" href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-006.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">进出口关务管理</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">进出口关务管理</div>
+                        <p class="item-tips-content">
+                            TCS全链通进出口关务管理系统是为供应链企业、报关报检服务公司提供的一套客户管理、订单管理、单据批量处理、状态查询、报价结算、数据分析、财务分析等功能的信息化解决方案，为客户提供一套规范化的内部管理方案，减低企业成本。
+                        </p>
+                    </div>
+                </li>
+                <li class="func-item" data-index="6">
+                    <a class="func-link" href="javaScript:void (0);" rel="nofollow" target="_blank">
+                        <div class="func-item-icon-div">
+                            <img src="/static/front/assets/image/module/intelligent/icon98-007.png" alt="" class="func-item-icon">
+                        </div>
+                        <p class="func-item-title">金关二期加贸管理</p>
+                    </a>
+                    <div class="item-tips">
+                        <div class="item-tips-title">金关二期加贸管理</div>
+                        <p class="item-tips-content">
+                            按照金关二期的总体建设要求，建设完整的加工贸易手/账册体系，建立符合海关、企业需求和海关监管要求的加工电子手册/账册，优化“备案、通关、核销”三段式管理模式，实行“料号级管理”的新型监管模式，实现“精准化”核销核算，实现预录入及数据传输功能。构建相对规范又局部个性化的管理模式，有效解决海关保税加工的监管难题，探寻把关与服务新的平衡点。
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="join-model">
+                <a class="join-link" href="javaScript:void (0)" target="_blank">
+                    <button class="join-button">进入报关</button>
+                </a>
+                <p class="join-tip">智能、快捷、一键式</p>
+            </div>
+        </div>
+        <div class="service-platform-model">
+            <div class="title-div">
+                平台优势
+            </div>
+            <div class="content-div">
+                <ul class="service-nav-list"></ul>
+                <div class="service-content-div">
+                    <div class="content-image-div"></div>
+                    <div class="content-list-div">
+                        <div class="content-list-limit-div">
+                            <div class="content-list-cover-div">
+                                <p class="content-list">
+                                    <!--<li class="content-item">-->
+                                        <!--<p class="content-text">-->
+                                            中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。
+                                        <!--</p>-->
+                                    <!--</li>-->
+                                    <!--<li class="content-item">-->
+                                        <!--<p class="content-text">-->
+                                            中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。
+                                        <!--</p>-->
+                                    <!--</li>-->
+                                    <!--<li class="content-item">-->
+                                        <!--<p class="content-text">-->
+                                            中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。
+                                    中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。 中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。 中国海关总署依照《海关法》规定，对进出境运输工具、货物、行李物品、邮递物品和其他物品进行监管。2003年，全国海关共监管进出口货物164254万吨，进出境运输工具2292万艘（辆、架），进出境集装箱4410万标箱，同比分别增长1.6%、3%和26.4%；监管进出境人员23259万人次、邮递物品9657万件、快件5359万件。
+                                        <!--</p>-->
+                                    <!--</li>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="platform-advantage-model">
+            <div class="title-div">
+                平台优势
+            </div>
+            <div class="content-div">
+                <ul class="advantage-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/intelligent/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <!--page样式-->
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/front/css/module/employment/index.css?app_v=${app.build.version}">
+    <script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="search" class="search">
+    <div class="search-container">
+        <!--<div class="search-result">-->
+            <!--找到相关招聘共<span class="highlight-number">0</span>条-->
+        <!--</div>-->
+        <div class="list-title">
+            <div class="title-left">职位信息</div>
+            <div class="title-right">公司信息</div>
+        </div>
+        <div class="search-list-container">
+            <ul class="search-list">
+                <!--<li class="search-item">-->
+                    <!--<div class="item-left">-->
+                        <!--<p class="job-title">高级数据开发工程师</p>-->
+                        <!--<p class="job-salary">¥&nbsp;10-20K</p>-->
+                        <!--<ul class="job-info-list">-->
+                            <!--<li class="job-info-item">本科</li>-->
+                            <!--<li class="job-info-item">3-5年经验</li>-->
+                            <!--<li class="job-info-item">发布时间：2019-05-01</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="item-right">-->
+                        <!--<div class="img-container">-->
+                            <!--<img src="/static/assets/word.png" alt="" class="company-logo">-->
+                        <!--</div>-->
+                        <!--<div class="company-info">-->
+                            <!--<div class="company-name-div">-->
+                                <!--<span class="company-name">腾讯科技</span>-->
+                                <!--<span class="company-address">【 北京市 】</span>-->
+                            <!--</div>-->
+                            <!--<ul class="company-tag-list">-->
+                                <!--<li class="company-tag-item">移动互联网</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="search-item">-->
+                    <!--<div class="item-left">-->
+                        <!--<p class="job-title">高级数据开发工程师</p>-->
+                        <!--<p class="job-salary">¥&nbsp;10-20K</p>-->
+                        <!--<ul class="job-info-list">-->
+                            <!--<li class="job-info-item">本科</li>-->
+                            <!--<li class="job-info-item">3-5年经验</li>-->
+                            <!--<li class="job-info-item">发布时间：2019-05-01</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="item-right">-->
+                        <!--<div class="img-container">-->
+                            <!--<img src="/static/assets/word.png" alt="" class="company-logo">-->
+                        <!--</div>-->
+                        <!--<div class="company-info">-->
+                            <!--<p class="company-name-div">-->
+                                <!--<span class="company-name">腾讯科技</span>-->
+                                <!--<span class="company-address">【 北京市 】</span>-->
+                            <!--</p>-->
+                            <!--<ul class="company-tag-list">-->
+                                <!--<li class="company-tag-item">移动互联网</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+            <div id="search-page-pagination" class="search-page-pagination">
+                <!--最外层：限制框-->
+                <div class="plugin-pagination">
+                    <!--第二层：最大延展层（保证分页组件不会换行）-->
+                    <div class="plugin-pagination-content-div plugin-pagination-content-div__ie11">
+                        <!--第三层：自适应延展层（由子项决定宽度，居中内容）-->
+                        <div class="plugin-pagination-content plugin-pagination-content__ie11">
+                            <!--分页页码-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--page插件-->
+<script src="/static/front/js/module/employment/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

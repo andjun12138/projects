@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="station-news">
+<body>
+<div id="station-news" class="model-item-div station-news-model-container" style="display: none">
+    <p class="station-news-title-v">
+        站内消息
+    </p>
+    <form class="station-news-form personal-form" action="#">
+        <div class="form-group" title="">
+            <ul class="news-status-list">
+                <li class="status-item active" data-type="all">全部</li>
+                <li class="status-item" data-type="read">已读</li>
+                <li class="status-item" data-type="unread">未读</li>
+            </ul>
+        </div>
+        <div class="form-group" title="">
+            <div class="form-input-model">
+                <button class="form-active-btn search-button" type="button">搜索</button>
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="new-title-input" data-name="标题" type="text" autocomplete="off" placeholder="请输入要搜索的标题">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group button-model">
+            <button class="form-active-btn read" type="button">标记已读</button>
+            <button class="form-active-btn delete" type="button">消息删除</button>
+        </div>
+        <div class="form-group time-group" title="">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="start-time" data-name="起始时间" type="text" autocomplete="off" placeholder="请选择起始时间">
+                </div>
+            </div>
+            <div class="line">—</div>
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="end-time" data-name="结束时间" type="text" autocomplete="off" placeholder="请选择结束时间">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+    </form>
+    <div class="news-content">
+        <div class="head-div">
+            <div class="info-item checkbox-module">
+                <input id="select-all" type="checkbox" class="new-select" disabled="disabled" style="display: none;">
+                <label for="select-all" class="select-al-icon" style="display: none;"></label>
+            </div>
+            <div class="info-item status-module">
+                状态
+            </div>
+            <div class="info-item title-module">
+                标题
+            </div>
+            <div class="info-item time-module">
+                时间
+            </div>
+            <div class="info-item operate-module">
+                操作
+            </div>
+        </div>
+        <ul class="news-list"></ul>
+        <div id="news-page" class="news-page-div"></div>
+    </div>
+</div>
+</body>
+</html>

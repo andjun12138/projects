@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/incubator/companyDetail.css">
+</head>
+<body layout:fragment="content">
+<div id="three-news-detail" class="three-news-detail">
+    <div class="three-news-detail-container">
+        <ul class="path-list">
+            <li class="path-item">
+                <a class="path-link" href="/home.html" >首页</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/incubatorArticleList.html">孵化器</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link" href="javaScript:void(0)" >明星企业详情</a>
+            </li>
+        </ul>
+        <div class="content-div">
+            <p class="title" th:text="${starEnterprise.title}"></p>
+            <div class="book-info-div">
+                <span>发布时间：</span><span class="info-item time-al-icon" type="time" th:text="${#dates.format(starEnterprise.createdAt, 'yyyy-MM-dd')}">2019-01-03</span>
+            </div>
+            <div class="content-rich-text" th:utext="${starEnterprise.detail}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

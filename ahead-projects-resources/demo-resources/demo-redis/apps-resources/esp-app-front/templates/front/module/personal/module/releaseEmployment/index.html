@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="release-employment">
+<body>
+<div id="release-employment" class="model-item-div release-employment-model-container" style="display: none">
+    <p class="company-info-title-v">
+        发布招聘信息
+    </p>
+    <div class="review-status" style="border-color: rgb(170, 170, 170); color: rgb(170, 170, 170);">
+        审核中
+    </div>
+    <form class="release-employment-form personal-form" action="#">
+        <div class="form-group" title="标题" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="employment-name-input" data-name="标题" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="工资" type="required">
+            <div class="form-input-model" style="border: none;">
+                <!--<i class="icon-error"></i>-->
+                <div class="model-content">
+                    <input class="employment-salary-min-input" data-name="最低工资" type="text" autocomplete="off" style="width: 30%; display: inline-block; border: 1px solid #e5e5e5; border-radius: 5px;">
+                    <span>&nbsp;&nbsp;至&nbsp;&nbsp;</span>
+                    <input class="employment-salary-max-input" data-name="最高工资" type="text" autocomplete="off" style="width: 30%; display:inline-block; border: 1px solid #e5e5e5; border-radius: 5px;">
+                    <span>&nbsp;K</span>
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="工作经验" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="employment-experience-input" data-name="工作经验" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="学历" type="required">
+            <select class="education-select">
+                <option th:each="educationItem : ${education}" th:value="${educationItem.id}" th:text="${educationItem.title}"></option>
+            </select>
+            <p class="education-show"></p>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="地址" type="required">
+            <div class="address-box" data-toggle="distpicker" data-name="地区">
+                <select class="address-select company-province-name" name="provinceName"></select>
+                <select class="address-select company-city-name" name="cityName"></select>
+                <select class="address-select company-district-name" name="districtName"></select>
+            </div>
+            <p class="address-show"></p>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="" type="normal">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="address-detail-input" data-name="详细地址" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="所属行业" type="required">
+            <select class="industry-select">
+                <option th:each="industry : ${employmentIndustry}" th:value="${industry.id}" th:text="${industry.title}"></option>
+            </select>
+            <p class="industry-show"></p>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="联系人" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="concat-person-input" data-name="联系人" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="联系电话" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="concat-phone-input" data-name="联系电话" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="联系邮箱" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="concat-email-input" data-name="联系人" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="职位简介" type="required">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="job-introduction-input" data-name="联系人" type="text" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group" title="职位描述" type="required">
+            <div class="form-input-model">
+                <!--<i class="icon-error"></i>-->
+                <div class="model-content">
+                    <textarea rows="6" class="job-description-input" data-name="联系人" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group button-model">
+            <button class="form-active-btn release-employment-submit" type="button">提交</button>
+            <button class="form-active-btn release-employment-again" type="reset">重置</button>
+            <button class="form-active-btn release-employment-edit" type="button">修改</button>
+        </div>
+    </form>
+    <div class="application-company-div">
+        <button class="active-button">申请企业</button>
+    </div>
+</div>
+</body>
+</html>

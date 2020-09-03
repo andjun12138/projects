@@ -1,0 +1,179 @@
+.innovation-center {
+    width: 100%;
+    height: auto;
+    min-width: 12rem;
+    font-size: 14px;
+}
+.innovation-center .innovation-center-item {
+    width: 100%;
+    height: auto;
+}
+.innovation-center .innovation-center-item:nth-child(odd) {
+    background: #ffffff;
+}
+.innovation-center .innovation-center-item:nth-child(2) {
+    background: url("/static/front/assets/image/module/innovationCenter/progress-bg.jpg");
+    background-size: 100% 100%;
+}
+.innovation-center .innovation-center-item:nth-child(4) {
+    background: url("/static/front/assets/image/module/innovationCenter/honor-bg.jpg");
+    background-size: 100% 100%;
+}
+.innovation-center .innovation-center-item .item-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 12rem;
+    height: auto;
+    padding: .4rem 0;
+}
+.innovation-center .innovation-center-item .item-container .item-title{
+    width: 100%;
+    display: block;
+    margin-top: .58rem;
+    text-align: center;
+    font-size: .2rem;
+    color: #5e5e5e;
+    font-weight: 500;
+    letter-spacing: .02rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-content{
+    margin-top: .58rem;
+    overflow: hidden;
+}
+/* 第一块：简介 */
+.innovation-center .innovation-center-item .item-container .item1-left-part{
+    float: left;
+    width: 5.62rem;
+    margin-right: .38rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-left-part img{
+    width: 5.62rem;
+    height: 3.4rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-right-part{
+    float: right;
+    width: 6rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-right-part .center-info-list{
+    width: 100%;
+    display: table;
+    margin-bottom: .45rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-right-part .center-info-item{
+    display: table-cell;
+    text-align: center;
+    color: #5e5e5e;
+}
+.innovation-center .innovation-center-item .item-container .item1-right-part .center-info-item .center-info-number{
+    font-size: .24rem;
+    margin-bottom: .05rem;
+}
+.innovation-center .innovation-center-item .item-container .item1-right-part .center-info-item .center-info-title{
+    font-size: .14rem;
+}
+/* 第二块：发展历程 */
+.innovation-center .innovation-center-item .item-container .progress-list{
+    margin-top: .45rem;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item{
+    display: block;
+    width: 100%;
+    padding: .23rem 1rem;
+    font-size: .16rem;
+    color: #5e5e5e;
+    overflow: hidden;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-date{
+    float: left;
+    margin-right: .14rem;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-icon{
+    position: relative;
+    float: left;
+    margin-right: .5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: .2rem;
+    height: .2rem;
+    border-radius: 50%;
+    border: .01rem solid #31baed;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-icon .progress-icon-inner{
+    position: absolute;
+    left: .03rem;
+    top: .03rem;
+    width: .12rem;
+    height: .12rem;
+    border-radius: 50%;
+    background-color: #31baed;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-icon:before{
+    content: '';
+    position: absolute;
+    left: .1rem;
+    top: -.26rem;
+    height: .2rem;
+    width: .01rem;
+    background-color: #31baed;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-icon:after{
+    content: '';
+    position: absolute;
+    left: .1rem;
+    bottom: -.26rem;
+    height: .2rem;
+    width: .01rem;
+    background-color: #31baed;
+}
+.innovation-center .innovation-center-item .item-container .progress-list .progress-item .progress-event{
+    float: left;
+}
+/* 第三块：领导关怀 */
+.innovation-center .innovation-center-item .item-container .item3-content{
+    margin-top: .58rem;
+    overflow: hidden;
+}
+.innovation-center .innovation-center-item .item-container .item3-content .item3-left-part{
+    float: left;
+    width: 6rem;
+}
+.innovation-center .innovation-center-item .item-container .item3-content .item3-left-part img{
+    width: 6rem;
+    height: 4rem;
+}
+.innovation-center .innovation-center-item .item-container .item3-content .item3-right-part{
+    /* 清除img直接的间隙 */
+    font-size: 0;
+    float: left;
+    width: 6rem;
+}
+.innovation-center .innovation-center-item .item-container .item3-content .item3-right-part img{
+    font-size: .14rem;
+    width: 2.8rem;
+    height: 1.87rem;
+    margin-left: .2rem;
+}
+.innovation-center .innovation-center-item .item-container .item3-content .item3-right-part img:nth-child(1),
+.innovation-center .innovation-center-item .item-container .item3-content .item3-right-part img:nth-child(2){
+    margin-bottom: .26rem;
+}
+/* 第四块：荣誉 */
+.innovation-center .innovation-center-item .item-container .item4-content{
+    font-size: 0;
+    margin-top: .58rem;
+    overflow: hidden;
+}
+.innovation-center .innovation-center-item .item-container .item4-content img{
+    font-size: .14rem;
+    float: left;
+    width: 2.73rem;
+    height: 1.84rem;
+    margin-bottom: .2rem;
+    margin-right: .36rem;
+}
+.innovation-center .innovation-center-item .item-container .item4-content img:nth-child(4n){
+    margin-right: 0;
+}

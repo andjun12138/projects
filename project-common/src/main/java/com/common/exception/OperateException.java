@@ -2,7 +2,7 @@ package com.common.exception;
 
 import com.common.enums.IOperateStatus;
 import com.common.enums.OperateStatus;
-import com.common.utils.ObjectUtils;
+import com.common.utils.LocalObjectUtils;
 
 /**
 * @author caimb
@@ -27,7 +27,7 @@ public class OperateException extends Exception{
      * @param massageArgs
      */
     public OperateException(IOperateStatus status, Class clazz, Object... massageArgs) {
-        super( ObjectUtils.isNotEmpty( massageArgs ) ? String.format( status.getDetail(), massageArgs ) : status.getDetail() );
+        super( LocalObjectUtils.isNotEmpty( massageArgs ) ? String.format( status.getDetail(), massageArgs ) : status.getDetail() );
         this.status = status;
         this.clazz = clazz.getName();
         this.massageArgs = massageArgs;

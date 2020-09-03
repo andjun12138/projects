@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>栏目维护</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <!--<link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">-->
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <link rel="stylesheet" href="/static/admin/css/reports.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script th:inline="javascript">
+    var menus = [[${menus}]]
+</script>
+<div class="main row">
+    <div class="column-nav col-md-2 col-lg-2">
+        <div class="nav-title">栏目导航</div>
+        <div class="search-div"><span class="launch-btn"><i class="glyphicon glyphicon-minus"><!--plus--></i></span><input class="search-control" style="" id="searchTreeText" type="text" placeholder="请输入关键词"/><button id="searchTree" class="searchTree"><i class="glyphicon glyphicon-search"></i></button></div>
+        <div class="nav-tree">
+            <ul id="menu-tree" class="ztree"></ul>
+        </div>
+    </div>
+    <div class="maintain-table col-md-10 col-lg-10">
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" th:each="button:${buttons}" th:onClick="${button['jsContent']}"
+                    th:class="${button['className']}">
+                <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
+            </button>
+            <!--<button id="delete-btn" type="button" class="btn btn-sm btn-danger"><i class="icon-angle-down"></i> <span>批量删除</span>-->
+            <button id="add-monitory-btn" type="button" class="btn btn-sm btn-primary"><i class="icon-plus"></i> <span>添加监控点</span></button>
+            <button id="add-menu-btn" type="button" class="btn btn-sm btn-primary"><i class="icon-plus"></i> <span>添加菜单</span></button>
+            <button id="add-virtual-btn" type="button" class="btn btn-sm btn-primary"><i class="icon-plus"></i> <span>添加虚拟栏目</span></button>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <!--<th data-title="序号" data-field="index" data-align="center"></th>-->
+                <th data-title="名称" data-field="name" data-align="center"></th>
+                <th data-title="菜单类型" data-field="menu_type" data-align="center"></th>
+                <th data-title="操作" data-field="operate" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <!--
+            栏目查询:/admin/frontMenu/{id}/query POST  id:导航栏的id
+        -->
+    <!-- 列表 ： id  name  menu_type-->
+
+    <!--保存url: /admin/frontMenu/create_update
+         名称：name
+         菜单类型：menu_type(菜单栏目202363、虚拟栏目202364、监控点202365) 根据不同的按钮选择不同的值
+         //菜单所属：menu_belong(PC端202367、小程序202368）（隐藏）
+         是否停用: disable(默认上传0)
+         栏目访问路径：url
+         //父级菜单id:pid (隐藏上传)
+         排序：sort
+    -->
+    <div id="add-menu-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modal-title">栏目详情</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="menu-form">
+                        <div class="form-group">
+                            <label for="menu-name" class="col-sm-2 control-label">名称<span style="color:#FF3333;font-size:18px">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" required id="menu-name" placeholder="请输入名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-type" class="col-sm-2 control-label">菜单类型</label>
+                            <div class="col-sm-10">
+                                <select id="menu-type" class="form-control" name="menuType" required>
+                                    <option value="202363">菜单栏目</option>
+                                    <option value="202364">虚拟栏目</option>
+                                    <option value="202365">监控点</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="disable" class="col-sm-2 control-label">是否停用</label>
+                            <div class="col-sm-10">
+                                <select id="disable" class="form-control" name="disable"  required>
+                                    <option value="false">否</option>
+                                    <option value="true">是</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-url" class="col-sm-2 control-label">访问路径<span style="color:#FF3333;font-size:18px">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="url" required id="menu-url" placeholder="请输入路径">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="menu-sort" class="col-sm-2 control-label">排序<span style="color:#FF3333;font-size:18px">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="sort" required id="menu-sort" placeholder="请输入排序（数字）">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="update-menu-btn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.core.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exedit.min.js"></script>
+<!--<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>-->
+<!--<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>-->
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/reports/menuManage.js"></script>
+</body>
+</html>

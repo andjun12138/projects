@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--<title th:if="${industryInformation['title']} == null" th:text="${'新建平台资讯'}"></title>-->
+    <!--<title th:if="${industryInformation['title']} != null" th:text="${'平台资讯详情 - '+industryInformation['title']}"></title>-->
+    <title>仪器设备详情</title>
+    <link rel="icon" href="/static/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="equipmentId" th:value="${equipment['id']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${equipment['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                    <div class="form-group form-group-sm">
+                        <label for="name">仪器名称</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="name" placeholder="请输入仪器名称" id="name" required th:value="${equipment['name']}"/>
+                    </div>
+
+
+
+                    <div class="form-group form-group-sm">
+                        <label for="model">仪器型号</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="model" placeholder="请输入仪器型号" id="model" required th:value="${equipment['model']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="belongUnit">所属单位</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="belongUnit" placeholder="请输入所属单位" id="belongUnit" required th:value="${equipment['belongUnit']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="country">国家</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="country" placeholder="请输入国家" id="country" required th:value="${equipment['country']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="manufacturerName">制造商名称</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <!--<input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${selectItem['title']}"/>-->
+                        <input type="text" class="form-control" name="manufacturerName" placeholder="请输入制造商名称" id="manufacturerName" required th:value="${equipment['manufacturerName']}"/>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="picture">设备图片</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input type="file" name="picture" multiple style="display: none" id="picture" required th:data-picture="${equipment['picture']}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="fileInput" style="background-color:#fff" placeholder="未选择任何设备图片" readonly>
+                            <span class="input-group-addon choose" onclick="upLoading('#picture')"><i class="icon-picture"></i></span>
+                        </div>
+                        <div class="file-content col-sm-12">
+                            <div class="file-list"></div>
+                            <div class="progress-container" style="padding: 5px 10px;background-color: #f0f0f0;display: none;">
+                                <div class="progress progress-striped" style="margin: 0;height: 10px;">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="buyTime">购置时间</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input class="form-control time" type="text" name="buyTime" id="buyTime" placeholder="请输入购置时间" th:value="${equipment['buyTime']}">
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="placementPlace">放置地点</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input class="form-control time" type="text" name="placementPlace" id="placementPlace" placeholder="请输入放置地点" th:value="${equipment['placementPlace']}">
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="status">仪器状态</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="status" id="status" required th:data-status="${equipment['status']}">
+                            <option th:each="module:${status}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="bigType">仪器大类</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="bigType" id="bigType" required th:data-bigtype="${equipment['bigType']}">
+                            <option th:each="module:${bigTypes}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="smallType">仪器小类</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="smallType" id="smallType" required th:data-smalltype="${equipment['smallType']}">
+                            <option th:each="module:${smallTypes}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="reserveType">预约类型</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="reserveType" id="reserveType" required th:data-reservetype="${equipment['reserveType']}">
+                            <option th:each="module:${reserveTypes}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="reserveWay">预约方式</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="reserveWay" id="reserveWay" required th:data-reserveway="${equipment['reserveWay']}">
+                            <option th:each="module:${reserveWays}" th:value="${module.id}" th:text="${module.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="contact">联系人</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input class="form-control time" type="text" name="contact" id="contact" placeholder="请输入联系人" th:value="${equipment['contact']}">
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="phoneNum">联系电话</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input class="form-control time" type="text" name="phoneNum" id="phoneNum" placeholder="请输入联系电话" th:value="${equipment['phoneNum']}">
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="servicePrice">服务价格</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input class="form-control time" type="text" name="servicePrice" id="servicePrice" placeholder="请输入服务价格" th:value="${equipment['servicePrice']}">
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="description">备注</label>
+                        <textarea class="form-control" name="description" id="description" rows="4" placeholder="请输入备注" th:text="${equipment['description']}"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js?app_v=${app.build.version}" ></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}" ></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/select2/js/select2.min.js" ></script>
+<script src="/static/plugin/select2/js/i18n/zh-CN.js" ></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/ckeditor/ckeditor.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/homepage/newEquipment.js"></script>
+</body>
+</html>

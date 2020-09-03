@@ -1,0 +1,568 @@
+.device {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+}
+.device .device-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 25px auto;
+    width: 1200px;
+    padding: 20px 8px;
+    background: #ffffff;
+}
+.device .device-container .nav-list-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 42px;
+    padding: 0 22px;
+}
+.device .device-container .nav-list-div .nav-list{
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #ebebeb;
+}
+.device .device-container .nav-list-div .nav-list .nav-item{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-right: 40px;
+    width: auto;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 2px solid transparent;
+    color: #7e7e7e;
+    font-weight: bold;
+    cursor: pointer;
+}
+.device .device-container .nav-list-div .nav-list .nav-item:after {
+    content: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -4px;
+    width: 8px;
+    height: 8px;
+    background: #39a6e4;
+    border-radius: 4px;
+}
+.device .device-container .nav-list-div .nav-list .nav-item:last-child {
+    margin-right: 0;
+}
+.device .device-container .nav-list-div .nav-list .active {
+    color: #39a6e4;
+    border-bottom: 2px solid #39a6e4;
+}
+.device .device-container .nav-list-div .nav-list .active:after {
+    content: '';
+}
+.device .device-container .model-content-div,
+.device .device-container .model-content-div .search-list{
+    width: 100%;
+    height: auto;
+}
+.device .device-container .model-content-div .search-list{
+    overflow: hidden;
+}
+.device .device-container .model-content-div .search-list .search-item {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 13px 22px;
+    width: 252px;
+    height: 30px;
+    padding-left: 74px;
+}
+.device .device-container .model-content-div .search-list .search-item:before {
+    content: attr(title);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 74px;
+    height: 100%;
+    line-height: 30px;
+}
+/* 按钮项 */
+.device .device-container .model-content-div .search-list .button{
+    padding-left: 0;
+}
+.device .device-container .model-content-div .search-list .search-item .select:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top: 8px solid #545454;
+}
+.device .device-container .model-content-div .search-list .search-item .input-select-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    /* 防止内容被挡 */
+    padding-right: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+.device .device-container .model-content-div .search-list .search-item .input-select-div input[class*="-input"],
+.device .device-container .model-content-div .search-list .search-item .input-select-div select[class*="-select"]{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+/*很关键：将默认的select选择框样式清除*/
+.device .device-container .model-content-div .search-list .search-item .input-select-div select[class*="-select"] {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+.device .device-container .model-content-div .search-list .search-item .input-select-div select[class*="-select"]::-ms-expand {
+    display: none;
+}
+.device .device-container .model-content-div .search-list .search-item .search-active-btn {
+    position: absolute;
+    bottom: 0;
+    width: 120px;
+    height: 36px;
+    background-color: #39a6e4;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+.device .device-container .model-content-div .search-list .search-item #search-submit {
+    left: 0;
+}
+.device .device-container .model-content-div .search-list .search-item #search-reset {
+    right: 0;
+}
+.device .device-container .model-content-div .search-show-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 23px;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    padding: 0 22px;
+}
+.device .device-container .model-content-div .search-show-div:after {
+    content: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    color: #000000;
+    text-align: center;
+    line-height: 300px;
+    z-index: 1;
+}
+.device .device-container .model-content-div .search-show-div[class*="void"]:after {
+    content: '\67e5\65e0\6570\636e';
+}
+
+.device .device-container .model-content-div .search-show-div .device-table-div,
+.device .device-container .model-content-div .search-show-div .device-page-div{
+    width: 100%;
+}
+/* 表格 */
+.device .device-container .model-content-div .search-show-div .device-table-div .active-span {
+    color: #31baed;
+    cursor: pointer;
+}
+
+/* 发布模块 */
+.device .device-container .publish {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+/* 信息卡 */
+body .device-info-global-div {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 797px;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10;
+}
+body .device-info-global-div .device-info-div {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -378px;
+    margin-left: -452px;
+    width: 904px;
+    height: 757px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+body .device-info-global-div .device-info-div .device-info-title {
+    width: 100%;
+    height: 40px;
+    background: #485077;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+}
+body .device-info-global-div .device-info-div .device-info-title .icon-error {
+    float: right;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+body .device-info-global-div .device-info-div .device-info-title .icon-error:before {
+    color: #ffffff;
+    font-size: 10px;
+}
+body .device-info-global-div .device-info-div .device-info-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 716px;
+    padding: 15px 8px;
+}
+
+/* 表单 */
+body .device-form-div {
+    width: 100%;
+    height: auto;
+}
+body .device-form-div .device-form{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+body .device-form-div .device-form .form-group {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 15px 22px;
+    width: 252px;
+    height: auto;
+    min-height: 30px;
+    padding-left: 74px;
+}
+body .device-form-div .device-form .form-group:before {
+    content: attr(title);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 74px;
+    height: 100%;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+}
+body .device-form-div .device-form .layout-type-1 {
+    width: 548px;
+}
+body .device-form-div .device-form .layout-type-2 {
+    margin: 15px 0;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    padding-left: 96px;
+    padding-right: 22px;
+}
+body .device-form-div .device-form .layout-type-2:before {
+    left: 22px;
+}
+body .device-form-div .device-form .form-group .input-select-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    padding-right: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+body .device-form-div .device-form .form-group .input-select-div[type="select"]:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top: 8px solid #545454;
+}
+body .device-form-div .device-form .form-group .price{
+    padding-right: 30px;
+}
+body .device-form-div .device-form .form-group .price:after {
+    content: '\5143';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    text-indent: 5px;
+    line-height: 28px;
+}
+body .device-form-div .device-form .form-group .input-select-div input[class*="-input"],
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"]{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+/*很关键：将默认的select选择框样式清除*/
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"] {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"]::-ms-expand {
+    display: none;
+}
+body .device-form-div .device-form .form-group .select-show {
+    display: none;
+    margin: 0;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body .device-form-div .device-form .form-group .input-tip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 74px;
+    line-height: 25px;
+    color: #FF0000;
+}
+body .device-form-div .device-form .form-group .device-image-list-div{
+    width: 100%;
+    height: auto;
+}
+body .device-form-div .device-form .form-group .device-image-list {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item {
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 348px;
+    height: 185px;
+    background-color: #f3f3f3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;/*保证background-position在 Firefox 和 Opera 中正常工作*/
+    text-align: center;
+    line-height: 185px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    -moz-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item:nth-child(3n){
+    margin-right: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item:last-child {
+    margin: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"]:before {
+    content: '\5df2\4e0a\4f20\0020' attr(percent) '\0020\0025';
+    color: #b8b8b8;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="0"]:before,
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"]:before{
+    content: none;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .icon-error {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .device-image {
+    display: none;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .icon-error:before {
+    font-size: 20px;
+    color: #545454;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"] .device-image {
+    display: inline;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"] .icon-error {
+    display: block;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="add"]:before {
+    content: '\e620';
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 50px;
+    color: #b8b8b8;
+    z-index: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="add"] .device-image-file-input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-btn-div {
+    float: left;
+    margin-top: 40px;
+    width: 100%;
+    height: 36px;
+    text-align: center;
+}
+body .device-form-div .device-form .form-btn-div .form-active-btn {
+    margin-right: 12px;
+    width: 120px;
+    height: 100%;
+    background-color: #39a6e4;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-btn-div .form-active-btn:last-child {
+    margin-right: 0;
+}
+
+/* 小宽度模式 */
+body .device-form-div .small-width .canRight{
+    float: right;
+}
+body .device-form-div .small-width .isFirst{
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+}
+body .device-form-div .small-width .form-group .device-image-list-div {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* 展示模式 */
+body .device-form-div .show-model .form-group .input-select-div {
+    border: none;
+}
+body .device-form-div .show-model .form-group .input-select-div[type="select"] {
+    display: none;
+}
+body .device-form-div .show-model .form-group .input-select-div[type="select"] ~ .select-show {
+    display: block;
+}
+body .device-form-div .show-model .form-group .input-tip {
+    display: none;
+}
+body .device-form-div .show-model .form-group .device-image-list {
+    margin-bottom: 0;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item[type="show"] .icon-error {
+    display: none;
+    z-index: -1;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item[type="add"] {
+    display: none;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item .device-image-file-input {
+    display: none;
+    z-index: -1;
+}
+body .device-form-div .show-model .form-btn-div {
+    display: none;
+    position: relative;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

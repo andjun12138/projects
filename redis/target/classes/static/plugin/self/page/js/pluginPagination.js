@@ -15,7 +15,7 @@ function PluginPagination(id) {
     // 子项html
     var liHtml = '<li class="plugin-pagination-content-item" data-mark=""></li>';
     // 省略号html
-    var ellipsisHtml = '<p class="plugin-pagination-content-ellipsis">···</p>';
+    var ellipsisHtml = '<li class="plugin-pagination-content-item">···</li>';
     // 快速通道html
     var liftHtml = '<div class="plugin-pagination-Lift-div"></div>';
     // 快速通道提示html

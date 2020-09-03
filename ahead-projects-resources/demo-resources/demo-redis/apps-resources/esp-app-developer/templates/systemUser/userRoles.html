@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>用户角色</title>
+    <link rel="icon" href="/static/assets/logo.png?app_v=${app.build.version}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css?app_v=${app.build.version}">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js?app_v=${app.build.version}"></script>
+    <script src="/static/compatibility/respond.min.js?app_v=${app.build.version}"></script>
+    <![endif]-->
+</head>
+<body>
+<div style="padding: 15px;">
+    <div style="margin-bottom: 10px;">
+        <button type="button" class="btn btn-sm btn-primary" id="modify-finished-btn"><i class="icon-ok-circle icon-large"></i> 确定</button>
+        <button type="button" class="btn btn-sm btn-danger" id="modify-cancel-btn"><i class="icon-remove-circle icon-large"></i> 取消</button>
+    </div>
+    <div>
+        <ul id="role-tree" class="ztree"></ul>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/jquery.slimscroll.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/select2/js/select2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/select2/js/i18n/zh-CN.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.core.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.excheck.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/layer/layer.js?app_v=${app.build.version}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // 获取参数
+    var userId = [[${userId}]];
+    var allRoleList = [[${allRoleList}]];
+    var selectedRoleList = [[${selectedRoleList}]];
+</script>
+<script src="/static/js/systemUser/userRoles.js?app_v=${app.build.version}"></script>
+</body>
+</html>

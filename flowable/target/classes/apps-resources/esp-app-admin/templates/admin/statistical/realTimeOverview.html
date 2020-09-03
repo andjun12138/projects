@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>国防四库平台</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<div id="main" style="padding: 10px">
+    <div id="data-part" class="clearfix">
+        <div id="toolbar" class="btn-toolbar">
+            <button id="refresh" type="button" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-refresh"></i> <span>刷新</span></button>
+            <a id="export" href="/admin/excel/exportRealTimeOverview" type="button" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-download-alt"></i> <span>导出</span></a>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <!--<th data-checkbox="true" data-field="state"></th>-->
+                <th data-title="标题" data-field="name" data-align="center"></th>
+                <th data-title="今日" data-field="nowDay" data-align="center"></th>
+                <th data-title="昨日" data-field="lastDay" data-align="center"></th>
+                <th data-title="本周" data-field="thisWeek" data-align="center"></th>
+                <th data-title="上周同期" data-field="lastWeekDay" data-align="center"></th>
+                <th data-title="上周总量" data-field="lastWeek" data-align="center"></th>
+                <th data-title="本月" data-field="nowMonth" data-align="center"></th>
+                <th data-title="上月" data-field="lastMonth" data-align="center"></th>
+                <th data-title="本年" data-field="nowYear" data-align="center"></th>
+                <th data-title="去年" data-field="lastYear" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+        <!-- 获取数据 ：admin/statisticalController/realTimeOverview POST -->
+        <!-- 列表 标题(name) 今日(nowDay) 昨日(lastDay) 本周(thisWeek) 上周同期(lastWeekDay) 上周总量(lastWeek) 本月(nowMonth) 上月(lastMonth) 本年(nowYear) 去年(lastYear)
+            里面有排序sort
+        -->
+    <!-- 导出 admin/excel/exportRealTimeOverview  GET-->
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/statistical/realTimeOverview.js?app_v=${app.build.version}"></script>
+</body>
+</html>

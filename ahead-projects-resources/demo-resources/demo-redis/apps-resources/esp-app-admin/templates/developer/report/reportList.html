@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>报表列表</title>
+    <link rel="icon" href="/static/assets/logo.png?app_v=${app.build.version}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/variable.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/common.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css?app_v=${app.build.version}">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js?app_v=${app.build.version}"></script>
+    <script src="/static/compatibility/respond.min.js?app_v=${app.build.version}"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="main">
+        <input type="hidden" id="reportId" th:value="${reportId}"/>
+        <input type="hidden" id="formId" th:value="${formId}"/>
+        <!--<input type="hidden" id="fields" th:value="${fields}"/>-->
+        <!--<input type="hidden" id="urlDatas" th:value="${urlDatas}"/>-->
+        <input type="hidden" id="searchFields" th:value="${searchFields}"/>
+        <!--<input type="hidden" id="buttons" th:value="${buttons}"/>-->
+        <div id="search-part" class="row" style="display: none">
+            <form id="search-form" name="search-form">
+                <div th:each="searchField:${searchFields.reportfields}">
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1401' and (${searchField['show_type']} == '1101' or ${searchField['show_type']} == '1102')">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <input class="search-control" th:name="${searchField['field_name']}" type="number"/>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1401' and (${searchField['show_type']} == '1104')">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <input class="search-control" th:name="${searchField['field_name']}" type="text"/>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1402' and ${searchField['show_type']} == '1103'">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <select class="search-control" th:name="${searchField['field_name']}">
+                            <option value="" selected style="color:#888">-- 请选择 --</option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1402' and ${searchField['show_type']} == '1107'">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <select class="search-control" th:name="${searchField['field_name']}">
+                            <option value="" selected style="color:#888">-- 请选择 --</option>
+                            <option th:each="item:${searchFields[searchField['field_name']]}" th:value="${item.id}" th:text="${item.title}"></option>
+                        </select>
+                    </div>
+                    <div class="search-group col-sm-12 col-md-12 col-lg-12" th:if="${searchField['page_component_input']} == '1403' and ${searchField['show_type']} == '1107'" data-type="1107">
+                        <label class="relative-label" th:text="${searchField['title']+':'}"></label>
+                        <span class="checkbox-group" th:each="item:${searchFields[searchField['field_name']]}" style="margin-left:10px">
+                            <span class="checkbox-input">
+                                <span class="checkbox-inner"></span>
+                                <input type="checkbox" th:name="${searchField['field_name']}" th:value="${item.id}" class="checkbox-original"/>
+                            </span>
+                            <span class="checkbox-label" style="font-weight: 500;margin-left:2px" th:text="${item.title}"></span>
+                        </span>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1408' and ${searchField['show_type']} == '1105'">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <div class="input-group date datetimepicker">
+                            <input type="text" class="search-control" th:name="${searchField['field_name']}" style="border-top-right-radius: 0;border-bottom-right-radius: 0"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1408' and ${searchField['show_type']} == '1106'">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <div class="input-group date datepicker">
+                            <input type="text" class="search-control" th:name="${searchField['field_name']}" style="border-top-right-radius: 0;border-bottom-right-radius: 0"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="search-group col-sm-4 col-md-3 col-lg-3" th:if="${searchField['page_component_input']} == '1407'">
+                        <label class="search-label" th:text="${searchField['title']}"></label>
+                        <div class="input-group">
+                            <input type="text" th:name="${searchField['field_name']}" style="display:none"/>
+                            <input type="text" class="search-control" style="border-top-right-radius: 0;border-bottom-right-radius: 0" onfocus="triggerOpenRelativeDialog(event)"/>
+                            <span class="input-group-addon choose" th:data-url="${searchFields[searchField['field_name']]['reference_link']}" th:data-bind-field="${searchFields[searchField['field_name']]['ref_multi_field']}" th:data-id="${searchFields[searchField['field_name']]['ref_field']}" th:data-title="${searchFields[searchField['field_name']]['show_field']}"  th:data-field-type="${searchField['field_type']}" th:data-name="${searchField['field_name']}"  onclick="openRelativeDialog(event)"><i class="icon-external-link"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="data-part" class="clearfix">
+            <div id="toolbar" class="btn-toolbar">
+                <button type="button" th:each="button:${buttons}" th:onClick="${button['js_content']}" th:class="${button['class_name']}">
+                    <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
+                </button>
+                <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>
+                <button id="toggle-search" type="button" class="btn" th:if="${not #lists.isEmpty(searchFields.reportfields)}"><i class="icon-angle-down"></i> <span>展开搜索</span></button>
+            </div>
+            <table id="table" data-classes="table table-hover table-responsive table-sm">
+                <thead>
+                    <tr>
+                        <th data-checkbox="true" data-field="state"></th>
+                        <th th:each="col:${fields}" th:data-title="${col.title}" th:data-field="${col.field_name}" th:data-sortable="${col.reorder_sort}" data-align="center"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script src="/static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/moment.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/pnotify/pnotify.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/pnotify/pnotify.buttons.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/layer/layer.js?app_v=${app.build.version}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        // 获取报表id
+        var reportId = [[${reportId}]];
+        // 获取参数
+        var urlDatas = [[${urlDatas}]];
+        // 新增表单字段
+        function showAddField() {
+            layer.open({
+                type: 2,
+                title: '新建表单字段',
+                shadeClose: false,
+                shade: 0.8,
+                area: ['800px', '90%'],
+                content: '/form_field/to_create/'+urlDatas['form_id']+'/0'
+            });
+        }
+    </script>
+    <script src="/static/js/report/reportList.js?app_v=${app.build.version}"></script>
+</body>
+</html>

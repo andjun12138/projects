@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>企业录入</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .leaders-list,.experts-list {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        .avatar-info {
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+            height: 312px;
+            padding-top: 10px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .leader-item,.expert-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .leader-avatar,.expert-avatar {
+            width: 125px;
+            height: 125px;
+            display: block;
+            box-sizing: border-box;
+            margin: 0 auto;
+            border: 1px solid #a8a8a8;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .leader-item-info,.expert-item-info {
+            width: 80%;
+            padding: 10px 10px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .leader-name,.expert-name {
+            margin: 0;
+            margin-top: 10px;
+        }
+        .leader-school,.expert-school{}
+        .leader-desc,.expert-desc{}
+        .name-input {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .station-input {
+            width: 90%;
+            margin-left: 10px;
+        }
+        .remove-item {
+            float: right;
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="enterpriseId" th:value="${enterprise['id']}"/>
+    <input type="hidden" id="fieldValue" th:value="${enterprise['field']}"/>
+    <input type="hidden" id="natureValue" th:value="${enterprise['nature']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${enterprise['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="pass" type="button" class="btn btn-sm btn-primary">审核通过</button>
+        <button id="storage" th:if="!${staging}" type="button" class="btn btn-sm btn-default"><i class="icon-save"></i>暂存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                    <div class="form-group form-group-sm">
+                        <label for="name">企业名称</label>
+                        <input type="text" class="form-control" name="name" placeholder="请输入企业名称" id="name" th:value="${enterprise['name']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="icon">企业图标</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input type="file" name="icon" style="display: none" id="icon" th:data-file="${enterprise['icon']}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="fileInput" placeholder="未选择任何文件">
+                            <span class="input-group-addon choose" onclick="upLoading('#icon')"><i class="icon-folder-open"></i></span>
+                        </div>
+                        <div class="file-content col-sm-12">
+                            <div class="file-list"></div>
+                            <div class="progress-container" style="padding: 5px 10px;background-color: #f0f0f0;display: none;">
+                                <div class="progress progress-striped" style="margin: 0;height: 10px;">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="field">领域</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="field" id="field">
+                            <option value="">请选择领域</option>
+                            <option th:selected="${enterprise['field'] eq list.id}" th:each="list:${field}" th:value="${list.id}" th:text="${list.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="contact">联系人</label>
+                        <input type="text" class="form-control" name="contact" placeholder="请输入联系人" id="contact" th:value="${enterprise['contact']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="address">单位地址</label>
+                        <input type="text" class="form-control" name="address" placeholder="请输入单位地址" id="address" th:value="${enterprise['address']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="phone">手机号码</label>
+                        <input type="text" class="form-control" name="phone" placeholder="请输入手机号码" id="phone" th:value="${enterprise['phone']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="landLine">固定电话</label>
+                        <input type="text" class="form-control" name="landLine" placeholder="请输入固定电话" id="landLine" th:value="${enterprise['landLine']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="nature">企业性质</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="nature" id="nature">
+                            <option value="">请选择企业性质</option>
+                            <option th:selected="${enterprise['nature'] eq list.id}" th:each="list:${nature}" th:value="${list.id}" th:text="${list.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="email">邮箱</label>
+                        <input type="text" class="form-control" name="email" placeholder="请输入联系人" id="email" th:value="${enterprise['email']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="front_user_id">企业发布者</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="front_user_id" placeholder="请选择发布者" th:data-publisher="${enterprise['frontUserId']}" data-publisher="" id="front_user_id" readonly/>
+                            <span class="input-group-addon choose" data-url="/admin//frontUser/frontUserManage.html?menuId=118" onclick="openPublisher(event)"><i class="icon-external-link"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="area">省市区</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <div data-toggle="distpicker" id="addressBox">
+                            <input type="text" style="display: none" id="area" name="area" required th:value="*{area}">
+                            <select id="provinceName" name="provinceName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-province="${enterprise['provinceName']}"></select>
+                            <select id="cityName" name="cityName" class="form-control" style="width: 30%;display: inline-block;margin-right: 15px;" th:data-city="${enterprise['cityName']}"></select>
+                            <select id="districtName" name="districtName" class="form-control" th:data-district="${enterprise['districtName']}" style="width: 30%;display: inline-block;"></select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="certificationStatus">认证状态</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="certificationStatus" id="certificationStatus">
+                            <option value="">请选择认证状态</option>
+                            <option th:selected="${enterprise['certificationStatus'] eq list.id}" th:each="list:${certificate}" th:value="${list.id}" th:text="${list.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="officeWebsite">官网</label>
+                        <input type="text" class="form-control" name="officeWebsite" placeholder="请输入官网" id="officeWebsite" th:value="${enterprise['officeWebsite']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="recommended">是否推荐</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="recommended" id="recommended" th:value="${enterprise['recommended']}">
+                            <option th:selected="${enterprise['recommended']==false}" value="false">否</option>
+                            <option th:selected="${enterprise['recommended']==true}" value="true">是</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="recommendedIndex">推荐指数</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control" name="recommendedIndex" id="recommendedIndex" th:value="${enterprise['recommendedIndex']}">
+                            <option value="0" th:selected="${enterprise['recommendedIndex'] == 0}">0</option>
+                            <option value="1" th:selected="${enterprise['recommendedIndex'] == 1}">1</option>
+                            <option value="2" th:selected="${enterprise['recommendedIndex'] == 2}">2</option>
+                            <option value="3" th:selected="${enterprise['recommendedIndex'] == 3}">3</option>
+                            <option value="4" th:selected="${enterprise['recommendedIndex'] == 4}">4</option>
+                            <option value="5" th:selected="${enterprise['recommendedIndex'] == 5}">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="product">主营产品</label>
+                        <textarea type="text" class="form-control" name="product" placeholder="请输入主营产品" id="product" th:utext="${enterprise['product']}"></textarea>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="licenseRegisterNumber">营业执照号</label>
+                        <input type="text" class="form-control" name="licenseRegisterNumber" placeholder="请输入联系人" id="licenseRegisterNumber" th:value="${enterprise['licenseRegisterNumber']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="license">企业执照文件</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input type="file" name="license" style="display: none" id="license" th:data-file="${enterprise['license']}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="fileInputLicense" placeholder="未选择任何文件">
+                            <span class="input-group-addon choose" onclick="upLoading('#license')"><i class="icon-folder-open"></i></span>
+                        </div>
+                        <div class="file-content col-sm-12">
+                            <div class="file-list-license"></div>
+                            <div class="progress-container" style="padding: 5px 10px;background-color: #f0f0f0;display: none;">
+                                <div class="progress progress-striped" style="margin: 0;height: 10px;">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="introduction">企业简介</label>
+                        <textarea type="text" class="form-control" name="introduction" placeholder="请输入主营产品" id="introduction" th:utext="${enterprise['introduction']}"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div th:if="${enterprise['id']} != null">
+        <script th:inline="javascript">
+            var enterpriseLeaders = [[${enterpriseLeaders}]];
+            var enterpriseExperts = [[${enterpriseExperts}]];
+        </script>
+        <ul id="fieldTab" class="nav nav-tabs">
+            <li class="active"><a href="#enterpriseLeader" data-toggle="tab">企业领导人</a></li>
+            <li><a href="#enterpriseExpert" data-toggle="tab">企业专家</a></li>
+
+        </ul>
+        <div id="fieldTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="enterpriseLeader">
+                <ul class="leaders-list"></ul>
+                <!--<div class="no-leader-item" style="display: none">暂无数据</div>-->
+                <button class="btn btn-success add-leader" style="width: 100%;">添加企业领导人</button>
+            </div>
+            <div class="tab-pane fade" id="enterpriseExpert">
+                <ul class="experts-list"></ul>
+                <!--<div class="no-expert-item" style="display: none">暂无数据</div>-->
+                <button class="btn btn-success add-expert" style="width: 100%;">添加企业专家</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/distpicker.data.min.js"></script>
+<script src="/static/admin/js/distpicker.min.js"></script>
+<script src="/static/admin/js/enterprise/newEnterprise.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/incubator/baseStation.css">
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var helpCenter = [[${helpCenter}]];
+    console.log(helpCenter);
+    /*]]>*/
+</script>
+<div id="base-station-detail" class="base-station-detail">
+    <div class="base-station-detail-container">
+        <ul class="path-list">
+           <!-- <li class="path-item">
+                <a class="path-link" href="/home.html" >首页</a>
+            </li>-->
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/incubator.html">企业孵化器平台</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link" href="javaScript:void(0)" >基础设施</a>
+            </li>
+        </ul>
+        <div class="content-div">
+            <ul class="nav-list">
+                <li class="nav-item" data-id="c229241a-9523-4cf7-810a-4e013a80d202">园区</li>
+                <li class="nav-item" data-id="04cb729c-9d92-4e9a-8aa0-c873274a0191">办公大楼</li>
+                <li class="nav-item" data-id="deba15f5-14b6-48b3-abc7-0a1507c07b4f">办公室</li>
+                <li class="nav-item" data-id="ced5860b-bf96-44ae-a2ae-287ad11672c4">会议室</li>
+                <!--<li class="nav-item" data-id="733224e5-e514-4d4b-a77e-c2d355c2ab39">3D打印室</li>-->
+            </ul>
+            <div class="base-station-div">
+                <ul class="base-station-list">
+                </ul>
+            </div>
+            <!--用于获取图片放大后的原图大小-->
+            <img alt="" style="display:none" id="display-img" src="" />
+            <div id="base-station-page" class="base-station-page">
+                <!--最外层：限制框-->
+                <div class="plugin-pagination">
+                    <!--第二层：最大延展层（保证分页组件不会换行）-->
+                    <div class="plugin-pagination-content-div plugin-pagination-content-div__ie11">
+                        <!--第三层：自适应延展层（由子项决定宽度，居中内容）-->
+                        <div class="plugin-pagination-content plugin-pagination-content__ie11">
+                            <!--分页页码-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/front/js/module/incubator/baseStation.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

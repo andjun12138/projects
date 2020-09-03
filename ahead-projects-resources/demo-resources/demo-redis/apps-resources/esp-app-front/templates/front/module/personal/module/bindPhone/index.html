@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="bind-phone">
+<body>
+<div id="bind-phone" class="model-item-div bind-phone-model-container" style="display: none">
+    <p class="bind-phone-title-v">绑定手机</p>
+    <form class="bind-phone-form personal-form" action="#">
+        <div class="form-group pass" title="手机号">
+            <button class="form-active-btn rebind-btn" type="button">重新绑定</button>
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="phone-input" type="text" data-name="手机号" autocomplete="off">
+                </div>
+            </div>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group code" title="验证码">
+            <div class="form-input-model">
+                <i class="icon-error"></i>
+                <div class="model-content">
+                    <input class="code-input" type="text" data-name="验证码" autocomplete="off">
+                </div>
+            </div>
+            <button class="form-active-btn code-send-btn" type="button">发送验证</button>
+            <p class="input-tip"></p>
+        </div>
+        <div class="form-group btn-group">
+            <button class="form-active-btn form-submit" type="button">提交</button>
+            <button class="form-active-btn form-reset" type="reset">重置</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

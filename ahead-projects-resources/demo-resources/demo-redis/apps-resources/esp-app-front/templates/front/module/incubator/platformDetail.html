@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/incubator/platformDetail.css">
+</head>
+<body layout:fragment="content">
+<div id="platform-detail" class="platform-detail">
+    <div class="platform-detail-container">
+        <ul class="path-list">
+            <li class="path-item">
+                <a class="path-link" href="/home.html" >首页</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/incubator.html" >创业孵化</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link" href="javaScript:void(0)" >平台介绍</a>
+            </li>
+        </ul>
+        <div class="content-div">
+            <p class="title" th:text="${incubaPlatform.title}"></p>
+            <div class="book-info-div">
+                <span class="info-item time-al-icon" type="time" th:text="${#dates.format(incubaPlatform.createdAt, 'yyyy-MM-dd')}">2019-01-03</span>
+            </div>
+            <div class="content-rich-text" th:utext="${incubaPlatform.detail}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

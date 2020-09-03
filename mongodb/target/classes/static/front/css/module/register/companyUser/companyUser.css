@@ -1,0 +1,293 @@
+.company-user-register {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+.company-user-register .register-container {
+    position: relative;
+    margin: .25rem auto;
+    width: 12rem;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid transparent;
+}
+.company-user-register input::placeholder {
+    color: initial;
+}
+.company-user-register input:-moz-placeholder{
+    color: initial;
+}
+.company-user-register input:-ms-input-placeholder{
+    color: initial;
+}
+.company-user-register input::-moz-placeholder {
+    color: initial;
+}
+.company-user-register input::-webkit-input-placeholder{
+    color: initial;
+}
+.company-user-register .register-container .content-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 4.3rem;
+    height: auto;
+    padding-bottom: .3rem;
+}
+.company-user-register .register-container .content-div .logo-div {
+    position: relative;
+    margin-top: .5rem;
+    width: 100%;
+    height: .6rem;
+}
+.company-user-register .register-container .content-div .logo-div .logo-content {
+    display: block;
+    margin: 0 auto;
+    width: 2.2rem;
+    height: 100%;
+    line-height: .6rem;
+}
+.company-user-register .register-container .content-div .logo-div .logo-content .logo-image {
+    margin-right: .23rem;
+}
+.company-user-register .register-container .content-div .logo-div .logo-content  .logo-title{
+    vertical-align: top;
+    font-size: .2rem;
+    letter-spacing: 2px;
+}
+.company-user-register .register-container .content-div .register-input-model {
+    position: relative;
+    margin-top: .7rem;
+    width: 100%;
+    height: .42rem;
+}
+.company-user-register .register-container .content-div .register-input-model:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    height: .4rem;
+    font-size: .16rem;
+    line-height: .4rem;
+    text-indent: .1rem;
+}
+.company-user-register .register-container .content-div .register-input-model[type="username"]:before {
+    /*企业名*/
+    content: '\4f01\4e1a\540d';
+}
+.company-user-register .register-container .content-div .register-input-model[type="phone"]:before {
+    /*手机号码*/
+    content: '\624b\673a\53f7\7801';
+}
+.company-user-register .register-container .content-div .register-input-model[type="code"]:before {
+    /*验证*/
+    content: '\9a8c\8bc1';
+}
+.company-user-register .register-container .content-div .register-input-model[type="code"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 1.87rem;
+}
+.company-user-register .register-container .content-div .register-input-model[type="code"] .code-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.45rem;
+    height: 100%;
+    background: #31baed;
+    border: none;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+.company-user-register .register-container .content-div .register-input-model[type="password"]:before {
+    /*密码*/
+    content: '\5bc6\7801';
+}
+.company-user-register .register-container .content-div .register-input-model[type="password-copy"]:before {
+    /*确认密码*/
+    content: '\786e\8ba4\5bc6\7801';
+}
+.company-user-register .register-container .content-div .register-input-model[type="credit-code"]:before {
+    /*统一社会信用代码*/
+    content: '\7edf\4e00\793e\4f1a\4fe1\7528\4ee3\7801';
+}
+.company-user-register .register-container .content-div .register-input-model[type="company-address"]:before {
+    /*企业地址*/
+    content: '\4f01\4e1a\5730\5740';
+}
+.company-user-register .register-container .content-div .register-input-model[type="contact-number"]:before {
+    /*联系电话*/
+    content: '\8054\7cfb\7535\8bdd';
+}
+.company-user-register .register-container .content-div .register-input-model[type="contact-people"]:before {
+    /*联系人*/
+    content: '\8054\7cfb\4eba';
+}
+.company-user-register .register-container .content-div .register-input-model[type="industry"]:before {
+    /*所属行业*/
+    content: '\6240\5c5e\884c\4e1a';
+}
+.company-user-register .register-container .content-div .register-input-model .input-div {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-right: .3rem;
+    border: 1px solid #e5e5e5;
+}
+.company-user-register .register-container .content-div .register-input-model div[class*="-al-icon"]:after {
+    position: absolute;
+    top: 0;
+    right: .1rem;
+    bottom: 0;
+    margin: auto;
+    font-size: .16rem;
+    line-height: .42rem;
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.company-user-register .register-container .content-div .register-input-model .input-div .register-input {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-left: .1rem;
+    border: none;
+    outline: none;
+}
+.company-user-register .register-container .content-div .register-input-model .input-div .register-input::placeholder {
+    letter-spacing: 2px;
+    color: #d2d2d2;
+}
+.company-user-register .register-container .content-div .register-input-model .true-al-icon:after {
+    content: '\e613';
+    color: #33bbed;
+}
+.company-user-register .register-container .content-div .register-input-model .error-al-icon:after {
+    content: '\e611';
+    color: #ff0000;
+}
+.company-user-register .register-container .content-div .register-input-model .error-al-icon {
+    border-color: #ff0000;
+}
+.company-user-register .register-container .content-div .register-input-model .input-div .input-tip {
+    position: absolute;
+    top: 110%;
+    left: .1rem;
+    color: #ff0000;
+}
+.company-user-register .register-container .content-div .register-input-model[type="company-address"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 3.14rem;
+}
+.company-user-register .register-container .content-div .register-input-model[type="company-address"] .address-select-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.14rem;
+    height: 100%;
+}
+.company-user-register .register-container .content-div .register-input-model[type="company-address"] .address-select-div .address-select {
+    margin-right: .03rem;
+    width: .98rem;
+    height: 100%;
+    border-color: #e5e5e5;
+    color: #000000;
+    outline: none;
+}
+.company-user-register .register-container .content-div .register-input-model[type="company-address"] .address-select-div .address-select:last-child {
+    margin-right: 0;
+}
+.company-user-register .register-container .content-div .register-input-model .input-tip {
+    position: absolute;
+    top: 110%;
+    left: .1rem;
+    color: #ff0000;
+}
+.company-user-register .register-container .content-div .register-button {
+    position: relative;
+    left: 50%;
+    margin-top: .5rem;
+    margin-left: -1rem;
+    width: 2rem;
+    height: .6rem;
+    background: #31baed;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    border-radius: .05rem;
+    outline: none;
+    cursor: pointer;
+}
+.company-user-register .register-container .content-div .register-tip {
+    margin-top: .4rem;
+    text-align: center;
+    color: #8f8f8f;
+    line-height: .2rem;
+}
+.company-user-register .register-container .content-div .register-tip .login-link {
+    margin-left: .1rem;
+    color: #31baed;
+}
+.company-user-register .register-type-change-div {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: -1px;
+    right: .2rem;
+    width: .4rem;
+    height: auto;
+    padding: .1rem;
+    font-size: 16px;
+    background: #31baed;
+    text-align: center;
+    color: #ffffff;
+    word-break: break-all;
+}
+.company-user-register .register-type-change-div:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: .1rem solid transparent;
+    border-top: .1rem solid #31baed;
+    border-left: .1rem solid #31baed;
+}
+.company-user-register .register-type-change-div:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: .1rem solid transparent;
+    border-top: .1rem solid #31baed;
+    border-right: .1rem solid #31baed;
+}
+
+
+
+
+
+
+
+
+
+

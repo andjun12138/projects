@@ -1,0 +1,107 @@
+.platform-detail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.platform-detail .platform-detail-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .28rem auto;
+    width: 12rem;
+    height: auto;
+    padding:.4rem;
+    padding-top: 0;
+    background: #ffffff;
+}
+.platform-detail .platform-detail-container .path-list {
+    width: 100%;
+    height: .53rem;
+    line-height: .53rem;
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .path-list:before {
+    /*当前位置*/
+    content: '\5f53\524d\4f4d\7f6e\ff1a';
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .path-list .path-item {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .path-list .path-item:before{
+    content: '/';
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .path-list .path-item:first-child:before{
+    content: none;
+}
+
+.platform-detail .platform-detail-container .content-div {
+    width: 100%;
+    height: auto;
+}
+.platform-detail .platform-detail-container .content-div .title{
+    width: 100%;
+    font-size: .2rem;
+    text-align: center;
+    line-height: .5rem;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div {
+    width: 100%;
+    height: .42rem;
+    border-bottom: 1px solid #eeeeee;
+    overflow: hidden;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item{
+    float: left;
+    margin-left: 1rem;
+    height: 100%;
+    line-height: .42rem;
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item:first-child {
+    margin-left: 0;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item:before {
+    margin-right: .1rem;
+    color: #5e5e5e;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item[type="source"]:before {
+    /*来源*/
+    content: '\6765\6e90\003a';
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item[type="author"]:before {
+    /*发布者*/
+    content: '\53d1\5e03\8005\003a';
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item[type="time"] {
+    float: right;
+}
+.platform-detail .platform-detail-container .content-div .book-info-div .info-item[type="time"]:before {
+    content: '\e608';
+    color: #31baed;
+    font-size: .16rem;
+}
+.platform-detail .platform-detail-container .content-div .content-rich-text {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: .3rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

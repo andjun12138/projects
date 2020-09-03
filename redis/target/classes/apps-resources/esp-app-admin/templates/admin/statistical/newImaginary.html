@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title th:if="${imaginaryManage['id']} == null" th:text="${'新建虚数管理'}"></title>
+    <title th:if="${imaginaryManage['id']} != null" th:text="${'修改虚数管理'}"></title>
+    <link rel="icon" href="/static/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .imaginary-data-header {
+        width: 100%;
+        line-height: 40px;
+        font-size: 17px;
+        color: #323232;
+        display: flex;
+        justify-content: space-around;
+    }
+    .imaginary-data-item {
+        padding: 5px;
+        line-height: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .imaginary-data-item:nth-child(2n+1) {
+        background-color: #f0f0f0;
+        border: 1px solid #fafafa;
+    }
+    .imaginary-data-item>div {
+        width: 25%;
+        text-align: center;
+        display: inline-block;
+    }
+    .imaginary-count>input {
+        text-align: center;
+    }
+</style>
+<body>
+<div id="main">
+    <input type="hidden" id="selectItemId" th:value="${imaginaryManage['id']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${imaginaryManage['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div id="imaginaryTable">
+                    <script th:inline="javascript">
+                        var imaginaryData = [[${imaginaryManage}]]
+                        var realData = [[${realData}]]
+                        console.log(imaginaryData)
+                        console.log(realData)
+                    </script>
+                    <div class="imaginary-data-header">
+                        <span class="item-header">统计项</span>
+                        <span class="item-header">显示总数</span>
+                        <span class="item-header">实际总数</span>
+                        <span class="item-header">虚数</span>
+                    </div>
+                    <!--<div class="imaginary-data-item">
+                        <div class="item-name">技术</div>
+                        <div class="show-count">100</div>
+                        <div class="actual-count">9</div>
+                        <div class="imaginary-count">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>-->
+                   <!--
+                        注入参数 ：imaginaryData
+                        保存接口 ： /admin/imaginaryData/create_update POST
+                        技术  technology_show(修改虚数时要自动修改)   technology_actual  technology_imaginary
+                        产品  product_show     product_actual     product_imaginary
+                        需求  demand_show     demand_actual     demand_imaginary
+                        需求对接  dock_show  dock_actual  dock_imaginary
+
+                   -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/statistical/newImaginary.js?app_v=${app.build.version}"></script>
+</body>
+</html>

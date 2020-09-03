@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/intelligent/main.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="three-news-list" class="three-news-list">
+    <div class="three-news-list-container">
+        <ul class="path-list">
+            <li class="path-item">
+                <a class="path-link" href="/home.html" >首页</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="javaScript:void(0)" >通关资讯</a>
+            </li>
+        </ul>
+        <div class="news-content-container">
+            <div class="nav-div">
+                <ul class="nav-list">
+                    <li class="nav-item active" type="park">通关资讯</li>
+
+                </ul>
+            </div>
+            <div class="news-list-div">
+                <ul class="news-list"></ul>
+            </div>
+            <div id="three-news-page" class="three-news-page">
+                <!--最外层：限制框-->
+                <div class="plugin-pagination">
+                    <!--第二层：最大延展层（保证分页组件不会换行）-->
+                    <div class="plugin-pagination-content-div plugin-pagination-content-div__ie11">
+                        <!--第三层：自适应延展层（由子项决定宽度，居中内容）-->
+                        <div class="plugin-pagination-content plugin-pagination-content__ie11">
+                            <!--分页页码-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/intelligent/main.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

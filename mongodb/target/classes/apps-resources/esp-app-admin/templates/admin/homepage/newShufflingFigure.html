@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title th:if="${shufflingFigure['title']} == null" th:text="${'新建轮播图'}"></title>
+    <title th:if="${shufflingFigure['title']} != null" th:text="${'轮播图详情 - '+shufflingFigure['title']}"></title>
+    <link rel="icon" href="/static/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link href="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="selectItemId" th:value="${shufflingFigure['id']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${shufflingFigure['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                   <!--
+                    标题：title
+                    图片：picture
+                    链接：url
+                    类型：type(轮播图类型枚举
+                   -->
+                    <div class="form-group form-group-sm">
+                        <label for="title">标题</label>
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题" id="title" required th:value="${shufflingFigure['title']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="picture">图片</label> <span style="color:#FF3333;font-size:18px">(推荐尺寸：490*330)*</span>
+                        <input type="file" name="picture" multiple style="display: none" id="picture" required th:data-pic="'['+${shufflingFigure['picture']}+']'"/>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="logoInput" style="background-color:#fff" placeholder="请上传一张logo图片" readonly>
+                            <span class="input-group-addon choose" onclick="upLoading('#picture')"><i class="icon-picture"></i></span>
+                        </div>
+                        <div class="file-content col-sm-12">
+                            <div class="file-list" id="pictureFileList"></div>
+                            <div class="progress-container" style="padding: 5px 10px;background-color: #f0f0f0;display: none">
+                                <div class="progress progress-striped" style="margin:0;height: 10px">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemax="100"  style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style="width: 100%;"></div>
+                    <!-- 图片裁剪 -->
+                    <div id="cropperBox" style="display: none;width: 100%;">
+                        <!--裁剪部分-->
+                        <div>
+                            <img src="" id="photo">
+                        </div>
+                        <!--预览提示、裁剪操作-->
+                        <button class="btn btn-primary" onclick="crop()">裁剪图片</button>
+                        <!--预览-->
+                        <div class="img-preview"></div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label for="url">链接</label>
+                        <input type="text" class="form-control" name="url" placeholder="请输入链接" id="url" required th:value="${shufflingFigure['url']}"/>
+                    </div>
+                    <div class="form-group form-group-sm" style="padding-left:0">
+                        <label for="type">类型</label>
+                        <select class="form-control" name="type" id="type" required th:data-select="${shufflingFigure['type']}">
+                            <option th:each="module:${types}" th:value="${module.id}" th:text="${module.title}" th:selected="(${shufflingFigure['type']} == ${module.id})"></option>
+                        </select>
+                    </div>
+                    <!--<div class="form-group form-group-sm" style="padding-left:0">-->
+                        <!--<label for="type">类型</label>-->
+                        <!--<select class="form-control" name="type" id="type" required th:data-select="${shufflingFigure['type']}">-->
+                            <!--<option th:each="module:${shufflingFigureTypes}" th:value="${module.id}" th:text="${module.title}" th:selected="(${shufflingFigure['type']} == ${module.id})"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                        <!--<label for="sort">排序</label>-->
+                        <!--<input type="text" class="form-control" name="sort" placeholder="请输入排序" id="sort" required th:value="${shufflingFigure['sort']}"/>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/homepage/newShufflingFigure.js"></script>
+</body>
+</html>

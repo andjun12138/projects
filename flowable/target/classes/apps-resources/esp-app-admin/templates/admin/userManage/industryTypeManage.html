@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册企业审核</title>
+    <link rel="icon" href="/static/assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="pid" th:value="${pid}"/>
+    <div id="search-part" class="row" style="display: none">
+        <form id="search-form" name="search-form">
+        </form>
+    </div>
+    <div id="data-part" class="clearfix">
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" th:each="button:${buttons}" th:onClick="${button['jsContent']}"
+                    th:class="${button['className']}">
+                <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
+            </button>
+            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>
+            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span></button>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <th data-title="名称" data-field="title" data-align="center"></th>
+                <th data-title="排序" data-field="sort" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/userManage/industryTypeManage.js"></script>
+</body>
+</html>

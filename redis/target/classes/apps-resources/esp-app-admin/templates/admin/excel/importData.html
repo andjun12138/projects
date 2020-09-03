@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>数据导入</title>
+    <link rel="icon" href="/static/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body,html{width:100%;height:100%;}
+        .x-block{width:100%;height:100%;}
+        .main{position: relative;padding:10px;}
+        .footer-operations{text-align: right;position: absolute;bottom: 0;left: 0;width:100%;padding:10px;}
+        #choose{cursor: pointer;color: #fff;background-color: #5cb85c;border-color: #4cae4c;}
+    </style>
+</head>
+<body>
+<div class="main x-block">
+    <input type="hidden" id="url" th:value="${url}"/>
+    <form name="enterpriseExportData" id="enterpriseExportData" style="padding: 10px 0;">
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10">
+                <input type="file" name="excelFile" id="excelFile" accept=".xls,.xlsx" style="display:none"/>
+                <div class="input-group">
+                    <input type="text" class="form-control" style="background-color:#fff" placeholder="未选择任何文件" readonly/>
+                    <span id="choose" class="input-group-addon" onclick="handleFile(event)">选择文件</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="footer-operations">
+        <button class="btn btn-sm btn-primary" id="confirm">确认导入</button>
+        <button class="btn btn-sm btn-default" id="cancel">取消</button>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/ajaxfileupload.js"></script>
+<script type="text/javascript">
+    // 消息框位置控制
+    var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+    // 获取文件input的DOM
+    var $file = $("#excelFile");
+    // 时间插件初始化
+    $('.yearPicker').datetimepicker({
+        locale: 'zh-CN',
+        format: "YYYY"
+    });
+    // 取消
+    $("#cancel").on('click', function(e){
+        e.stopPropagation();
+        closeFrame();
+    });
+    // 确认导入
+    $("#confirm").on('click', function(e){
+        e.stopPropagation();
+        var fileName = getFileName($file.val());
+        var suffix = fileName.split('.')[1];
+        if(!$file.val()) {
+            layer.msg("导入文件不能为空！", function(){});
+            return false;
+        }
+        layer.msg('数据文件导入中...', { // 提交加载动画
+            icon: 16,
+            shade: 0.01,
+            time: 0
+        });
+        var url = $("#url").val();
+        $.ajaxFileUpload({
+            url: url,
+            secureuri : false,
+            fileElementId : "excelFile",
+            data : {
+                fileName : fileName,
+                suffix : suffix
+            },
+            dataType: 'text/html',
+            success: function (data, status) {
+                layer.closeAll();
+                parent.window.refreshAndShowMessage({
+                    title: '导入文件成功！',
+                    text: '请在企业数据列表页中查看',
+                    type: 'success',
+                    delay: 3000,
+                    addclass: "stack-bottomright",
+                    stack: stack_bottomright
+                });
+                parent.layer.closeAll();
+            },
+            error: function(data, status, e) {
+                layer.closeAll();
+                new PNotify({
+                    title: '导入文件失败！',
+                    text: '服务器内部错误，或网络错处',
+                    type: 'error',
+                    delay: 3000,
+                    addclass: "stack-bottomright",
+                    stack: stack_bottomright
+                });
+            }
+        });
+    });
+    function closeFrame() {
+        if(parent.layer) {
+            var layerIndex = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(layerIndex);
+        }
+    }
+    function handleFile(event) {
+        $(event.currentTarget).parent().prev().trigger("click");
+    }
+    function getFileName(o){
+        var pos=o.lastIndexOf("\\");
+        return o.substring(pos+1);
+    }
+    $file.on('change', function(e){
+        e.stopPropagation();
+        var filePath = $(this).val();
+        $(this).next().children('input').first().val(getFileName(filePath)).attr('title', getFileName(filePath));
+    });
+</script>
+</body>
+</html>

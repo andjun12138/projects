@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/aboutus/index.css">
+</head>
+<body layout:fragment="content">
+<div class="about-us">
+    <div class="about-us-container">
+        <ul class="path-list">
+            <li class="path-item">
+                <a class="path-link" href="/home.html" >首页</a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/aboutUs.html" >关于我们</a>
+            </li>
+        </ul>
+        <div class="content-div">
+            <div class="content-rich-text" th:utext="${aboutUs.detail}">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="/static/front/js/module/aboutus/index.js"></script>-->
+</body>
+</html>

@@ -485,7 +485,7 @@ function saveNewWindowNumber(isOpen) {
 
 // webSocket
 function SOCKET(userId) {
-    var headURl ='ws://www.hnesp.com:8388?';
+    var headURl ='wss://websocket.hnesp.com?';
     //var headURl ='ws://10.0.20.3:8288/?';
 
     //宇昂的

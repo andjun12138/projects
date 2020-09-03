@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>招聘信息管理列表</title>
+    <link rel="icon" href="/static/assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <!--<input type="hidden" id="serviceProviderId" th:value="${serviceProviderId}"/>-->
+    <div id="search-part" class="row" style="display: none">
+        <form id="search-form" name="search-form">
+            <div>
+                <!--  标题   作者  发布时间-->
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">标题</label>
+                    <input id="title" class="search-control" type="text"/>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label" >所属企业</label>
+                    <div class="input-group">
+                        <input type="text" style="display:none"/>
+                        <input id="enterpriseId"type="text" class="search-control" placeholder="请选择所属企业" data-id="" style="border-top-right-radius: 0;border-bottom-right-radius: 0"/>
+                        <span class="input-group-addon choose" th:data-url="${enterprises}"  onclick="openRelativeDialog(event)"><i class="icon-external-link"></i></span>
+                    </div>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">所属行业</label>
+                    <select class="search-control" id="industry" >
+                        <option value=""></option>
+                        <option th:each="module:${industrys}" th:value="${module.id}" th:text="${module.title}" ></option>
+                    </select>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label class="search-label">学历</label>
+                    <select class="search-control" id="education" >
+                        <option value=""></option>
+                        <option th:each="module:${educations}" th:value="${module.id}" th:text="${module.title}" ></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="data-part" class="clearfix">
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" th:each="button:${buttons}" th:onClick="${button['jsContent']}"
+                    th:class="${button['className']}">
+                <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
+            </button>
+            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>
+            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span></button>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <th data-title="标题" data-field="title" data-align="center"></th>
+                <th data-title="所属企业" data-field="enterpriseId" data-align="center"></th>
+                <th data-title="发布用户" data-field="userId" data-align="center"></th>
+                <th data-title="工资" data-field="wage" data-align="center"></th>
+                <th data-title="工作经验" data-field="workExperience" data-align="center"></th>
+                <th data-title="学历" data-field="education" data-align="center"></th>
+                <th data-title="地址" data-field="address" data-align="center"></th>
+                <th data-title="所属行业" data-field="industry" data-align="center"></th>
+                <th data-title="联系人" data-field="contact" data-align="center"></th>
+                <th data-title="联系电话" data-field="contactNumber" data-align="center"></th>
+                <th data-title="联系邮箱" data-field="contactEmail" data-align="center"></th>
+                <th data-title="后台审核状态" data-field="backCheckStatus" data-align="center"></th>
+                <th data-title="后台审核时间" data-field="backCheckTime" data-align="center"></th>
+                <th data-title="不通过理由" data-field="notPassReason" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/personal/employmentManage.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>专家列表</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script th:inline="javascript">
+    var roleList = [[${roleList}]]
+</script>
+<div style="padding: 15px;">
+    <div>
+        <ul id="role-tree" class="ztree"></ul>
+    </div>
+</div>
+    <!--这个页面仿照角色管理菜单那个页面 但这个页面只有分配菜单这个功能，把其他功能先全部去掉，包括增删改-->
+    <!--跳转分配菜单的页面路径 ： admin/frontRoleMenu/{roleId}/menus.html GET roleId{所选角色的ID}
+        注入参数 ：model.addAttribute("roleId", roleId);
+        model.addAttribute("allRoleMenus", allRoleMenus);
+        model.addAttribute("selectedRoleMenus", selectedRoleMenus);
+        -->
+    <!--
+        勾选后的保存更新接口 ：admin/frontRoleMenu/{roleId}/update_menus  POST  上传参数 menuIds 结构与角色管理分配菜单时上传的一样
+    -->
+    <script src="/static/plugin/jquery-1.10.2.min.js"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.core.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.exedit.min.js"></script>
+    <script src="/static/plugin/zTree/js/jquery.ztree.excheck.min.js"></script>
+    <script src="/static/plugin/pnotify/pnotify.js"></script>
+    <script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+    <script src="/static/plugin/layer/layer.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/admin/js/personal/frontRoleManage.js"></script>
+</body>
+</html>

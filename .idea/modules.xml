@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-client/eureka-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-client-one/eureka-client-one.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-client-one/eureka-client-one.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flowable/flowable.iml" filepath="$PROJECT_DIR$/flowable/flowable.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mongodb/mongodb.iml" filepath="$PROJECT_DIR$/mongodb/mongodb.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-common/project-common.iml" filepath="$PROJECT_DIR$/project-common/project-common.iml" />

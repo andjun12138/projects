@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="device-list">
+<head>
+</head>
+<body>
+<div id="device-list" class="model-item-div device-list-model-container" style="display: none">
+    <p class="device-list-title-v">我预约的仪器</p>
+    <div class="device-list-void-div">
+        <p class="data-void-content">
+            暂无数据
+        </p>
+    </div>
+    <div id="device-list-table" class="device-list-table-div"></div>
+    <div id="device-list-page" class="device-list-page-div"></div>
+    <div class="device-info-global-div">
+        <div class="device-info-div">
+            <div class="device-info-title">
+                仪器设备信息卡<i class="icon-error"></i>
+            </div>
+            <div class="device-info-content">
+                <div th:replace="front/module/device/module/deviceForm :: device-form"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

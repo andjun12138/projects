@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.mapper.BaseEntityMapper" >
+    <resultMap id="baseEntityMap" type="com.cloud.entity.BaseEntity" >
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+        <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="many" property="many" jdbcType="VARCHAR"/>
+        <result column="total" property="total" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="create" parameterType="baseEntity">
+        insert into base_entity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <!--<if test="null != title">         title,     </if>-->
+            <if test="null != id">		id,		</if>
+            <if test="null != type">		type,		</if>
+            <if test="null != account">		account,		</if>
+            <if test="null != many">		many,		</if>
+            <if test="null != total">		total,		</if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <!--<if test="null != title">         #{title},     </if>-->
+            <if test="null != id">		#{id},		</if>
+            <if test="null != type">		#{type},		</if>
+            <if test="null != account">		#{account},		</if>
+            <if test="null != many">		#{many},		</if>
+            <if test="null != total">		#{total},		</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="baseEntity">
+        update base_entity
+        <set>
+            <if test="null != id">		id=#{id},		</if>
+            <if test="null != type">		type=#{type},		</if>
+            <if test="null != account">		account=#{account},		</if>
+            <if test="null != many">		many=#{many},		</if>
+            <if test="null != total">		total=#{total},		</if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+    <select id="getByTableName" resultMap="baseEntityMap">
+      select * from ${tableName}
+    </select>
+
+    <select id="lastBugRecord" resultMap="baseEntityMap">
+      select * from ${tableName}
+      where type = 0
+      ORDER BY id desc
+      limit 0,10
+    </select>
+
+    <select id="lastSaleRecord" resultMap="baseEntityMap">
+        select * from ${tableName}
+        where type = 1
+        ORDER BY id desc
+        limit 0,10
+    </select>
+
+    <select id="getRecords" resultMap="baseEntityMap">
+        select * from ${tableName}
+        where
+          <if test="type != null">
+              type = ${type} and
+          </if>
+        1 = 1
+        ORDER BY id desc
+        limit 0,${times}
+    </select>
+
+    <select id="selectById" resultMap="baseEntityMap">
+        select * from base_entity
+        where id = #{id}
+    </select>
+</mapper>

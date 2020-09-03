@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>国防四库平台</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css">
+    <link rel="stylesheet" href="/static/admin/css/reports.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<script th:inline="javascript">
+    var menus = [[${menus}]]
+//    console.log(menus);
+</script>
+<div id="main row">
+    <div class="maintain-table col-md-12 col-lg-12" style="width: 95%">
+        <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#pandect" data-toggle="tab">总览</a></li>
+            <li role="presentation"><a href="#trend" data-toggle="tab">趋势分析</a></li>
+            <li role="presentation"><a href="#contrast" data-toggle="tab">对比分析</a></li>
+            <li role="presentation"><a href="#proportion" data-toggle="proportion">同比分析</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="pandect">
+                <div class="column-nav col-md-2 col-lg-2">
+                    <div class="nav-title">栏目导航</div>
+                    <div class="search-div"><span class="launch-btn"><i class="glyphicon glyphicon-minus"><!--plus--></i></span><input class="search-control" style="" id="searchPandectText" type="text" placeholder="请输入关键词"/><button id="searchPandect" class="searchTree"><i class="glyphicon glyphicon-search"></i></button></div>
+                    <div class="nav-tree">
+                        <ul id="pandect-tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10">
+                    <table id="pandectTable" data-classes="table table-hover table-responsive table-sm">
+                        <thead>
+                        <tr>
+                            <th data-title="名称" data-field="name" data-align="center"></th>
+                            <th data-title="今日" data-field="today" data-align="center"></th>
+                            <th data-title="昨日同期" data-field="yesterday" data-align="center"></th>
+                            <th data-title="本周" data-field="thisWeek" data-align="center"></th>
+                            <th data-title="上周同期" data-field="lastWeek" data-align="center"></th>
+                            <th data-title="本月" data-field="thisMonth" data-align="center"></th>
+                            <th data-title="上月同期" data-field="lastMonth" data-align="center"></th>
+                            <th data-title="本年" data-field="thisYear" data-align="center"></th>
+                            <th data-title="去年总量" data-field="lastYear" data-align="center"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane row" id="trend">
+                <div class="column-nav col-md-2 col-lg-2">
+                    <div class="nav-title">栏目导航</div>
+                    <div class="search-div"><span class="launch-btn"><i class="glyphicon glyphicon-minus"><!--plus--></i></span><input class="search-control" style="" id="searchTrendText" type="text" placeholder="请输入关键词"/><button id="searchTrend" class="searchTree"><i class="glyphicon glyphicon-search"></i></button></div>
+                    <div class="nav-tree">
+                        <ul id="trend-tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10" style="width: 80%">
+                    <div class="search-pad-div">
+                        <div class="type-label">时间类型:</div>
+                        <ul class="type-list">
+                            <li class="type-active"><span data-value="日">按日</span></li>
+                            <li><span data-value="周">按周</span></li>
+                            <li><span data-value="月">按月</span></li>
+                            <li><span data-value="年">按年</span></li>
+                        </ul>
+                        <div class="time-label">时间范围:</div>
+                        <ul class="time-list">
+                            <li class="time-active"><span data-time="3">3月</span></li>
+                            <li><span data-time="6">6月</span></li>
+                            <li><span data-time="12">12月</span></li>
+                        </ul>
+                        <div class="time-input">
+                            <input type="text" class="time" id="trendStart">
+                            <span>-</span>
+                            <input type="text" class="time" id="trendEnd">
+                        </div>
+                        <button class="btn btn-default search-btn" id="trendToSearch">搜索</button>
+                        <!--<div id="analysisBarMap"></div>-->
+                    </div>
+                    <div class="data-statistics">
+                        <div id="trendMap" style="width: 980px;height: 700px;margin: 10px auto;"></div>
+                        <p class="statistic-title">数据统计</p>
+                        <table id="trend-statistics" class="table table-hover table-bordered table-sm">
+                            <thead>
+                            <tr>
+                                <th data-align="center">总计</th>
+                                <th data-align="center">平均值</th>
+                                <th data-align="center">最大值</th>
+                                <th data-align="center">最大值时间</th>
+                                <th data-align="center">最小值</th>
+                                <th data-align="center">最小值时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <p class="statistic-title">分析详情表</p>
+                        <table id="trendTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                            <tr>
+                                <th data-title="时间" data-field="time" data-align="center"></th>
+                                <th data-title="点击量" data-field="click_num" data-align="center"></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="contrast">
+                <div class="column-nav col-md-2 col-lg-2">
+                    <!--<iframe class="tab_iframe" src="/templates/re" frameborder="0" width="100%" onload="changeFrameHeight(this)" scrolling="auto"></iframe>-->
+                    <div class="nav-title">栏目导航</div>
+                    <div class="search-div"><span class="launch-btn"><i class="glyphicon glyphicon-minus"><!--plus--></i></span><input class="search-control" style="" id="searchContrastText" type="text" placeholder="请输入关键词"/><button id="searchContrast" class="searchTree"><i class="glyphicon glyphicon-search"></i></button></div>
+                    <div class="nav-tree">
+                        <ul id="contrast-tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10" style="width: 80%">
+                    <div class="contrast-ids"><span>对比区域:</span>
+                        <ul id="ids-list">
+                            <!--<li><span class="id-name">需求大厅</span><i class="icon-remove"></i></li>
+                            <li><span class="id-name">需求大厅</span><i class="icon-remove"></i></li>-->
+                        </ul>
+                    </div>
+                    <div class="search-pad-div">
+                        <div class="type-label">时间类型:</div>
+                        <ul class="type-list">
+                            <li class="type-active"><span data-value="日">按日</span></li>
+                            <li><span data-value="周">按周</span></li>
+                            <li><span data-value="月">按月</span></li>
+                            <li><span data-value="年">按年</span></li>
+                        </ul>
+                        <div class="time-label">时间范围:</div>
+                        <ul class="time-list">
+                            <li class="time-active"><span data-time="3">3月</span></li>
+                            <li><span data-time="6">6月</span></li>
+                            <li><span data-time="12">12月</span></li>
+                        </ul>
+                        <div class="time-input">
+                            <input type="text" class="time" id="contrastStart">
+                            <span>-</span>
+                            <input type="text" class="time" id="contrastEnd">
+                        </div>
+                        <button class="btn btn-default search-btn" id="contrastToSearch">搜索</button>
+                        <!--<div id="analysisBarMap"></div>-->
+                        <div id="contrastMap" style="width: 980px;height: 700px;margin: 10px auto;"></div>
+                        <p class="statistic-title">分析详情表</p>
+                        <table id="contrastTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                            <tr>
+                                <th data-title="区域" data-field="area" data-align="center"></th>
+                                <th data-title="时间" data-field="time" data-align="center"></th>
+                                <th data-title="点击量" data-field="click_num" data-align="center"></th>
+                                <th data-title="累积点击量" data-field="count" data-align="center"></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="proportion">
+                <div class="column-nav col-md-2 col-lg-2">
+                    <div class="nav-title">栏目导航</div>
+                    <div class="search-div"><span class="launch-btn"><i class="glyphicon glyphicon-minus"><!--plus--></i></span><input class="search-control" style="" id="searchProportionText" type="text" placeholder="请输入关键词"/><button id="searchProportion" class="searchTree"><i class="glyphicon glyphicon-search"></i></button></div>
+                    <div class="nav-tree">
+                        <ul id="proportion-tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10">
+                    <div class="search-pad-div">
+                        <div class="type-label">比较类型:</div>
+                        <ul class="type-list">
+                            <li class="type-active"><span data-value="周日">按周日</span></li>
+                            <li><span data-value="月日">按月日</span></li>
+                            <li><span data-value="年月">按年日</span></li>
+                        </ul>
+                        <br/>
+                        <div class="time-label">基础时间:</div>
+                        <ul class="time-first">
+                            <li class="time-active"><span data-time="0">本周</span></li>
+                            <li><span data-time="1">上周</span></li>
+                        </ul>
+                        <div class="time-input">
+                            <input type="text" class="time" id="firstTime">
+                        </div>
+                        <div class="time-label" style="margin-left: 20px">对比时间:</div>
+                        <ul class="time-sec">
+                            <li class="time-active"><span data-time="2">上一周</span></li>
+                            <li><span data-time="3">上两周</span></li>
+                        </ul>
+                        <div class="time-input">
+                            <input type="text" class="time" id="secTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="proportionToSearch">搜索</button>
+                    </div>
+                    <div class="data-proportion">
+                        <div id="proportionMap" style="width: 980px;height: 700px;margin: 10px auto;"></div>
+                        <p class="statistic-title">分析详情表</p>
+                        <table id="proportionTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                            <tr>
+                                <th data-title="时间" data-field="time" data-align="center"></th>
+                                <th data-title="基础时间点击量" data-field="first_click" data-align="center"></th>
+                                <th data-title="对比时间点击量" data-field="sec_click" data-align="center"></th>
+                                <th data-title="差值" data-field="d_value" data-align="center"></th>
+                                <th data-title="差比" data-field="d_rate" data-align="center"></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注入导航栏参数：menus 前台解析成树状-->
+<!--
+    获取总览数据
+    URL:/admin/menuClick/{id}/getStatistical POST id:导航栏的菜单id
+    参数：
+    返回参数：today yesterday thisWeek lastWeek thisMonth lastMonth thisYear lastYear 作为列表
+-->
+<!--
+    趋势分析
+    URL：/admin/menuClick/trendAnalysis POST
+    参数："type" : "日/周/月/年"   "startTime" : "yyyy-mm-dd"  "endTime": "yyyy-mm-dd"  "id":导航栏选择的id  都不为空
+-->
+<!--
+    对比分析
+    URL：/admin/menuClick/contrastAnalysis POST
+    参数："type" : "日/周/月/年"   "firstTime" : "yyyy-mm-dd"  "secTime": "yyyy-mm-dd"  "ids":对比区域的选择（选择导航栏中有的菜单,多选,id用逗号分隔）  都不为空
+ -->
+<!--
+    同比分析
+    URL：/admin/menuClick/compareAnalysis POST
+    参数："type" : "周日/月日/年日"   "firstTime" : "yyyy-mm-dd"  "secTime": "yyyy-mm-dd"  "id":导航栏选择的id   都不为空
+    返回参数："first" : 基础时间选择后的返回值          "sec":对比时间选择后的返回值
+ -->
+<!--  ps：传参格式注意： 比如类型为年  值为2018  那么就要传2018-01-01   月的话 也是  2018-07-01 -->
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.core.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exedit.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/reports/analysisManage.js"></script>
+</body>
+</html>

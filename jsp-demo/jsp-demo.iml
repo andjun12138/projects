@@ -25,6 +25,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.google.zxing:javase:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.72" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.jai-imageio:jai-imageio-core:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.zxing:core:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.1.RELEASE" level="project" />

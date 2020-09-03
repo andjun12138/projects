@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/front/css/module/employment/detail.css">
+</head>
+<body layout:fragment="content">
+<div class="employment-detail">
+    <div class="employment-detail-container">
+        <ul class="path-list">
+            <li class="path-item">
+                您现在的位置：
+            </li>
+            <li class="path-item">
+                <a class="path-link" href="/home.html" >首页></a>
+            </li>
+            <li class="path-item">
+                <a class="path-link path-item-link" href="/employment.html" >招聘></a>
+            </li>
+            <li class="path-item">
+                招聘详情
+            </li>
+        </ul>
+        <div class="base-info-container">
+            <!--<ul class="tag-list">-->
+                <!--<li class="tag-item">互联网</li>-->
+                <!--<li class="tag-item">金融</li>-->
+            <!--</ul>-->
+            <div class="job-title" th:text="${employment['title']}"></div>
+            <p class="job-introduction">职位简介：<span th:text="${employment['jobDescription']}"></span></p>
+            <div class="job-other-info">
+                <p class="job-salary">工资：<span th:text="${employment['wageStart'] + '-' + employment['wageEnd'] + 'K'}"}></span></p>
+                <p class="job-experience">工作经验：<span th:text="${employment['workExperience']}"></span></p>
+                <p class="job-date">更新时间：<span th:text="${#dates.format(employment['refreshTime'],'yyyy-MM-dd')}"></span></p>
+            </div>
+        </div>
+        <div class="job-detail-container">
+            <div class="job-detail-left">
+                <div class="job-description">
+                    <div class="job-tag-title">职位详情</div>
+                    <div class="job-detail" th:utext="${employment['workDetail']}"></div>
+                </div>
+                <div class="work-address">
+                    <div class="job-tag-title">工作地点</div>
+                    <div class="address-detail" th:text="${employment['provinceName'] + '-' + employment['cityName'] + '-' + employment['areaName'] + '-' + employment['detailAddress']}">
+                    </div>
+                </div>
+            </div>
+            <div class="job-detail-right">
+                <div class="company-container">
+                    <div class="top-part">
+                        <!--<img src="" alt="" class="company-logo">-->
+                        <div class="company-name" th:text="${enterprise['name']}"></div>
+                        <div class="company-address" th:text="${enterprise['provinceName'] + '-' + enterprise['cityName']}"></div>
+                    </div>
+                    <div class="bottom-part">
+                        <ul class="contact-list">
+                            <li class="contact-item" th:text="${'联系人：' + enterprise['contact']}"></li>
+                            <li class="contact-item" th:text="${'联系电话：' + enterprise['phone']}"></li>
+                            <li class="contact-item" th:text="${'联系邮箱：' + enterprise['email']}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="/static/front/js/module/aboutus/index.js"></script>-->
+<script th:inline="javascript">
+    var employment = [[${employment}]]
+    var enterprise = [[${enterprise}]]
+    console.log(employment)
+    console.log(enterprise)
+</script>
+</body>
+</html>

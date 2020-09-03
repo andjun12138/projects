@@ -1,0 +1,336 @@
+.normal-user-register {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+.normal-user-register .register-container {
+    position: relative;
+    margin: .25rem auto;
+    width: 12rem;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid transparent;
+}
+.normal-user-register input::placeholder {
+    color: initial;
+}
+.normal-user-register input:-moz-placeholder{
+    color: initial;
+}
+.normal-user-register input:-ms-input-placeholder{
+    color: initial;
+}
+.normal-user-register input::-moz-placeholder {
+    color: initial;
+}
+.normal-user-register input::-webkit-input-placeholder{
+    color: initial;
+}
+.normal-user-register .register-container .content-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 4.3rem;
+    height: auto;
+    padding-bottom: .3rem;
+}
+/* logo */
+.normal-user-register .register-container .content-div .logo-div {
+    position: relative;
+    margin-top: .5rem;
+    width: 100%;
+    height: .44rem;
+}
+.normal-user-register .register-container .content-div .logo-div .logo-content {
+    display: block;
+    margin: 0 auto;
+    width: 2.2rem;
+    height: 100%;
+    line-height: .44rem;
+}
+.normal-user-register .register-container .content-div .logo-div .logo-content .logo-image {
+    margin-right: .23rem;
+}
+.normal-user-register .register-container .content-div .logo-div .logo-content  .logo-title{
+    vertical-align: top;
+    font-size: .2rem;
+    letter-spacing: 2px;
+}
+/* 注册模式导航栏 */
+.normal-user-register .register-container .content-div .model-nav-list {
+    margin-top: .3rem;
+    width: 100%;
+    height: .55rem;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+}
+.normal-user-register .register-container .content-div .model-nav-list .model-nav-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: .83rem;
+    width: auto;
+    height: .54rem;
+    line-height: .54rem;
+    border-bottom: 2px solid transparent;
+    color: #6b6b6b;
+    cursor: pointer;
+}
+.normal-user-register .register-container .content-div .model-nav-list .model-nav-item:last-child {
+    margin-right: 0;
+}
+.normal-user-register .register-container .content-div .model-nav-list .active {
+    color: #39a6e4;
+    border-bottom-color: #39a6e4;
+}
+
+.normal-user-register .register-container .content-div .register-form {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model {
+    position: relative;
+    margin-top: .7rem;
+    width: 100%;
+    height: .42rem;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model:before {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    height: .4rem;
+    font-size: .16rem;
+    line-height: .4rem;
+    text-indent: .1rem;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model[type="company"] {
+    display: none;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .input-div {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-right: .3rem;
+    border: 1px solid #e5e5e5;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model div[class*="-al-icon"]:after {
+    position: absolute;
+    top: 0;
+    right: .1rem;
+    bottom: 0;
+    margin: auto;
+    font-size: .16rem;
+    line-height: .42rem;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .input-div .register-input {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-left: .1rem;
+    border: none;
+    outline: none;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .input-div .register-input::placeholder {
+    letter-spacing: 2px;
+    color: #d2d2d2;
+}
+/* 验证码 */
+.normal-user-register .register-container .content-div .register-form .code {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 1.87rem;
+}
+.normal-user-register .register-container .content-div .register-form .code .code-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.45rem;
+    height: 100%;
+    background: #31baed;
+    border: none;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+/* 地址 */
+.normal-user-register .register-container .content-div .register-form .company-address{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 3.14rem;
+}
+.normal-user-register .register-container .content-div .register-form .company-address .address-select-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.14rem;
+    height: 100%;
+}
+.normal-user-register .register-container .content-div .register-form .company-address .address-select-div .address-select {
+    margin-right: .03rem;
+    width: .98rem;
+    height: 100%;
+    border-color: #e5e5e5;
+    color: #000000;
+    outline: none;
+}
+.normal-user-register .register-container .content-div .register-form .company-address .address-select-div .address-select:last-child {
+    margin-right: 0;
+}
+/* 行业 */
+.normal-user-register .register-container .content-div .register-form .industry .input-div {
+    padding-right: 0;
+}
+/* 协议 */
+.normal-user-register .register-container .content-div .register-form .checkbox {
+    margin-top: .4rem;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-checkbox {
+    display: none;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-checkbox + label {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: .09rem;
+    margin-right: .2rem;
+    width: .2rem;
+    height: .2rem;
+    text-align: center;
+    line-height: .2rem;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+    outline: none;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-checkbox:checked + label:before {
+    content: '\e613';
+    font-size: .18rem;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-link-div {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    height: 100%;
+    line-height: .42rem;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-link-div:before {
+    content: '\6211\540c\610f';
+    margin-right: .1rem;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-link-div .protocol-link {
+    color: #31baed;
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-link-div .protocol-link:before {
+    content: '\300a';
+}
+.normal-user-register .register-container .content-div .register-form .checkbox .protocol-link-div .protocol-link:after {
+    content: '\300b'
+}
+
+
+
+.normal-user-register .register-container .content-div .register-form .register-input-model .true-al-icon:after {
+    content: '\e613';
+    color: #33bbed;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .error-al-icon:after {
+    content: '\e611';
+    color: #ff0000;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .error-al-icon {
+    border-color: #ff0000;
+}
+.normal-user-register .register-container .content-div .register-form .register-input-model .input-tip {
+    position: absolute;
+    top: 110%;
+    left: .1rem;
+    color: #ff0000;
+}
+.normal-user-register .register-container .content-div .register-form .register-button {
+    position: relative;
+    left: 50%;
+    margin-top: .2rem;
+    margin-left: -1rem;
+    width: 2rem;
+    height: .6rem;
+    background: #31baed;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    border-radius: .05rem;
+    outline: none;
+    cursor: pointer;
+}
+/* 返回登录页面链接 */
+.normal-user-register .register-container .content-div .register-tip {
+    margin-top: .4rem;
+    text-align: center;
+    color: #8f8f8f;
+    line-height: .2rem;
+}
+.normal-user-register .register-container .content-div .register-tip .login-link {
+    margin-left: .1rem;
+    color: #31baed;
+}
+
+/* 模式切换 */
+.normal-user-register .register-container .content-div .model-nav-list[data-type="company"] ~ .register-form .register-input-model[type="company"] {
+    display: block;
+}
+.normal-user-register .register-container .content-div .model-nav-list[data-type="company"] ~ .register-form .register-input-model[type="user"] {
+    display: none;
+}
+
+/* 协议 */
+.protocol-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: .1rem .2rem;
+}
+.protocol-container .protocol-cover {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.protocol-container .protocol-cover .protocol-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

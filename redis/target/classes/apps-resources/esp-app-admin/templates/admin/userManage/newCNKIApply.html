@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>企业</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .leaders-list,.experts-list {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        .avatar-info {
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+            height: 312px;
+            padding-top: 10px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .leader-item,.expert-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .leader-avatar,.expert-avatar {
+            width: 125px;
+            height: 125px;
+            display: block;
+            box-sizing: border-box;
+            margin: 0 auto;
+            border: 1px solid #a8a8a8;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .leader-item-info,.expert-item-info {
+            width: 80%;
+            padding: 10px 10px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .leader-name,.expert-name {
+            margin: 0;
+            margin-top: 10px;
+        }
+        .leader-school,.expert-school{}
+        .leader-desc,.expert-desc{}
+        .name-input {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .station-input {
+            width: 90%;
+            margin-left: 10px;
+        }
+        .remove-item {
+            float: right;
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <input type="hidden" id="cnkiApplyId" th:value="${cnkiApply['id']}"/>
+    <div style="display: block">
+        <button id="close" class="btn btn-sm btn-default" th:if="${cnkiApply['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
+        <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="icon-edit"></i> 表单基本信息
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="newForm" name="newForm">
+                    <div class="form-group form-group-sm">
+                        <label for="name">填写人名称</label>
+                        <input type="text" class="form-control" name="name" placeholder="请输入名称" id="name" th:value="${cnkiApply['name']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="company">公司名称</label>
+                        <input type="text" class="form-control" name="company" placeholder="请输入公司名称" id="company" th:value="${cnkiApply['company']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="position">职务</label>
+                        <input type="text" class="form-control" name="position" placeholder="请输入职务" id="position" th:value="${cnkiApply['position']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="phone">联系方式</label>
+                        <input type="text" class="form-control" name="phone" placeholder="请输入联系方式" id="phone" th:value="${cnkiApply['phone']}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="applyReason">申请理由</label>
+                        <textarea style="height: 150px" class="form-control" name="applyReason" placeholder="请输入申请理由" id="applyReason" th:text="${cnkiApply['applyReason']}" ></textarea>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="refuseReason">拒绝理由</label>
+                        <textarea style="height: 150px" class="form-control" name="refuseReason" placeholder="请输入拒绝理由" id="refuseReason" th:text="${cnkiApply['refuseReason']}" ></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/distpicker.data.min.js"></script>
+<script src="/static/admin/js/distpicker.min.js"></script>
+<script src="/static/admin/js/userManage/newCNKIApply.js"></script>
+</body>
+</html>

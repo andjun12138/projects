@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="/static/front/css/module/forgetPassword/forgetPassword.css?app_v=${app.build.version}">
+</head>
+<body layout:fragment="content">
+<div id="forget-password" class="forget-password">
+    <div class="forget-password-container">
+        <div class="content-div">
+            <div class="logo-div">
+                <div class="logo-content">
+                    <img src="/static/front/assets/image/module/login/logo.png" alt="logo" class="logo-image">
+                    <span class="logo-title">忘记密码</span>
+                </div>
+            </div>
+            <div class="forget-password-input-model" data-type="account">
+                <div class="input-div">
+                    <input id="account" type="text" class="forget-password-input" placeholder="手机号/邮箱" autocomplete="off">
+                    <p class="input-tip" style="display: none">账号不能为空</p>
+                </div>
+                <button id="code-send" class="active-button">发送验证</button>
+            </div>
+            <div class="forget-password-input-model" data-type="code">
+                <div class="input-div">
+                    <input id="code" type="text" class="forget-password-input" placeholder="请输入验证码" autocomplete="off">
+                    <p class="input-tip" style="display: none">验证码不能为空</p>
+                </div>
+                <button id="code-submit" class="active-button">检验</button>
+            </div>
+            <div class="forget-password-input-model" data-type="password">
+                <div class="input-div">
+                    <input id="password" type="password" class="forget-password-input" placeholder="请输入您的登陆密码" autocomplete="off">
+                    <p class="input-tip" style="display: none">密码不能为空</p>
+                </div>
+            </div>
+            <div class="forget-password-input-model" data-type="copy-password">
+                <div class="input-div">
+                    <input id="copy-password" type="password" class="forget-password-input" placeholder="请再次输入密码" autocomplete="off">
+                    <p class="input-tip" style="display: none">确定密码不能为空</p>
+                </div>
+            </div>
+            <div class="forget-password-button-model">
+                <button class="active-button" type="submit">提交</button>
+                <button class="active-button" type="reset">重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="encrypt" src=""></script>
+<script src="/static/front/js/module/forgetPassword/forgetPassword.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

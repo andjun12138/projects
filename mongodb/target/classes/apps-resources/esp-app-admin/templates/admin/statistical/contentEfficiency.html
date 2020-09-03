@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>用户属性</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#newsFetchRate" data-toggle="tab">信息采用率</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="newsFetchRate">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="newsFetchRateConditions">
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="month">按月</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="newsFetchRateStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="newsFetchRateEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="newsFetchRateSearch">搜索</button>
+                        <div id="newsFetchRateMap" class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="/static/plugin/jquery-1.10.2.min.js"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/plugin/layer/layer.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/admin/js/statistical/contentEfficiency.js?app_v=${app.build.version}"></script>
+</body>
+</html>

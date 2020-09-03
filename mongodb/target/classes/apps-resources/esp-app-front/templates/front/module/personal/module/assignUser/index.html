@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:fragment="assign-user">
+<body>
+<div id="assign-user" class="model-item-div assign-user-model-container" style="display: none">
+    <p class="assign-user-title-v"></p>
+    <div class="assign-user-table-model">
+        <div class="assign-user-void-div">
+            <p class="assign-user-void-content">
+                检测到贵公司旗下并无子成员，无法进行平台用户权限分配，请先添加“
+                <a href="#assignCompanyUser" class="assign-user-void-link">企业子成员</a>
+                “
+            </p>
+            <p class="data-void-content">
+                暂无数据
+            </p>
+        </div>
+        <div id="assign-user-table" class="assign-user-table-div"></div>
+        <div id="assign-user-page" class="assign-user-page-div"></div>
+        <div class="assign-user-btn-div">
+            <button id="add-btn" class="add-btn">新增</button>
+        </div>
+    </div>
+    <div class="assign-user-list-div">
+        <i class="icon-error"></i>
+        <div class="search-user-input-div" title="用户搜索：">
+            <input type="text" id="search-user-input" class="search-user-input" placeholder="请输入手机号(可模糊搜索)" autocomplete="off">
+            <button id="search-user-btn" class="search-user-btn">搜索</button>
+            <p class="input-tip"></p>
+        </div>
+        <div class="user-list-div">
+            <div class="user-list-scroll-div">
+                <ul id="user-list" class="user-list">
+                    <li class="user-item">
+                        <input id="" class="user-checkbox" type="checkbox">
+                        <label class="select-al-icon" for=""></label>
+                        <span class="user-phone"></span>
+                        <span class="user-name"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="search-user-btn-div">
+            <button id="select-user-submit" class="select-user-submit-btn">确定</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

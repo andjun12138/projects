@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能通关</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/common.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#enterpriseRegister" data-toggle="tab">注册企业数量</a></li>
+            <li role="presentation"><a href="#activityCompanies" data-toggle="tab">活跃企业清单</a></li>
+            <li role="presentation"><a href="#decMoney" data-toggle="tab">企业进出口</a></li>
+            <li role="presentation"><a href="#decNumber" data-toggle="tab">企业报关统计</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="enterpriseRegister">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="enterpriseRegisterConditions">
+                        <!--其他可以共用的-->
+                        <label >时间类型:</label>
+                        <select class="select-model-type">
+                            <option value="day" selected>按日</option>
+                            <option value="week">按周</option>
+                            <option value="month">按月</option>
+                            <option value="quarter">按季</option>
+                            <option value="year" >按年</option>
+                        </select>
+                        <label>时间范围:</label>
+                        <select class="select-model-range">
+                            <option value="week" >最近一周</option>
+                            <option value="month" selected>最近一月</option>
+                            <option value="year" >最近一年</option>
+                        </select>
+                        <div class="time-input">
+                            <input type="text" class="time" id="enterpriseRegisterStartTime">
+                            <span>-</span>
+                            <input type="text" class="time" id="enterpriseRegisterEndTime">
+                        </div>
+                        <button class="btn btn-default search-btn" id="enterpriseRegisterSearch">搜索</button>
+                        <div id="enterpriseRegisterMap"  class="echart-table-model"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="activityCompanies">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="activityCompaniesConditions">
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label">最近活跃天数</label>
+                            <select class="search-control" id="days" >
+                                <option value="30" selected>最近30天活跃</option>
+                                <option value="60">最近60天活跃</option>
+                                <option value="90">最近90天活跃</option>
+                                <option value="180">最近180天活跃</option>
+                                <option value="360" >最近360天活跃</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="activityCompaniesMap">
+                        <table id="activityCompaniesTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                                <tr>
+                                    <th data-checkbox="true" data-field="state"></th>
+                                    <th data-title="企业名称" data-field="companyName" data-align="center"></th>
+                                    <th data-title="联系人" data-field="contact" data-align="center"></th>
+                                    <th data-title="联系电话" data-field="contactPhone" data-align="center"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="decMoney">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="decMoneyConditions">
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label">时间范围:</label>
+                            <select class="search-control select-model-range">
+                                <option value="week" >最近一周</option>
+                                <option value="month" selected>最近一月</option>
+                                <option value="year" >最近一年</option>
+                            </select>
+                        </div>
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label" for="decMoneyStartTime">搜索时间</label>
+                            <input class="search-control time" type="text" name="decMoneyStartTime" id="decMoneyStartTime" placeholder="请选择搜索时间" required>
+                        </div>
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                           <span style="position: absolute;top: 2px;left: -3px;">-</span>
+                            <input class="search-control time" type="text" name="decMoneyEndTime" id="decMoneyEndTime" placeholder="请选择搜索时间" required>
+                        </div>
+                    </div>
+                    <div id="decMoneyMap">
+                        <table id="decMoneyTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                            <tr>
+                                <th data-checkbox="true" data-field="state"></th>
+                                <th data-title="收发货人" data-field="consigneeCname" data-align="center"></th>
+                                <th data-title="总金额" data-field="declTotal" data-align="center"></th>
+                                <th data-title="币制" data-field="tradeCurrName" data-align="center"></th>
+                                <th data-title="进出口标识" data-field="cusIEFlagName" data-align="center"></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="decNumber">
+                <div class="search-pad">
+                    <div class="search-pad-div" id="decNumberConditions">
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label">统计类别:</label>
+                            <select class="search-control" id="statisticalType">
+                                <option value="01" selected>按普通统计</option>
+                                <option value="02" >按贸易方式(监管方式)统计</option>
+                                <option value="03" >按运输方式统计</option>
+                            </select>
+                        </div>
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label">时间范围:</label>
+                            <select class="search-control select-model-range">
+                                <option value="week" >最近一周</option>
+                                <option value="month" selected>最近一月</option>
+                                <option value="year" >最近一年</option>
+                            </select>
+                        </div>
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <label class="search-label" for="decMoneyStartTime">搜索时间</label>
+                            <input class="search-control time" type="text" name="decNumberStartTime" id="decNumberStartTime" placeholder="请选择搜索时间" required>
+                        </div>
+                        <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                            <span style="position: absolute;top: 2px;left: -3px;">-</span>
+                            <input class="search-control time" type="text" name="decNumberEndTime" id="decNumberEndTime" placeholder="请选择搜索时间" required>
+                        </div>
+                    </div>
+                    <div id="decNumberMap">
+                        <table id="decNumberTable" data-classes="table table-hover table-responsive table-sm">
+                            <thead>
+                                <tr>
+                                    <th data-checkbox="true" data-field="state"></th>
+                                    <th data-title="收发货人" data-field="consigneeCname" data-align="center"></th>
+                                    <th data-title="进口报关单数" data-field="decNumberI" data-align="center"></th>
+                                    <th data-title="出口报关单数" data-field="decNumberE" data-align="center"></th>
+                                    <th data-title="总报关单数" data-field="decNumberTotal" data-align="center"></th>
+                                    <th data-title="监管方式代码" data-field="supvModeCdde" data-align="center"></th>
+                                    <th data-title="监管方式名称" data-field="supvModeCddeName" data-align="center"></th>
+                                    <th data-title="运输方式代码" data-field="cusTrafMode" data-align="center"></th>
+                                    <th data-title="运输方式名称" data-field="cusTrafModeName" data-align="center"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/plugin/jquery-1.10.2.min.js"></script>
+    <script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/plugin/layer/layer.js"></script>
+    <script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js?app_v=${app.build.version}"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+    <script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/plugin/echarts/echarts.min.js"></script>
+    <script src="/static/admin/js/statistical/iCustoms.js?app_v=${app.build.version}"></script>
+</body>
+</html>

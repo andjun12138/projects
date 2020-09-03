@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>国防四库平台</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="search-pad">
+        <div class="search-pad-div">
+            <div class="type-label">时间类型:</div>
+            <ul class="type-list">
+                <li class="type-active"><span data-value="日">按日</span></li>
+                <li><span data-value="周">按周</span></li>
+                <li><span data-value="月">按月</span></li>
+                <li><span data-value="年">按年</span></li>
+            </ul>
+            <div class="time-label">时间范围:</div>
+            <ul class="time-list">
+                <li class="time-active"><span data-time="3">3月</span></li>
+                <li><span data-time="6">6月</span></li>
+                <li><span data-time="12">12月</span></li>
+            </ul>
+            <div class="time-input">
+                <input type="text" class="time" id="startTime">
+                <span>-</span>
+                <input type="text" class="time" id="endTime">
+            </div>
+            <button class="btn btn-default search-btn" id="toSearch">搜索</button>
+        </div>
+    </div>
+    <table id="table" data-classes="table table-hover table-responsive table-sm">
+        <thead>
+        <tr>
+            <th data-checkbox="true" data-field="state"></th>
+            <th data-title="时间" data-field="time" data-align="center"></th>
+            <th data-title="用户总数" data-field="userCount" data-align="center"></th>
+            <th data-title="新用户数" data-field="newUserCount" data-align="center"></th>
+            <th data-title="老用户数" data-field="oldUserCount" data-align="center"></th>
+            <th data-title="老用户活跃数" data-field="oldActiveCount" data-align="center"></th>
+            <th data-title="老用户活跃率" data-field="oldRate" data-align="center"></th>
+            <th data-title="总活跃率" data-field="allRate" data-align="center"></th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<!--
+                获取数据（没有选择条件按时不获取，同时时间上下限都不能为空）
+                URL：admin/activeUserStatistical/sortQuery POST
+                传参: "type" : "日/周/月/年"   "startTime" : "yyyy-mm-dd"  "endTime": "yyyy-mm-dd"  都不为空
+                返回: "newUsers":新用户    "oldActiveUsers":老用户活跃数
+                       用户总数:前台叠加新用户可得  老用户：用户总数减去新用户可得  老用户活跃率：老用户活跃数/老用户  总活跃率：（老用户活跃数+新用户）/用户总数
+                       ps：如果选择周的话有增加多两个参数
+                          "min":时间最小值 2018-34  代表 2018年的第34个周  "max": 同理
+            -->
+<!-- 列表 前台定义即可-->
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/reports/activeUserManage.js"></script>
+</body>
+</html>

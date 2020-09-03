@@ -15,12 +15,14 @@
         <module>mongodb</module>
         <module>rabbit</module>
         <module>redis</module>
+        <module>flowable</module>
         <module>spring-cloud</module>
         <module>project-common</module>
     </modules>
     <properties>
         <env>personal</env>
     </properties>
+
 
     <profiles>
         <profile>

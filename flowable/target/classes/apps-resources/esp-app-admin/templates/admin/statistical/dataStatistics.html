@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> 统计图表</title>
+    <link rel="icon" href="/static/assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+    <link rel="stylesheet" href="/static/plugin/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#clearance" data-toggle="tab">智能通关</a></li>
+        <li role="presentation"><a href="#cnki" data-toggle="tab">科技资源</a></li>
+        <li role="presentation"><a href="#incubator" data-toggle="tab">创业孵化</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active tab-container" id="clearance">
+            <div class="tab-model">
+                <div class="tab-item">
+                    <div class="item-title">
+                        <i class="item-circle"></i>
+                        <span>通关总金额</span>
+                    </div>
+                    <div class="item-date" >
+                        <input  class="time month-time"/>
+                        <i class="icon-calendar time-logo" onclick="dateClick(this)"></i>
+                    </div>
+                    <div class="item-text">¥ -</div>
+                    <img class="item-img"  src="/static/admin/assets/statistical/item4.png"/>
+                </div>
+                <div class="tab-item background-black">
+                    <div class="item-title color-white">
+                        <i class="item-circle background-red"></i>
+                        <span>通关总单数</span>
+                    </div>
+                    <div class="item-date " >
+                        <input class="time background-black month-time" id="decNumberTime" />
+                        <i class="icon-calendar time-logo" onclick="dateClick(this)"></i>
+                    </div>
+                    <div class="item-text color-red" id="decNumberTotal">- 单</div>
+                    <img class="item-img"  src="/static/admin/assets/statistical/item2.png"/>
+                </div>
+
+            </div>
+            <div class="tab-model">
+                <div class="clearance-chart" >
+                    <div id="clearance-chart">
+
+                    </div>
+                    <div class="chart-date">
+                        <input class="radio_type" type="radio" name="type" id="radio1" checked="checked"/>
+                        <label for="radio1">近一月</label>
+                        <input class="radio_type" type="radio" name="type" id="radio2" />
+                        <label for="radio2">近一年</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane tab-container " id="cnki">
+            <div class="tab-model">
+                <div class="tab-item tab-item-xs">
+                    <div class="item-title item-title-xs">
+                        <span>资源总数量：</span>
+                    </div>
+                    <div class="item-sub-title">Total resources</div>
+                    <div class="item-text item-text-xs">-</div>
+                    <img class="item-img"  src="/static/admin/assets/statistical/item3.png"/>
+                </div>
+                <div class="tab-item tab-item-xs">
+                    <div class="item-title item-title-xs">
+                        <span>下载总数量：</span>
+                    </div>
+                    <div class="item-sub-title">Total downloads</div>
+                    <div class="item-text item-text-xs " id="downloadTotal">-</div>
+                    <img class="item-img"  src="/static/admin/assets/statistical/item1.png"/>
+                </div>
+
+            </div>
+            <div class="tab-model">
+                <div class="cnki-chart" id="cnki-chart"></div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane tab-container" id="incubator">
+            <div class="tab-model">
+                <div class="tab-item tab-item-xs">
+                    <div class="item-title item-title-xs">
+                        <span>入孵企业数：</span>
+                    </div>
+                    <div class="item-text item-text-xs" id="allEnterpriseNum">- 家</div>
+
+                </div>
+                <div class="tab-item tab-item-xs">
+                    <div class="item-title item-title-xs">
+                        <span>场地使用率：</span>
+                    </div>
+                    <div class="item-text item-text-xs color-green" id="roomOfUsed" style="top: 73px;">-</div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width: 78%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-item tab-item-xs">
+                    <div class="item-title item-title-xs">
+                        <span>总产值：</span>
+                    </div>
+                    <div class="item-date" >
+                        <input   class="time time-xs year-time"/>
+                        <i class="icon-calendar time-logo" onclick="dateClick(this)"></i>
+                    </div>
+                    <div class="item-text item-text-xs color-green">¥ -</div>
+
+                </div>
+            </div>
+            <div class="tab-model">
+                <div class="clearance-chart" id="incubator-company-chart"></div>
+                <div class="incubator-chart" id="incubator-person-chart"></div>
+                <div class="incubator-chart" id="incubator-growth-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/plugin/select2/js/select2.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/statistical/dataStatistics.js?app_v=${app.build.version}"></script>
+</body>
+</html>

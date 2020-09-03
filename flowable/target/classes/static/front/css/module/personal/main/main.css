@@ -1,0 +1,1825 @@
+.personal-center {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    font-size: 16px;
+    overflow: hidden;
+}
+.personal-center .personal-center-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .25rem auto;
+    width: 12rem;
+    padding: 0 .3rem .4rem .3rem;
+    background: #f4f4f4;
+}
+/* 面包屑导航栏 */
+.personal-center .personal-center-container .top-model {
+    width: 100%;
+    height: .53rem;
+    line-height: .53rem;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list {
+    width: 100%;
+    height: .53rem;
+    font-size: 14px;
+    color: #5e5e5e;
+    line-height: .53rem;
+    overflow: hidden;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list:before {
+    /*当前位置*/
+    content: '\5f53\524d\4f4d\7f6e\ff1a';
+    float: left;
+    font-size: 14px;
+    line-height: .53rem;
+    color: #5e5e5e;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list .breadcrumbs-item {
+    float: left;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-right: 15px;
+    height: .53rem;
+    line-height: .53rem;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list .breadcrumbs-item:after {
+    content: '/';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+    line-height: .53rem;
+    color: #5e5e5e;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list .breadcrumbs-item:last-child {
+    padding-right: 0;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list .breadcrumbs-item:last-child:after {
+    content: none;
+}
+.personal-center .personal-center-container .top-model .breadcrumbs-list .breadcrumbs-item .breadcrumbs-link {
+    font-size: 14px;
+    color: #5e5e5e;
+}
+
+/* 内容区域 */
+.personal-center .personal-center-container .content-model {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* 左侧菜单栏 */
+.personal-center .personal-center-container .content-model .left-model {
+    float: left;
+    width: 2.05rem;
+    height: 5.82rem;
+    background: #fcfcfc;
+    -webkit-box-shadow:  1px 2px 5px 0 rgba(111, 111, 111, 0.1);
+    -moz-box-shadow:  1px 2px 5px 0 rgba(111, 111, 111, 0.1);
+    box-shadow:  1px 2px 5px 0 rgba(111, 111, 111, 0.1);
+    overflow: hidden;
+}
+.personal-center .left-model .left-model-scroll-div {
+    width: 2.25rem;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list {
+    width: 2.05rem;
+    height: auto;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item {
+    width: 100%;
+    height: auto;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .menu-model-title {
+    width: 100%;
+    height: .4rem;
+    background: #6490d6;
+    line-height: .4rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .child-menu-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: .15rem 0;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0 0 10px 1px rgba(111, 111, 111, 0.1);
+    -moz-box-shadow: inset 0 0 10px 1px rgba(111, 111, 111, 0.1);
+    box-shadow: inset 0 0 10px 1px rgba(111, 111, 111, 0.1);
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .child-menu-list .child-menu-item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: .38rem;
+    padding: 0 .05rem;
+    font-size: 0.14rem;
+    color: #3b3b3c;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .child-menu-list .child-menu-item .child-menu-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: .38rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .child-menu-list .child-menu-item a.active {
+    color: #31baed;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .menu-model-title[type="show"] + .child-menu-list {
+    height: auto;
+}
+.personal-center .left-model .left-model-scroll-div .menu-model-list .menu-model-item .menu-model-title[type="hide"] + .child-menu-list {
+    height: 0;
+    padding: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 右区：模块展示区 */
+.personal-center .personal-center-container .content-model .right-model {
+    float: right;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 9.05rem;
+    height: auto;
+}
+.personal-center .personal-center-container .content-model .right-model [class*="-title-v"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    line-height: .28rem;
+    padding-left: .15rem;
+    border-left: 3px solid #31baed;
+}
+.personal-center .personal-center-container .content-model .right-model div[class*="-model-container"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: .12rem .2rem;
+    background: #ffffff;
+    -webkit-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.3);
+    -moz-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.3);
+    box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.3);
+    overflow: hidden;
+}
+/* 加载loading */
+.personal-center .personal-center-container .content-model .right-model .model-load-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5.82rem;
+    background: rgba(255,255,255,.6);
+}
+.personal-center .personal-center-container .content-model .right-model .model-load-div .model-load-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -.15rem;
+    margin-left: -.15rem;
+    width: .3rem;
+    height: .3rem;
+}
+/* 表单 */
+.personal-center .personal-form {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: .4rem auto;
+    width: 4rem;
+    height: auto;
+
+    margin-top: 40px\9;
+    margin-bottom: 40px\9;
+    width: 400px\9;
+}
+.personal-center .personal-form .form-group {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: .2rem;
+    width: 100%;
+    min-height: .4rem;
+
+    margin-bottom: 20px\9;
+    min-height: 40px\9;
+}
+.personal-center .personal-form .form-group:last-child{
+    margin-bottom: 0;
+}
+.personal-center .personal-form .form-group:before {
+    content: attr(title);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-right: .2rem;
+    width: auto;
+    height: .4rem;
+    line-height: .4rem;
+    white-space: nowrap;
+
+    margin-right: 20px\9;
+    height: 40px\9;
+    line-height: 40px\9;
+}
+.personal-center .personal-form .form-group .form-input-model {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: .4rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+
+    min-height: 40px\9;
+}
+.personal-center .personal-form .form-group .form-input-model .icon-error{
+    float: right;
+    width: .3rem;
+    height: 100%;
+    line-height: .38rem;
+    cursor: pointer;
+
+    width: 30px\9;
+    line-height: 38px\9;
+}
+.personal-center .personal-form .form-group .form-input-model .icon-error:before {
+    margin-left: 5px;
+    font-size: .1rem;
+    color: #7c7c7c;
+    opacity: 0;
+}
+.personal-center .personal-form .form-group .form-input-model .icon-error[class*='show']:before {
+    opacity: 1;
+}
+.personal-center .personal-form .form-group .form-input-model .model-content {
+    width: auto;
+    min-height: .4rem;
+    overflow: hidden;
+
+    min-height: 40px\9;
+}
+.personal-center .personal-form .form-group .form-input-model .model-content input {
+    display: block;
+    width: 90%;
+    min-height: .4rem;
+    padding: 0 5%;
+    line-height: .4rem;
+    border: none;
+
+    min-height: 40px \9;
+    line-height: 40px \9;
+}
+.personal-center .personal-form .form-group .form-input-model .model-content textarea {
+    display: block;
+    width: 90%;
+    min-height: .24rem;
+    padding: .1rem 5%;
+    line-height: .24rem;
+    border: none;
+    resize: none;
+}
+.personal-center .personal-form .form-group .input-tip {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+    line-height: .2rem;
+    color: #FF0000;
+}
+.personal-center .personal-form .form-group[class*="button-model"] {
+    text-align: center;
+}
+.personal-center .personal-form .form-group .form-active-btn {
+    margin-right: .54rem;
+    width: 1.2rem;
+    height: 100%;
+    line-height: .4rem;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.personal-center .personal-form .form-group .form-active-btn:last-child {
+    margin-right: 0;
+}
+.personal-center .personal-form .form-group .form-active-btn[class*="submit"],
+.personal-center .personal-form .form-group .form-active-btn[class*="reset"]{
+    display: inline-block;
+}
+.personal-center .personal-form .form-group .form-active-btn[class*="submit"]{
+    background: #1fadea;
+}
+.personal-center .personal-form .form-group .form-active-btn[class*="reset"] {
+    background: #ff957c;
+}
+.personal-center .personal-form .form-group .form-active-btn[class*="rewrite"]{
+    display: none;
+    background: #ffaa4f;
+}
+
+/* 展示：表单 */
+.personal-center .right-model .form-show .form-group .form-input-model{
+    border: none;
+}
+.personal-center .right-model .form-show .form-group .icon-error {
+    display: none !important;
+}
+.personal-center .right-model .form-show .form-group .input-tip {
+    display: none;
+}
+.personal-center .right-model .form-show p[class*="-show"]  {
+    display: block;
+}
+.personal-center .right-model .form-show .form-active-btn[class*="submit"],
+.personal-center .right-model .form-show .form-active-btn[class*="reset"]{
+    display: none;
+}
+.personal-center .right-model .form-show .form-active-btn[class*="rewrite"]{
+    display: inline-block;
+}
+
+/* 表单审核状态 */
+.personal-center .right-model .model-item-div .review-status {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 75px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    font-size: 40px;
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+
+/* 个人首页 */
+.personal-center .right-model #personal-home {
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+.personal-center .right-model #personal-home .user-info-model-container {
+    height: 162px;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: .24rem;
+    width: 100%;
+    height: .73rem;
+    padding-left: 1.27rem;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div {
+    position: absolute;
+    top: 0;
+    left: .17rem;
+    width: .73rem;
+    height: .73rem;
+    border-radius: .37rem;
+    overflow: hidden;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div:before {
+    /*上传 %*/
+    content: '\4e0a\4f20 ' attr(percentage) '\0025';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .5);
+    line-height: .73rem;
+    color: #000000;
+    font-size: 14px;
+    z-index: 10;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div[data-percentage="0"]:before,
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div[data-percentage="100"]:before{
+    content: none;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div:after {
+    content: '\e6ef';
+    float: left;
+    width: 100%;
+    height: 100%;
+    font-size: .73rem;
+    line-height: .73rem;
+    color: #bebebe;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div[data-percentage='100']:after {
+    content: none;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div .user-avatar-image {
+    float: left;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div[data-percentage='100'] .user-avatar-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .user-avatar-div .user-avatar-input {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div[type="edit"] .user-avatar-div .user-avatar-input {
+    display: block;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div {
+    width: 100%;
+    height: 100%;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-show-div,
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div {
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    max-width: 100%;
+    height: 50%;
+    padding-right: .35rem;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-show-div .user-name {
+    display: inline-block;
+    width: auto;
+    height: 100%;
+    font-size: 14px;
+    line-height: .37rem;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-show-div .icon-reset {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    line-height: .37rem;
+    cursor: pointer;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-show-div .icon-reset:before {
+    font-size: 20px;
+    color: #cdcdcd;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div {
+    display: none;
+    width: 5rem;
+    padding-right: .6rem;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .user-name-input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-true,
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-error{
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-true {
+    right: .3rem;
+    background: #31baed;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-error{
+    right: 0;
+    background: #FF0000;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-true:before,
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .name-edit-div .icon-error:before {
+    font-size: 15px;
+    color: #ffffff;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div[type="show"] .name-phone-div .name-show-div {
+    display: inline-block;
+}
+.personal-center .right-model #personal-home .user-info-model-container .content-div[type="edit"] .name-phone-div .name-edit-div {
+    display: inline-block;
+}
+
+.personal-center .right-model #personal-home .user-info-model-container .content-div .name-phone-div .user-phone {
+    width: 100%;
+    height: 50%;
+    line-height: .37rem;
+    font-size: 14px;
+}
+.personal-center .right-model #personal-home .func-list-model-container {
+    margin-top: .2rem;
+}
+.personal-center .right-model #personal-home .func-list-model-container .func-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: .1rem;
+    overflow: hidden;
+}
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .2rem .6rem .2rem 0;
+    width: 1.2rem;
+    height: 1.12rem;
+    padding: .16rem .05rem;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 15px 1px rgba(128, 128, 128, 0.1);
+    -moz-box-shadow: 0 0 15px 1px rgba(128, 128, 128, 0.1);
+    box-shadow: 0 0 15px 1px rgba(128, 128, 128, 0.1);
+}
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item .func-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item:nth-child(5n),
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item:last-child {
+    margin-right: 0;
+}
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item .item-image-div {
+    margin: 0 auto;
+    width: .5rem;
+    height: .5rem;
+    border-radius: .25rem;
+    overflow: hidden;
+}
+/* 暂时样式，上线取消 */
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item .item-image-div .item-image {
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+
+}
+
+.personal-center .right-model #personal-home .func-list-model-container .func-list .func-item .item-title {
+    margin-top:  .14rem;
+    width: 100%;
+    text-align: center;
+    word-break: break-all;
+    font-size: 14px;
+    line-height: .2rem;
+}
+
+/* 修改密码 */
+.personal-center .right-model #reset-password .reset-password-form a.forget-password{
+    float: right;
+    display: inline-block;
+    width: auto;
+    height: 100%;
+    font-size: 14px;
+    line-height: .4rem;
+    color: #1fadea;
+}
+.personal-center .right-model #reset-password .reset-password-form .reset-password-submit {
+    background: #1fadea;
+}
+.personal-center .right-model #reset-password .reset-password-form .reset-password-reset {
+    background: #ff957c;
+}
+
+/* 企业信息修改 */
+.personal-center .right-model #reset-company-info {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.75rem;
+    overflow: hidden;
+
+    height: 175px \9;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model .company-logo-input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model .company-logo {
+    width: 100%;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model:before,
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model:after {
+    float: left;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 1.73rem;
+
+    line-height: 173px\9;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model:before{
+    content: '\5df2\4e0a\4f20\0020' attr(data-percentage) '\0020\0025';
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model[data-percentage="0"]:after {
+    content: '\e620';
+    font-size: 50px;
+    color: #b8b8b8;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model[data-percentage="0"]:before,
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model[data-percentage="100"]:before{
+    content: none;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .company-logo-model[data-percentage="0"] .company-logo {
+    display: none;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .address-box {
+    width: 100%;
+    height: .4rem;
+
+    height: 40px\9;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .address-box select {
+    margin-right: 3.5%;
+    width: 30%;
+    height: 100%;
+    padding-left: 4%;
+    border-radius: 5px;
+    border-color: #e5e5e5;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .address-box select:last-child {
+    margin-right: 0;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form p[class*="-show"] {
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 95%;
+    height: 100%;
+    line-height: .4rem;
+    padding-left: 5%;
+    word-break: break-all;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .form-group .industry-select {
+    display: block;
+    width: 100%;
+    height: .4rem;
+    padding-left: 4%;
+    border-radius: 5px;
+    border-color: #e5e5e5;
+
+    height: 40px \9;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .reset-company-info-submit {
+    background: #1fadea;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .reset-company-info-again {
+    background: #ff957c;
+}
+.personal-center .right-model #reset-company-info .reset-company-info-form .reset-company-info-edit{
+    display: none;
+    background: #ffaa4f;
+}
+.personal-center .right-model #reset-company-info .application-company-div {
+    display: none;
+    position: absolute;
+    top: .42rem;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+.personal-center .right-model #reset-company-info .application-company-div .active-button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1.2rem;
+    height: .4rem;
+    background: #31baed;
+    line-height: .4rem;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+}
+/* 展示：企业信息 */
+.personal-center .right-model #reset-company-info .form-show .form-group .company-logo-model:after {
+    content: none;
+}
+.personal-center .right-model #reset-company-info .form-show .form-group .company-logo-model[data-percentage="0"]:after {
+    content: '\6682\65e0\5934\50cf';
+    font-size: 16px;
+}
+.personal-center .right-model #reset-company-info .form-show .address-box {
+    display: none;
+}
+.personal-center .right-model #reset-company-info .form-show .form-group .industry-select {
+    display: none;
+}
+.personal-center .right-model #reset-company-info .form-show .form-group p[class*="-show"] {
+    display: block;
+}
+.personal-center .right-model #reset-company-info .form-show .reset-company-info-submit,
+.personal-center .right-model #reset-company-info .form-show .reset-company-info-again{
+    display: none;
+}
+.personal-center .right-model #reset-company-info .form-show .reset-company-info-edit{
+    display: inline-block;
+}
+
+
+
+/* 发布招聘 */
+.personal-center .right-model #release-employment {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.personal-center .right-model #release-employment .release-employment-form .address-box {
+    width: 100%;
+    height: .4rem;
+
+    height: 40px\9;
+}
+.personal-center .right-model #release-employment .release-employment-form .address-box select {
+    margin-right: 3.5%;
+    width: 30%;
+    height: 100%;
+    padding-left: 5px;
+    border-radius: 5px;
+    border-color: #e5e5e5;
+}
+.personal-center .right-model #release-employment .release-employment-form .address-box select:last-child {
+    margin-right: 0;
+}
+.personal-center .right-model #release-employment .release-employment-form p[class*="-show"] {
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    line-height: .4rem;
+    padding-left: .1rem;
+    word-break: break-all;
+}
+.personal-center .right-model #release-employment .release-employment-form .form-group .education-select,
+.personal-center .right-model #release-employment .release-employment-form .form-group .industry-select {
+    display: block;
+    width: 100%;
+    height: .4rem;
+    border-radius: 5px;
+    border-color: #e5e5e5;
+
+    height: 40px \9;
+}
+.personal-center .right-model #release-employment .release-employment-form .release-employment-submit {
+    background: #1fadea;
+}
+.personal-center .right-model #release-employment .release-employment-form .release-employment-again {
+    background: #ff957c;
+}
+.personal-center .right-model #release-employment .release-employment-form .release-employment-edit{
+    display: none;
+    background: #ffaa4f;
+}
+.personal-center .right-model #release-employment .application-company-div {
+    display: none;
+    position: absolute;
+    top: .42rem;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+.personal-center .right-model #release-employment .application-company-div .active-button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1.2rem;
+    height: .4rem;
+    background: #31baed;
+    line-height: .4rem;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+/* 分配子用户 */
+.personal-center .right-model #assign-user {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.personal-center .right-model #assign-user div[class*="-btn-div"]{
+    width: 100%;
+    height: .38rem;
+    line-height: .38rem;
+    text-align: center;
+}
+.personal-center .right-model #assign-user div[class*="-btn-div"] button {
+    margin-right: .2rem;
+    width: 1.2rem;
+    height: .38rem;
+    background: #1fadea;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+.personal-center .right-model #assign-user div[class*="-btn-div"] button:last-child {
+    margin-right: 0;
+}
+.personal-center .right-model #assign-user .assign-user-table-model {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 5.3rem;
+    border-top: 1px solid transparent;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div,
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div,
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-page-div {
+    margin-top: .2rem;
+    width: 100%;
+    height: auto;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div {
+    display: none;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div .assign-user-void-content {
+    display: none;
+    width: 50%;
+    line-height: .25rem;
+    word-break: break-all;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div .data-void-content {
+    display: none;
+    width: 100%;
+    line-height: .25rem;
+    text-align: center;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div[type="assign"] .assign-user-void-content {
+    display: inline-block;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-void-div[type="normal"] .data-void-content {
+    display: inline;
+}
+
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div {
+    /*border-radius: .1rem;*/
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    -moz-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span {
+    margin-right: .1rem;
+    cursor: pointer;
+    color: #31baed;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span:last-child {
+    margin-right: 0;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span[type="delete"],
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span[type="cancel"],
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span[type="reject"],
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-table-div .active-span[type="quit"]{
+    color: #FF0000;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-page-div {
+    margin-top: .2rem;
+}
+.personal-center .right-model #assign-user .assign-user-table-model .assign-user-btn-div {
+    display: none;
+    margin-top: .2rem;
+}
+.personal-center .right-model #assign-user .assign-user-list-div {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .icon-error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: .5rem;
+    height: .5rem;
+    text-align: center;
+    line-height: .5rem;
+    cursor: pointer;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .icon-error:before {
+    font-size: .25rem;
+    color: #545454;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .search-user-input-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    margin-top: .5rem;
+    margin-bottom: .2rem;
+    width: 4rem;
+    height: .4rem;
+    padding-right: 1rem;
+    border: 1px solid #aaaaaa;
+    border-radius: .25rem;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .search-user-input-div .search-user-input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 .15rem;
+    border: none;
+    border-radius: .25rem;
+    outline: none;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .search-user-input-div .search-user-btn {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 1rem;
+    height: .41rem;
+    background: #31baed;
+    border: 1px solid #31baed;
+    border-radius: .26rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .search-user-input-div .input-tip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: .1rem;
+    font-size: 12px;
+    line-height: .2rem;
+    color: #ff0000;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 4rem;
+    height: 2.3rem;
+    padding-top: .3rem;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div:before {
+    content: '\4eba\5458\5217\8868\ff1a';
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: .3rem;
+    color: #545454;
+}
+
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #aaaaaa;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div:after {
+    /* 暂无数据 */
+    content: '\6682\65e0\6570\636e';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 14px;
+    color: #545454;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .no-full:after {
+    /* 加载中... */
+    content: '\52a0\8f7d\4e2d\002e\002e\002e';
+    display: inline-block;
+    height: auto;
+    text-align: center;
+    line-height: .3rem;
+    font-size: 14px;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .full:after {
+    content: none;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list {
+    width: 100%;
+    height: auto;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item {
+    width: 100%;
+    height: .4rem;
+    line-height: .4rem;
+    cursor: pointer;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item .user-checkbox {
+    display: none;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item .user-checkbox + label {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: .09rem;
+    margin-left: .2rem;
+    width: .2rem;
+    height: .2rem;
+    text-align: center;
+    line-height: .2rem;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+    outline: none;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item .user-checkbox:checked + label:before {
+    content: '\e613';
+    font-size: .18rem;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item span{
+    display: inline-block;
+    margin-left: .1rem;
+    max-width: 1.05rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list .user-item span.user-name {
+    max-width: 2rem;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list[class*="full"] .user-item .user-checkbox:not(:checked) + label {
+    color: #aaaaaa;
+    background: #eeeeee;
+    cursor: not-allowed;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .user-list-div .user-list-scroll-div .user-list[class*="full"] .user-item .user-checkbox:not(:checked) ~ span {
+    color: #aaaaaa;
+}
+.personal-center .right-model #assign-user .assign-user-list-div .search-user-btn-div {
+    margin-top: .3rem;
+}
+
+/* 忘记密码 */
+.personal-center .right-model #forget-password .forget-password-form .form-group .form-input-model {
+    width: 3.5rem;
+
+    width: 350px\9;
+}
+.personal-center .right-model #forget-password .forget-password-form .code {
+    display: none;
+}
+.personal-center .right-model #forget-password .forget-password-form .account .code-btn,
+.personal-center .right-model #forget-password .forget-password-form .code .code-btn{
+    float: right;
+}
+.personal-center .right-model #forget-password .forget-password-form .form-active-btn[type="button"] {
+    background: #1fadea;
+}
+.personal-center .right-model #forget-password .forget-password-form .form-active-btn[type="reset"] {
+    background: #ff957c;
+}
+
+/* 绑定手机号 */
+.personal-center .right-model #bind-phone .bind-phone-form .form-group .form-input-model {
+    width: 2.5rem;
+
+    width: 250px\9;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .form-active-btn {
+    background: #31baed;
+}
+.personal-center .right-model #bind-phone .bind-phone-form button[class*="form-reset"] {
+    background: #ffaa4f;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .pass ~ .form-group {
+    display: none;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .pass .form-active-btn,
+.personal-center .right-model #bind-phone .bind-phone-form .code .form-active-btn{
+    float: right;
+    margin-right: 0;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .form-group .rebind-btn {
+    display: none;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .pass .rebind-btn {
+    display: block;
+}
+.personal-center .right-model #bind-phone .bind-phone-form .pass .icon-error {
+    display: none;
+    z-index: -1;
+}
+
+/* 申请知网 */
+.personal-center .right-model #apply-intelligent {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.personal-center .right-model #apply-intelligent .apply-intelligent-form .apply-reason-input {
+    float: left;
+    width: 90%;
+    height: 1rem;
+    padding: 0 5%;
+    line-height: 30px;
+    border: none;
+    resize: none;
+
+    height: 100px \9;
+}
+.personal-center .right-model #apply-intelligent .form-group[class*="button-model"]{
+    padding-top: .1rem;
+
+    padding-top: 10px\9;
+}
+.personal-center .right-model #apply-intelligent .form-group[class*="button-model"] .form-active-btn{
+    display: none;
+}
+.personal-center .right-model #apply-intelligent .reject-reason {
+    display: none;
+    margin: 0 auto;
+    margin-top: .2rem;
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+
+    margin-top: 20px\9;
+}
+.personal-center .right-model #apply-intelligent .reject-reason:before{
+    content: attr(title);
+    float: left;
+    display: inline-block;
+    padding-right: .1rem;
+
+    padding-right: 10px\9;
+}
+.personal-center .right-model #apply-intelligent .reject-reason .content {
+    display: inline-block;
+    width: auto;
+    word-break: break-all;
+    text-indent: 25px;
+    line-height: 25px;
+    overflow: hidden;
+}
+
+/* 消息列表 */
+.personal-center .right-model #station-news .station-news-form {
+    margin: 10px auto;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.personal-center .right-model #station-news .station-news-form .form-group:before {
+    content: none;
+}
+.personal-center .right-model #station-news .station-news-form .news-status-list {
+    width: 100%;
+    height: .4rem;
+    border-bottom: 1px solid #dcdcdc;
+
+    height: 40px\9;
+}
+.personal-center .right-model #station-news .station-news-form .news-status-list .status-item{
+    display: inline-block;
+    margin-right: 20px;
+    width: auto;
+    height: .4rem;
+    line-height: .4rem;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+
+    height: 40px\9;
+    line-height: 40px\9;
+}
+.personal-center .right-model #station-news .station-news-form .news-status-list .status-item[class*="active"] {
+    border-bottom-color: #31baed;
+}
+.personal-center .right-model #station-news .station-news-form .form-input-model {
+    width: 100%;
+    overflow: hidden;
+}
+.personal-center .right-model #station-news .station-news-form .form-input-model .search-button {
+    float: right;
+    margin-right: 0;
+    background: #31baed;
+}
+.personal-center .right-model #station-news .station-news-form .form-input-model .model-content {
+    width: auto;
+    overflow: hidden;
+}
+.personal-center .right-model #station-news .station-news-form .form-input-model .model-content .new-title-input {
+    width: 100%;
+    padding-left: 10px;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="button-model"] {
+    float: right;
+    width: 3rem;
+
+    width: 300px\9;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="time-group"] {
+    float: left;
+    width: 5.65rem;
+
+    width: 565px\9;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="time-group"] .form-input-model,
+.personal-center .right-model #station-news .station-news-form .form-group[class*="time-group"] .line{
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 2.2rem;
+    height: 100%;
+
+    width: 220px\9;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="time-group"] .line{
+    display: inline-block;
+    margin: 0 15px;
+    width: auto;
+    height: .42rem;
+    line-height: .42rem;
+
+    height: 42px\9;
+    line-height: 42px\9;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="button-model"] .read {
+    background: #31baed;
+}
+.personal-center .right-model #station-news .station-news-form .form-group[class*="button-model"] .delete {
+    background: #FF0000;
+}
+.personal-center .right-model #station-news .news-content {
+    width: 100%;
+    height: auto;
+}
+.personal-center .right-model #station-news .news-content .head-div {
+    width: 100%;
+    height: .4rem;
+    border: 1px solid #dddddd;
+    background: #f0f0f0;
+}
+.personal-center .right-model #station-news .news-content .info-item {
+    float: left;
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    line-height: .4rem;
+
+    line-height: 40px\9;
+}
+.personal-center .right-model #station-news .news-content .info-item[class*="checkbox-module"] {
+    width: 5%;
+}
+.personal-center .right-model #station-news .news-content .info-item[class*="title-module"] {
+    width: 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.personal-center .right-model #station-news .news-content .info-item[class*="time-module"] {
+    width: 15%;
+}
+.personal-center .right-model #station-news .news-content .info-item[class*="operate-module"] {
+    width: 20%;
+}
+.personal-center .right-model #station-news .news-content .new-select {
+    display: none;
+}
+.personal-center .right-model #station-news .news-content .new-select + label {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-right: -8px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    text-align: center;
+    line-height: 16px;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+    outline: none;
+}
+.personal-center .right-model #station-news .news-content .new-select:checked + label:before {
+    content: '\e613';
+    font-size: 14px;
+}
+.personal-center .right-model #station-news .news-content .news-list {
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item {
+    margin-bottom: 15px;
+    width: 100%;
+    height: auto;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item:last-child {
+    margin-bottom: 0;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item .base-info-div{
+    width: 100%;
+    height: .4rem;
+    cursor: pointer;
+
+    height: 40px\9;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item .base-info-div .delete {
+    width: .8rem;
+    height: .3rem;
+    background: #FF0000;
+    color: #ffffff;
+    line-height: .3rem;
+    border: none;
+    cursor: pointer;
+
+    width: 80px\9;
+    height: 30px\9;
+    line-height: 30px\9;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item .message-detail-div {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #dddddd;
+    overflow: hidden;
+}
+.personal-center .right-model #station-news .news-content .news-list .new-item .message-detail-div .message-content {
+    margin: 15px 3%;
+    width: 94%;
+    word-break: break-all;
+}
+
+/* 设备列表 */
+.personal-center .right-model #device-list .device-list-void-div {
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+
+    height: 300px\9;
+    line-height: 300px\9;
+}
+.personal-center .right-model #device-list #device-list-table .active-span {
+    color: #31baed;
+    cursor: pointer;
+}
+.personal-center .right-model #my-device #my-device-list-table .active-span {
+    color: #31baed;
+    cursor: pointer;
+}
+/* 信息卡 */
+body .device-info-global-div {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 797px;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10;
+}
+body .device-info-global-div .device-info-div {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -378px;
+    margin-left: -452px;
+    width: 904px;
+    height: 757px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+body .device-info-global-div .device-info-div .device-info-title {
+    width: 100%;
+    height: 40px;
+    background: #485077;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+}
+body .device-info-global-div .device-info-div .device-info-title .icon-error {
+    float: right;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+body .device-info-global-div .device-info-div .device-info-title .icon-error:before {
+    color: #ffffff;
+    font-size: 10px;
+}
+body .device-info-global-div .device-info-div .device-info-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 716px;
+    padding: 15px 8px;
+}
+/* 表单 */
+body .device-form-div {
+    width: 100%;
+    height: auto;
+}
+body .device-form-div .device-form{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+body .device-form-div .device-form .form-group {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 15px 22px;
+    width: 252px;
+    height: auto;
+    min-height: 30px;
+    padding-left: 74px;
+}
+body .device-form-div .device-form .form-group:before {
+    content: attr(title);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 74px;
+    height: 100%;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+}
+body .device-form-div .device-form .layout-type-1 {
+    width: 548px;
+}
+body .device-form-div .device-form .layout-type-2 {
+    margin: 15px 0;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    padding-left: 96px;
+    padding-right: 22px;
+}
+body .device-form-div .device-form .layout-type-2:before {
+    left: 22px;
+}
+body .device-form-div .device-form .form-group .input-select-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    padding-right: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+body .device-form-div .device-form .form-group .input-select-div[type="select"]:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top: 8px solid #545454;
+}
+body .device-form-div .device-form .form-group .price{
+    padding-right: 30px;
+}
+body .device-form-div .device-form .form-group .price:after {
+    content: '\5143';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    text-indent: 5px;
+    line-height: 28px;
+}
+body .device-form-div .device-form .form-group .input-select-div input[class*="-input"],
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"]{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+/*很关键：将默认的select选择框样式清除*/
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"] {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+body .device-form-div .device-form .form-group .input-select-div select[class*="-select"]::-ms-expand {
+    display: none;
+}
+body .device-form-div .device-form .form-group .select-show {
+    display: none;
+    margin: 0;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body .device-form-div .device-form .form-group .input-tip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 74px;
+    line-height: 25px;
+    color: #FF0000;
+}
+body .device-form-div .device-form .form-group .device-image-list-div{
+    width: 100%;
+    height: auto;
+}
+body .device-form-div .device-form .form-group .device-image-list {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item {
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 348px;
+    height: 185px;
+    background-color: #f3f3f3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;/*保证background-position在 Firefox 和 Opera 中正常工作*/
+    text-align: center;
+    line-height: 185px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    -moz-box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+    box-shadow: 0 0 6px 0 rgba(160, 160, 160, 0.28);
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item:nth-child(3n){
+    margin-right: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item:last-child {
+    margin: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"]:before {
+    content: '\5df2\4e0a\4f20\0020' attr(percent) '\0020\0025';
+    color: #b8b8b8;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="0"]:before,
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"]:before{
+    content: none;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .icon-error {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .device-image {
+    display: none;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="show"] .icon-error:before {
+    font-size: 20px;
+    color: #545454;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"] .device-image {
+    display: inline;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[percent="100"] .icon-error {
+    display: block;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="add"]:before {
+    content: '\e620';
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 50px;
+    color: #b8b8b8;
+    z-index: 0;
+}
+body .device-form-div .device-form .form-group .device-image-list .device-image-item[type="add"] .device-image-file-input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-btn-div {
+    float: left;
+    margin-top: 40px;
+    width: 100%;
+    height: 36px;
+    text-align: center;
+}
+body .device-form-div .device-form .form-btn-div .form-active-btn {
+    margin-right: 12px;
+    width: 120px;
+    height: 100%;
+    background-color: #39a6e4;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+body .device-form-div .device-form .form-btn-div .form-active-btn:last-child {
+    margin-right: 0;
+}
+/* 小宽度模式 */
+body .device-form-div .small-width .canRight{
+    float: right;
+}
+body .device-form-div .small-width .isFirst{
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+}
+body .device-form-div .small-width .form-group .device-image-list-div {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* 展示模式 */
+body .device-form-div .show-model .form-group .input-select-div {
+    border: none;
+}
+body .device-form-div .show-model .form-group .input-select-div[type="select"] {
+    display: none;
+}
+body .device-form-div .show-model .form-group .input-select-div[type="select"] ~ .select-show {
+    display: block;
+}
+body .device-form-div .show-model .form-group .input-tip {
+    display: none;
+}
+body .device-form-div .show-model .form-group .device-image-list {
+    margin-bottom: 0;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item[type="show"] .icon-error {
+    display: none;
+    z-index: -1;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item[type="add"] {
+    display: none;
+}
+body .device-form-div .show-model .form-group .device-image-list .device-image-item .device-image-file-input {
+    display: none;
+    z-index: -1;
+}
+body .device-form-div .show-model .form-btn-div {
+    display: none;
+    position: relative;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

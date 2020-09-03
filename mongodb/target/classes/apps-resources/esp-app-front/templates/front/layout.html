@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8"/>
+  <title>惠南科技园</title>
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=66479128" charset="UTF-8"></script>
+  <script>
+      // 判定路由模块
+      function decisionRouterModel() {
+          // 当前路由
+          var sUrl = window.location.href;
+          // 个人中心路由模块参数正则
+          var oPlModelRule = null;
+          var stSave = null;
+          // 若是个人中心
+          if (isRouterOfPersonal()) {
+              oPlModelRule = /&?plmodel=[^&]*/;
+              // 自带模块参数
+              if (oPlModelRule.test(sUrl)) {
+                  sUrl = sUrl.replace(oPlModelRule, function (str) {
+                      stSave = str.replace(/&?plmodel=/, '#');
+                      return '';
+                  });
+                  sUrl += stSave;
+                  if (sUrl.indexOf('?#') > -1) {
+                      sUrl = sUrl.replace('?#', '#');
+                  }
+                  window.location.href = sUrl;
+              }
+          }
+      }
+      // 判定是否为个人中心
+      function isRouterOfPersonal () {
+          var location = window.location;
+          var urlArr = location.pathname.split('/');
+          var modelName = urlArr.pop().split('.')[0];
+          return modelName === 'personal';
+      }
+      decisionRouterModel();
+  </script>
+  <link rel="icon" href="/static/front/assets/image/common/favicon.png?app_v=${app.build.version}" type="image/x-icon">
+  <link rel="stylesheet" href="/static/front/assets/icon/iconfont.css?app_v=${app.build.version}">
+  <link rel="stylesheet" href="/static/plugin/layer_2.4.5/css/layui.css?app_v=${app.build.version}">
+  <link rel="stylesheet" href="/static/plugin/layer_2.4.5/css/modules/layer/default/layer.css?app_v=${app.build.version}">
+  <link rel="stylesheet" href="/static/front/css/common/layout/layout.css?app_v=${app.build.version}">
+  <script src="/static/plugin/layer_2.4.5/layui.all.js?app_v=${app.build.version}"></script>
+  <script src="/static/plugin/jquery-3.3.1.min.js?app_v=${app.build.version}" defer></script>
+  <script src="/static/plugin/self/public.js?app_v=${app.build.version}" defer></script>
+  <script th:inline="javaScript">
+      window.domainOfOther = "${profile.system.domain}";
+  </script>
+  <script>
+      window.__layer = layui.layer;
+  </script>
+</head>
+<body style="overflow: auto;">
+<input id="project-env" style="display: none" value="dev" th:value="${profile.env}">
+<div th:replace="front/common/header/index :: header"></div>
+<div class="layout-content-container">
+    <div class="layout-content-container-bg" data-src="/static/front/assets/image/common/home-bg.jpg"></div>
+    <!--<img class="layout-content-container-bg" src="" alt="container-bg" title="container-bg">-->
+    <div th:replace="front/common/footer/index :: footer"></div>
+    <div layout:fragment="content" id="content"></div>
+</div>
+<script src="" type="application/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>数据统计管理列表</title>
+    <link rel="icon" href="/static/assets/logo.png?app_v=${app.build.version}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/variable.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/css/common.css?app_v=${app.build.version}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css?app_v=${app.build.version}">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js?app_v=${app.build.version}"></script>
+    <script src="/static/compatibility/respond.min.js?app_v=${app.build.version}"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <div id="data-part" class="clearfix">
+        <!--<div id="toolbar" class="btn-toolbar">-->
+            <!--<button type="button" th:each="button:${buttons}" th:onClick="${button['jsContent']}" th:class="${button['className']}">-->
+                <!--<i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>-->
+            <!--</button>-->
+            <!--<button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>-->
+            <!--<button id="toggle-search" type="button" class="btn" th:if="${not #lists.isEmpty(searchFields.reportfields)}"><i class="icon-angle-down"></i> <span>展开搜索</span></button>-->
+        <!--</div>-->
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" onclick="layer.open({
+                type: 2,
+                title: '新增数据统计虚数',
+                shadeClose: false,
+                shade: 0.8,
+                area: ['800px', '90%'],
+                content: '/imaginaryManage/to_create_update.html'
+            });" class="btn btn-sm btn-primary">
+                <i class="icon-plus"></i> <span>新增数据统计虚数</span>
+            </button>
+            <button type="button" onclick="var selectedIds = getSelectionMessage('id');
+                if(selectedIds.length != 1) {
+                    layer.msg(&quot;请选择一项！&quot;, function(){});
+                    return ;
+                }
+                var url = '/imaginaryManage/to_create_update/' + selectedIds[0].id+ '.html';
+                window.open(url);" class="btn btn-sm btn-info">
+                <i class="icon-edit"></i> <span>修改</span>
+            </button>
+            <!--<button type="button" onclick="layer.open({ -->
+                <!--title: '全局统计折线图', -->
+                <!--type: 2, -->
+                <!--area: ['1000px', '750px'],-->
+                <!--content: '/admin/statistical/makeChart' -->
+                <!--});" class="btn btn-sm btn-primary">-->
+                <!--<i class="icon-leaf"></i> <span>全局统计折线图</span>-->
+            <!--</button>-->
+            <!--<button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>-->
+            <!--<button id="toggle-search" type="button" class="btn" th:if="${not #lists.isEmpty(searchFields.reportfields)}"><i class="icon-angle-down"></i> <span>展开搜索</span></button>-->
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <th data-title="智能通关企业数" data-field="intelligentEnterprisesNum" data-align="center"></th>
+                <th data-title="智能通关产品数" data-field="intelligentProductNum" data-align="center"></th>
+                <th data-title="智能通关完成金额" data-field="intelligentCompleteMoney" data-align="center"></th>
+                <th data-title="创业孵化企业数" data-field="incubationEnterprisesNum" data-align="center"></th>
+                <th data-title="创业孵化团队数" data-field="incubationTeamNum" data-align="center"></th>
+                <th data-title="创业孵化技术成果数" data-field="incubationAchievements" data-align="center"></th>
+                <th data-title="科技资源文献数" data-field="scienceLiteratureNum" data-align="center"></th>
+                <th data-title="科技资源下载数" data-field="scienceResourceDownload" data-align="center"></th>
+                <th data-title="技术众包需求数" data-field="crowdsourcedDemandNum" data-align="center"></th>
+                <th data-title="技术众包项目成交数" data-field="intelligentEnterprisesNum" data-align="center"></th>
+                <th data-title="技术众包交易额" data-field="crowdsourcedClinchMoney" data-align="center"></th>
+                <th data-title="技术众包服务商数" data-field="crowdsourcedProviderNum" data-align="center"></th>
+                <th data-title="技术众包案例数" data-field="crowdsourcedCaseNum" data-align="center"></th>
+                <th data-title="技术众包专家数" data-field="crowdsourcedExpertNum" data-align="center"></th>
+                <th data-title="展会数量" data-field="exhibitionsNum" data-align="center"></th>
+                <th data-title="更新时间" data-field="updatedAt" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?app_v=${app.build.version}"></script>
+<!--<script src="/static/plugin/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}"></script><script src="/static/plugin/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}"></script>-->
+<script src="/static/plugin/pnotify/pnotify.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js?app_v=${app.build.version}"></script>
+<script src="/static/plugin/layer/layer.js?app_v=${app.build.version}"></script>
+<script src="/static/admin/js/common.js?app_v=${app.build.version}"></script>
+<script src="/static/admin/js/statistical/imaginaryManage.js?app_v=${app.build.version}"></script>
+</body>
+</html>

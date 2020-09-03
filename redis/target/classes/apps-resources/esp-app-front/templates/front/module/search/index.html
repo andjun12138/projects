@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <!--page样式-->
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/front/css/module/search/index.css?app_v=${app.build.version}">
+    <script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="search" class="search">
+    <div class="search-container">
+        <div class="search-result">
+            找到相关资讯共<span class="highlight-number">0</span>条
+        </div>
+        <div class="search-list-container">
+            <ul class="search-list"></ul>
+            <div id="search-page-pagination" class="search-page-pagination">
+                <!--最外层：限制框-->
+                <div class="plugin-pagination">
+                    <!--第二层：最大延展层（保证分页组件不会换行）-->
+                    <div class="plugin-pagination-content-div plugin-pagination-content-div__ie11">
+                        <!--第三层：自适应延展层（由子项决定宽度，居中内容）-->
+                        <div class="plugin-pagination-content plugin-pagination-content__ie11">
+                            <!--分页页码-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--page插件-->
+<script src="/static/front/js/module/search/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

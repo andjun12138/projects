@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+   <meta name="renderer" content="webkit"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <title>用户分配菜单</title>
+   <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/static/plugin/zTree/css/metroStyle/metroStyle.css">
+   <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.css">
+   <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.brighttheme.css">
+   <link rel="stylesheet" href="/static/plugin/pnotify/pnotify.buttons.css">
+   <!--[if IE 7]>
+   <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+   <![endif]-->
+   <!--[if lt IE 9]>
+   <script src="/static/compatibility/html5shiv.js"></script>
+   <script src="/static/compatibility/respond.min.js"></script>
+   <![endif]-->
+</head>
+<body>
+<div id="main" style="padding: 15px;">
+   <!--注入 角色菜单roleList  勾选的角色roles  用户id :frontUserId-->
+    <!--保存数据  /admin/frontUser/{frontUserId}/updateUserRole
+      roleIds 数组形式,(不允许多选)
+    -->
+   <div style="margin-bottom: 10px;">
+      <button type="button" class="btn btn-sm btn-primary" id="modify-finished-btn"><i class="icon-ok-circle icon-large"></i> 确定</button>
+      <button type="button" class="btn btn-sm btn-danger" id="modify-cancel-btn"><i class="icon-remove-circle icon-large"></i> 取消</button>
+   </div>
+   <div>
+      <ul id="role-tree" class="ztree"></ul>
+   </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="/static/plugin/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/plugin/bootstrapValidator/js/language/zh_CN.js"></script>-->
+<script src="/static/plugin/zTree/js/jquery.ztree.core.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.exhide.min.js"></script>
+<script src="/static/plugin/zTree/js/jquery.ztree.excheck.min.js"></script>
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script type="text/javascript" th:inline="javascript">
+    var roleId = [[${frontUserId}]];
+    var allRoleMenus = [[${roleList}]];
+    var selectedRoleMenus = [[${roles}]];
+</script>
+<script src="/static/admin/js/user/newUserRole.js"></script>
+</body>
+</html>

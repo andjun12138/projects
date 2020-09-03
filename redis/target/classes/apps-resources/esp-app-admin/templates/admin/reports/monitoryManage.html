@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>监控点管理</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/css/variable.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/common.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <div id="data-part" class="clearfix">
+        <div id="search-part" class="row" style="display: none">
+            <div id="search-form" name="search-form">
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label for="name" class="search-label">监控名称</label>
+                    <input id="name" class="search-control" type="text"/>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label for="id" class="search-label">菜单</label>
+                    <input id="id" class="search-control" type="text"/>
+                </div>
+                <div class="search-group col-sm-4 col-md-3 col-lg-3">
+                    <label for="disable" class="search-label">是否停用</label>
+                    <select name="disable" id="disable" class="search-control">
+                        <option value=""></option>
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="toolbar" class="btn-toolbar">
+            <button type="button" th:each="button:${buttons}" th:onClick="${button['jsContent']}"
+                    th:class="${button['className']}">
+                <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
+            </button>
+            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i
+                    class="icon-search"></i> <span>搜索</span></button>
+            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span>
+            </button>
+        </div>
+        <table id="table" data-classes="table table-hover table-responsive table-sm">
+            <thead>
+            <tr>
+                <th data-checkbox="true" data-field="state"></th>
+                <th data-title="监控点名称" data-field="name" data-align="center"></th>
+                <th data-title="所属菜单" data-field="menu_belong" data-align="center"></th>
+                <th data-title="状态" data-field="used" data-align="center"></th>
+                <th data-title="说明" data-field="description" data-align="center"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/bootstrap-table.min.js"></script>
+<script src="/static/plugin/bootstrap-table.1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<!--<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>-->
+<script src="/static/plugin/pnotify/pnotify.js"></script>
+<script src="/static/plugin/pnotify/pnotify.buttons.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/reports/monitoryManage.js"></script>
+</body>
+</html>
+<!--搜索栏参数 ：name   id   disable（0 是 启用 1 是停用） -->
+<!-- 查询 ： /admin/frontMenu/getFrontMenu-->
+<!-- 列表 ： id  name  menu_belong disable description-->

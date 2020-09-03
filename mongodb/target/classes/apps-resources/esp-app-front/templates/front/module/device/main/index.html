@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css?app_v=${app.build.version}">
+    <!--日趋插件样式-->
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?app_v=${app.build.version}">
+    <!--table样式-->
+    <link rel="stylesheet" href="/static/plugin/self/table/css/table.css?app_v=${app.build.version}">
+    <!--page样式-->
+    <link rel="stylesheet" href="/static/plugin/self/page/css/pluginPagination.css?app_v=${app.build.version}">
+    <link rel="stylesheet" href="/static/front/css/module/device/device.css?app_v=${app.build.version}">
+    <!--日期插件-->
+    <script src="/static/plugin/datetimepicker/js/bootstrap-datetimepicker.min.js?app_v=${app.build.version}" defer></script>
+    <script src="/static/plugin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?app_v=${app.build.version}" defer></script>
+    <!--table插件-->
+    <script src="/static/plugin/self/table/js/table.js?app_v=${app.build.version}" defer></script>
+    <!--page插件-->
+    <script src="/static/plugin/self/page/js/pluginPagination.js?app_v=${app.build.version}" defer></script>
+</head>
+<body layout:fragment="content">
+<div id="device" class="device">
+    <div class="device-container">
+        <div class="nav-list-div">
+            <ul class="nav-list">
+                <li class="nav-item active" type="search">仪器设备共享</li>
+                <li class="nav-item" type="publish">发布仪器设备</li>
+            </ul>
+        </div>
+        <div class="model-content-div search">
+            <ul class="search-list">
+                <li class="search-item" title="仪器名称">
+                    <div class="input-select-div arrow-al-icon input">
+                        <input class="device-name-input" type="text" name="name" autocomplete="off">
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="预约类型">
+                    <div class="input-select-div arrow-al-icon select">
+                        <select class="appointment-type-select" name="reserve-type">
+                            <option value="">不限</option>
+                            <option th:each="typeItem : ${reserveType}" th:value="${typeItem.id}" th:text="${typeItem.title}"></option>
+                        </select>
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="预约方式">
+                    <div class="input-select-div arrow-al-icon select">
+                        <select class="appointment-method-select" name="reserve-way">
+                            <option value="">不限</option>
+                            <option th:each="wayItem : ${reserveWay}" th:value="${wayItem.id}" th:text="${wayItem.title}"></option>
+                        </select>
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="所属单位">
+                    <div class="input-select-div arrow-al-icon input">
+                        <input class="unit-input" type="text" name="belong-unit" autocomplete="off">
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="仪器状态">
+                    <div class="input-select-div arrow-al-icon select">
+                        <select class="device-status-select" name="status">
+                            <option value="">不限</option>
+                            <option th:each="statusItem : ${status}" th:value="${statusItem.id}" th:text="${statusItem.title}"></option>
+                        </select>
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="仪器大类">
+                    <div class="input-select-div arrow-al-icon select">
+                        <select class="device-big-class-select" name="big-type">
+                            <option value="">不限</option>
+                            <option th:each="bigTypeItem : ${bigType}" th:value="${bigTypeItem.id}" th:text="${bigTypeItem.title}"></option>
+                        </select>
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item" title="仪器小类">
+                    <div class="input-select-div arrow-al-icon select">
+                        <select class="device-small-class-select" name="small-type">
+                            <option value="">不限</option>
+                            <option th:each="smallTypeItem : ${smallType}" th:value="${smallTypeItem.id}" th:text="${smallTypeItem.title}"></option>
+                        </select>
+                    </div>
+                    <p class="input-tip"></p>
+                </li>
+                <li class="search-item button" title="">
+                    <button id="search-submit" class="search-active-btn">
+                        查询
+                    </button>
+                    <button id="search-reset" class="search-active-btn">
+                        重置
+                    </button>
+                </li>
+            </ul>
+            <div class="search-show-div">
+                <div id="device-table" class="device-table-div"></div>
+                <div id="device-page" class="device-page-div"></div>
+            </div>
+        </div>
+        <div class="model-content-div publish" style="display: none">
+            <div th:replace="front/module/device/module/deviceForm :: device-form"></div>
+        </div>
+    </div>
+    <div class="device-info-global-div">
+        <div class="device-info-div">
+            <div class="device-info-title">
+                仪器设备信息卡<i class="icon-error"></i>
+            </div>
+            <div class="device-info-content">
+                <div th:replace="front/module/device/module/deviceForm :: device-form"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/device/module/deviceForm.js?app_v=${app.build.version}" defer></script>
+<script src="/static/front/js/module/device/main/device.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

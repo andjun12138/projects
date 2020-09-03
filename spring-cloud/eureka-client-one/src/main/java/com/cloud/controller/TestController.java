@@ -1,12 +1,14 @@
 package com.cloud.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.cloud.service.BaseEntityService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.UnknownHostException;
+import java.util.BitSet;
 
 /**
  * Created by liuxh on 2017/5/31.
@@ -15,12 +17,19 @@ import java.net.UnknownHostException;
 @RequestMapping(value="/test")
 @RefreshScope
 public class TestController {
-    @Value("${config-server-hello}")
-    String message;
 
-    @RequestMapping("/index")
-    public String index(Model model) throws UnknownHostException {
-        return message;
+    @Autowired
+    BaseEntityService baseEntityService;
+
+    @RequestMapping("/update")
+    public String update(Model model,int total, Integer id) throws UnknownHostException {
+        baseEntityService.update(total,id);
+        return "success";
+    }
+
+    public void test (){
+        BitSet bitSet = new BitSet();
+        bitSet.size();
     }
 
 }

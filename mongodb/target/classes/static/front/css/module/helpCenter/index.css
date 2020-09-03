@@ -1,0 +1,95 @@
+.helpCenter{
+    width: 100%;
+}
+
+.helpCenter .helpCenter-container{
+    width: 1200px;
+    background: #ffffff;
+    margin: .25rem auto;
+    padding: 24px;
+}
+
+.helpCenter .helpCenter-container .left-part{
+    display: inline-block;
+    width: 246px;
+    overflow: hidden;
+    vertical-align: top;
+    background-color: #ffffff;
+}
+
+.helpCenter .helpCenter-container .left-part .title-div {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background: #efefef;
+    text-align: center;
+    color:#8492a6;
+    font-size:18px;
+
+}
+
+.helpCenter .helpCenter-container .left-part .tag-div{
+    width: 100%;
+    height: 305px;
+    box-shadow: 0px 0px 10px 0px
+    rgba(160, 160, 160, 0.2);
+    border: solid 1px #f6f6f6;
+}
+.helpCenter .helpCenter-container .left-part .tag-div .tag-item{
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    line-height: 45px;
+    text-align: center;
+    color: #8492a6;
+    font-size: 18px;
+}
+.helpCenter .helpCenter-container .left-part .tag-div .active{
+    color:#36537d;
+}
+.helpCenter .helpCenter-container .left-part .tag-div .problem-list{
+    position: relative;
+    left: 0;
+    top: 0;
+    border-top: 1px solid rgba(132,146,166,0.11);
+    border-bottom: 1px solid rgba(132,146,166,0.11);
+}
+.helpCenter .helpCenter-container .left-part .tag-div .title-div{
+    background: #efefef;
+}
+.helpCenter .helpCenter-container .left-part .call-div{
+    width: 244px;
+    height: 98px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px
+    rgba(160, 160, 160, 0.2);
+    border: solid 1px #f6f6f6;
+    margin-top: 30px;
+}
+.helpCenter .helpCenter-container .left-part .call-div>div{
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #0091ff;
+}
+.icon-kefudianhua:before{
+    font-size: 25px;
+}
+.helpCenter .helpCenter-container .right-part{
+    display: inline-block;
+    width: 866px;
+    margin-left: 20px;
+}
+.helpCenter .helpCenter-container .right-part>div{
+    display: none;
+}
+.helpCenter .helpCenter-container .right-part .selected{
+    display: block;
+}
+
+
+.helpCenter .helpCenter-container .right-part .fileDownload .file-list li{
+    list-style-type: decimal;
+    font-size: 18px;
+    margin-bottom: 20px;
+}

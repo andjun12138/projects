@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析</title>
+    <link href="/static/plugin/font/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/front/css/module/dataAnalysis/index.css">
+</head>
+<body>
+<div class="main">
+    <div class="top-content">
+        <div class="top-content-left">
+            <i class="icon-user" style="font-size: 20px;"></i>  累计访问：<span style="font-size: 30px; color: #6df496;">38682</span>
+        </div>
+        <div class="top-content-right">
+            <span class="top-content-time"></span>
+            <span class="top-content-weather"></span>
+        </div>
+        <img class="top-title-img" src="/static/front/assets/image/module/dataAnalysis/top-title.png" alt="">
+    </div>
+    <div class="bottom-content">
+        <div class="quarter-div">
+            <div class="quarter-content quarter-color-1">
+                <div class="quarter-content-top">
+                    <img class="quarter-img" src="/static/front/assets/image/module/dataAnalysis/platform.png" alt="">
+                    <img class="right-top-img" src="/static/front/assets/image/module/dataAnalysis/right-top.png" alt="">
+                </div>
+                <div class="quarter-content-middle">
+                    <div class="quarter-content-chart" id="user-line-chart"></div>
+                    <div class="quarter-content-chart" id="user-pie-chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="quarter-div">
+            <div class="quarter-content quarter-color-2">
+                <div class="quarter-content-top">
+                    <img class="quarter-img" src="/static/front/assets/image/module/dataAnalysis/internet.png" alt="">
+                    <img class="right-top-img" src="/static/front/assets/image/module/dataAnalysis/right-top.png" alt="">
+                </div>
+                <div class="quarter-content-middle">
+                    <div class="quarter-content-chart" id="clearance-line-chart"></div>
+                    <div class="quarter-content-chart" id="exhibition-line-chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="quarter-div">
+            <div class="quarter-content quarter-color-2">
+                <div class="quarter-content-top">
+                    <img class="quarter-img" src="/static/front/assets/image/module/dataAnalysis/resource.png" alt="">
+                    <img class="right-top-img" src="/static/front/assets/image/module/dataAnalysis/right-top.png" alt="">
+                </div>
+                <div class="quarter-content-middle">
+                    <div class="quarter-content-chart">
+                        <div class="resource-line-chart-title">
+                            <ul class="resource-ul">
+                                <li class="resource-li">科技文献：<span style="color: #ff7430; font-weight: bold; font-size: 18px;">216825</span></li>
+                                <li class="resource-li">科技资讯：<span style="color: #ff7430; font-weight: bold; font-size: 18px;">4658</span></li>
+                                <li class="resource-li">文献下载：<span style="color: #ff7430; font-weight: bold; font-size: 18px;">268321</span></li>
+                            </ul>
+                        </div>
+                        <div class="resource-line-chart" id="resource-line-chart"></div>
+                    </div>
+                    <div class="quarter-content-chart">
+                        <div class="achievements-pie-chart" id="achievements-pie-chart"></div>
+                        <div class="achievements-calc-list">
+                            <ul class="type-ul" style="overflow: hidden;">
+                                <li class="type-li">
+                                    <span class="type-rate">45%</span>
+                                    <span class="type-name">工业互联网</span>
+                                </li>
+                                <li class="type-li">
+                                    <span class="type-rate">20%</span>
+                                    <span class="type-name">工业设计</span>
+                                </li>
+                                <li class="type-li">
+                                    <span class="type-rate">17%</span>
+                                    <span class="type-name">能源新材料</span>
+                                </li>
+                                <li class="type-li">
+                                    <span class="type-rate">10%</span>
+                                    <span class="type-name">工业机器人</span>
+                                </li>
+                                <li class="type-li">
+                                    <span class="type-rate">8%</span>
+                                    <span class="type-name">其他</span>
+                                </li>
+                            </ul>
+                            <div class="achievements-pie-chart-title">成果分类</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quarter-div">
+            <div class="quarter-content quarter-color-1">
+                <div class="quarter-content-top">
+                    <img class="quarter-img" src="/static/front/assets/image/module/dataAnalysis/incubator.png" alt="">
+                    <img class="right-top-img" src="/static/front/assets/image/module/dataAnalysis/right-top.png" alt="">
+                </div>
+                <div class="quarter-content-middle">
+                    <div class="quarter-content-chart" id="company-line-chart"></div>
+                    <div class="quarter-content-chart" id="company-pie-chart"></div>
+                    <div class="company-total">
+                        <p>在孵企业数</p>
+                        <p>128</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js" defer></script>
+    <script src="/static/plugin/jquery-3.3.1.min.js?app_v=${app.build.version}" defer></script>
+    <script src="/static/front/js/module/dataAnalysis/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

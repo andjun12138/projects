@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>国防四库平台</title>
+    <link rel="icon" href="/static/admin/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/admin/css/statistical.css">
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/static/plugin/font/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/static/compatibility/html5shiv.js"></script>
+    <script src="/static/compatibility/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<div class="main">
+    <ul id="fieldTab" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#trend" data-toggle="tab">趋势分析</a></li>
+        <li role="presentation"><a href="#proportion" data-toggle="proportion">占比分析</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="trend">
+            <div class="search-pad">
+                <div class="search-pad-div">
+                    <div class="type-label">时间类型:</div>
+                    <ul class="type-list">
+                        <li class="type-active"><span data-value="日">按日</span></li>
+                        <li><span data-value="周">按周</span></li>
+                        <li><span data-value="月">按月</span></li>
+                        <li><span data-value="年">按年</span></li>
+                    </ul>
+                    <div class="time-label">时间范围:</div>
+                    <ul class="time-list">
+                        <li class="time-active"><span data-time="3">3月</span></li>
+                        <li><span data-time="6">6月</span></li>
+                        <li><span data-time="12">12月</span></li>
+                    </ul>
+                    <div class="time-input">
+                        <input type="text" class="time" id="startTime">
+                        <span>-</span>
+                        <input type="text" class="time" id="endTime">
+                    </div>
+                    <button class="btn btn-default search-btn" id="toSearch">搜索</button>
+                    <div id="analysisBarMap"></div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="proportion">
+            <div class="search-pad">
+                <div class="search-pad-div">
+                    <div class="field-label">分类:</div>
+                    <ul class="field-list">
+                        <li class="field-active"><span data-value="类型">按类型</span></li>
+                        <li><span data-value="领域">按领域</span></li>
+                        <li><span data-value="从属">按从属</span></li>
+                        <li><span data-value="地区">按地区</span></li>
+                    </ul>
+                    <label for="timeRange">时间范围:</label>
+                    <select name="timeRange" id="timeRange">
+                        <option value="all">所有时间</option>
+                        <option value="week">最近一周</option>
+                        <option value="month">最近一月</option>
+                        <option value="year">最近一年</option>
+                    </select>
+                    <div class="time-input">
+                        <input type="text" class="time" id="fieldStart">
+                        <span>-</span>
+                        <input type="text" class="time" id="fieldEnd">
+                        <button class="btn btn-default search-btn" id="toProportionSearch">搜索</button>
+                    </div>
+                    <div id="proportionBarMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 获取趋势分析数据:/admin/enterprise/getTrendAnalysis POST
+            上传参数:type(日、周、月、年)   startTime endTime (格式:yyyy-mm-dd)
+        -->
+<!-- 获取占比分析数据:/admin/enterprise/getPercentage POST
+       上传参数:type(性质、领域、地区)   startTime endTime (格式:yyyy-mm-dd)
+   -->
+<script src="/static/plugin/jquery-1.10.2.min.js"></script>
+<script src="/static/plugin/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/plugin/layer/layer.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/moment.js"></script>
+<script src="/static/plugin/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/admin/js/statistical/enterprise.js?app_v=${app.build.version}"></script>
+</body>
+</html>
+

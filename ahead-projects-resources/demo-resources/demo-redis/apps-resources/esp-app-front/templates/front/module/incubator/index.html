@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="front/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>创业孵化器平台</title>
+    <link rel="stylesheet" href="/static/front/css/module/incubator/incubator.css">
+</head>
+<body layout:fragment="content">
+<div class="incubator">
+    <div class="incubator-item">
+        <div class="incubator-item-container">
+            <!-- 轮播图模块 -->
+            <div class="incubator-slider-notice-model">
+                <div class="incubator-slider-model">
+                    <ul class="slider-list">
+                    </ul>
+                    <div class="slider-title-div">
+                        <p class="slider-title"></p>
+                        <ul class="slider-points-list">
+                        </ul>
+                    </div>
+                </div>
+                <div class="slider-news-model">
+                    <ul class="news-nav-list">
+                        <li class="news-nav-item active" data-type="park">孵化器资讯</li>
+                    </ul>
+                    <ul class="news-content-list"></ul>
+                    <a class="news-more-link" href="/incubatorArticleList.html" >
+                        更多
+                    </a>
+                </div>
+            </div>
+            <!-- 分类信息 -->
+            <div class="incubator-guide-info-model">
+                <div class="incubator-application-div">
+                    <a href="#" class="application-link click-al-icon" target="_blank">
+                        <button class="application-button">入孵申请</button>
+                    </a>
+                </div>
+                <div class="incubator-guide-info-div">
+                    <div class="guide-info-item" type="introduction">
+                        <img src="/static/front/assets/image/module/incubator/guide-info-left.jpg" alt="" class="image">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="/centerIntro/detail.html#introduce" class="link">
+                                    <span class="title article-al-icon">科创中心简介</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="/centerIntro/detail.html#development" class="link">
+                                    <span class="title flag-al-icon">科创中心发展历程</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="/centerIntro/detail.html#honor" class="link">
+                                    <span class="title medal-al-icon">科创中心荣誉</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="/centerIntro/detail.html#leadership" class="link">
+                                    <span class="title heart-al-icon">科创中心领导关怀</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="guide-info-item" type="func">
+                        <img src="/static/front/assets/image/module/incubator/guide-info-right.jpg" alt="" class="image">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="http://huinankj.com" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找知识</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="http://huinankj.com" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找专利</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//huinankj.com/?_module=site&_name=article&_do=article_list&article_category_id=51" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找科技成果</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//huinankj.com/?_module=site&_name=article&_do=article_list&name=zcxzx" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找创新中心</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//huinankj.com/?_module=site&_name=article&_do=article_list&name=zsx" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找实训</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//huinankj.com/?_module=site&_name=article&_do=article_list&name=zck" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找创客</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//www.huinankj.com/details/business.html" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找企业</span>
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a href="//www.huinankj.com/details/away.html" class="link" target="_blank" rel="nofollow">
+                                    <span class="title">找人才</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="incubator-item">
+        <div class="incubator-item-container">
+            <p class="excellent-company-title">明星企业</p>
+            <div class="excellent-company-list-div">
+                <ul id="excellent-company-list" class="list">
+                    <li class="item" level="0">
+                        <div class="company-image-div" title="">
+                            <img src="" alt="" class="company-image">
+                        </div>
+                    </li>
+                    <li class="item" level="1">
+                        <a href="" class="company-detail-link">
+                            <div class="company-image-div" title="">
+                                <img src="" alt="" class="company-image">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item" level="2">
+                        <a href="" class="company-detail-link">
+                            <div class="company-image-div" title="">
+                                <img src="" alt="" class="company-image">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item" level="3">
+                        <a href="" class="company-detail-link">
+                            <div class="company-image-div" title="">
+                                <img src="" alt="" class="company-image">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item" level="4">
+                        <a href="" class="company-detail-link">
+                            <div class="company-image-div" title="">
+                                <img src="" alt="" class="company-image">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item" level="5">
+                        <a href="" class="company-detail-link">
+                            <div class="company-image-div" title="">
+                                <img src="" alt="" class="company-image">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slider-btn">
+                    <span class="left-btn">
+                        <i class="icon-arrow-left"></i>
+                    </span>
+                <span class="right-btn">
+                        <i class="icon-arrow-right"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="incubator-item">
+        <div class="incubator-item-container">
+            <p class="platform-list-title">孵化平台</p>
+            <div class="platform-list-div">
+                <ul class="list"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="incubator-item">
+        <div class="incubator-item-container">
+            <p class="base-station-title">基础设施</p>
+            <div class="base-station-div">
+                <div class="base-station-item" type="left">
+                    <ul class="base-station-list"></ul>
+                </div>
+                <div class="base-station-item" type="right">
+                    <ul class="base-station-list"></ul>
+                </div>
+            </div>
+        </div>
+        <!--用于获取图片放大后的原图大小-->
+        <img alt="" style="display:none" id="display-img" src="" />
+    </div>
+    <div class="incubator-item">
+        <div class="incubator-item-container">
+            <p class="service-station-title">服务机构</p>
+            <div class="service-station-list-div">
+                <ul class="service-station-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/front/js/module/incubator/index.js?app_v=${app.build.version}" defer></script>
+</body>
+</html>

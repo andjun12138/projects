@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="../static/plugin/jquery-1.10.2.min.js?app_v=${app.build.version}"></script>
+<!--data: JSON.stringify(REMOVE_ARRAY),-->
+<!--contentType:'application/json;charset=utf-8',-->
+    <script th:inline="javascript" type="text/javascript">
+        $.ajax({
+            url: "http://security.esp.net/test",
+            type: 'get',
+            xhrFields:{
+                withCredentials:true
+            },
+            success: function(res){
+                console.log(res);
+            },
+            error: function(err){
+                console.log(res);
+            }
+        })
+/*
+        var urls = [[${urls}]];
+        $.ajax({
+                url: urls[0].url,
+                type: 'get',
+                success: function(res){
+                    if(res.code === 200) {
+                        alert("成功");
+                    } else {
+                        alert("失败");
+                    }
+                },
+                error: function(err){
+                     alert("网络异常或其他错误");
+                }
+            })
+            */
+    </script>
+</body>
+</html>

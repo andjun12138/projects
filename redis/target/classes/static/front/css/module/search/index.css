@@ -1,0 +1,84 @@
+.search {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+}
+.search .search-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .25rem auto;
+    width: 12rem;
+    background: #ffffff;
+}
+.search .search-container .search-result {
+    height: .4rem;
+    line-height: .4rem;
+    background-color: #ebebeb;
+    font-size: .14rem;
+    padding-left: .2rem;
+}
+.search .search-container .search-result .highlight-number {
+    color: #19a0e5;
+}
+.search .search-container .search-list-container{
+    padding: .2rem .3rem .8rem;
+}
+.search .search-container .search-list-container .search-list .search-item{
+    padding: .1rem 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.search .search-container .search-list-container .search-list .search-item .title-line,
+.search .search-container .search-list-container .search-list .search-item .info-line {
+    overflow: hidden;
+    margin-bottom: .2rem;
+}
+
+.search .search-container .search-list-container .search-list .search-item .title-line .type-tag {
+    display: inline-block;
+    width: .9rem;
+    margin-right: .26rem;
+    text-align: center;
+    height: .26rem;
+    line-height: .26rem;
+    color: #ffffff;
+    font-size: 12px;
+    -webkit-border-radius: .05rem;
+    -moz-border-radius: .05rem;
+    border-radius: .05rem;
+}
+
+.search .search-container .search-list-container .search-list .search-item .title-line .search-title {
+    display: inline-block;
+    font-size: .16rem;
+    color: #097dc8;
+}
+
+.search .search-container .search-list-container .search-list .search-item .title-line .type-tag.type-1 {
+    background-color: #196fe5;
+}
+.search .search-container .search-list-container .search-list .search-item .title-line .type-tag.type-2 {
+    background-color: #19a0e5;
+}
+.search .search-container .search-list-container .search-list .search-item .title-line .type-tag.type-3 {
+    background-color: #54b8b8;
+}
+.search .search-container .search-list-container .search-list .search-item .info-line .publish-time {
+    display: inline-block;
+    width: 1.16rem;
+    /*color: #19a0e5;*/
+}
+.search .search-container .search-list-container .search-list .search-item .info-line .click-number {
+    display: inline-block;
+    width: 1.16rem;
+}
+.search .search-container .search-list-container .search-list .search-item .info-line .publisher {
+    display: inline-block;
+}
+.search .search-container .search-list-container .search-page-pagination {
+    float: left;
+    margin-top: .2rem;
+    width: 100%;
+}

@@ -1,0 +1,87 @@
+/*menuManage*/
+.column-nav {
+    display: inline-block;
+    /*width: 200px;*/
+    margin-top: 5px;
+    vertical-align: top;
+}
+.nav-title {
+    line-height: 50px;
+    text-align: center;
+    border-right: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+}
+.search-div {
+   /* margin-top: 10px;*/
+    position: relative;
+    padding: 5px;
+    border: 1px solid #eaeaea;
+    background-color: #f0f0f0;
+}
+.launch-btn {
+    font-size: 18px;
+    display: inline-block;
+    line-height: 30px;
+    width: 13%;
+    text-align: center;
+    cursor: pointer;
+}
+.search-div .search-control {
+    width: 85%;
+    display: inline-block;
+}
+.nav-tree {
+    min-height: 700px;
+    background-color: #f0f0f0;
+    border: 1px solid #eaeaea;
+}
+.maintain-table {
+    display: inline-block;
+    width: 80%;
+    margin-left: 15px;
+}
+.searchTree {
+    position: absolute;
+    right: 9px;
+    top: 7px;
+    line-height: 25px;
+    -webkit-appearance: button;
+    text-transform: none;
+    overflow: visible;
+    background-image: none;
+    border: 1px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.contrast-ids {
+    margin-top: 10px;
+    font-size: 16px;
+}
+#ids-list {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+}
+#ids-list>li {
+    font-size: 14px;
+    display: inline-block;
+    width: 100px;
+    line-height: 24px;
+    background-color: #0088ff;
+    text-align: center;
+    color: white;
+    margin-right: 5px;
+}
+.id-name {
+}
+#ids-list>li>i {
+    cursor: pointer;
+    float: right;
+    line-height: 24px;
+    margin-right: 5px;
+}
