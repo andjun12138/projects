@@ -150,7 +150,6 @@ public class RedisService {
         SetOperations<String, Object> set = redisTemplate.opsForSet();
         set.add(key,value);
     }
-
     /**
      * 集合获取
      * @param key
@@ -171,7 +170,6 @@ public class RedisService {
         ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
         zset.add(key,value,scoure);
     }
-
     /**
      * 有序集合获取
      * @param key
@@ -182,5 +180,9 @@ public class RedisService {
     public Set<Object> rangeByScore(String key,double scoure,double scoure1){
         ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
         return zset.rangeByScore(key, scoure, scoure1);
+    }
+
+    public void convertAndSend(String channel,String message){
+        redisTemplate.convertAndSend(channel, message);
     }
 }

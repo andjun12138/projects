@@ -1,0 +1,821 @@
+.intelligent-pass{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: .28rem auto;
+    width: 12rem;
+    padding: .3rem;
+    background: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container > div[class*="-model"] {
+    width: 100%;
+}
+.intelligent-pass .intelligent-pass-container > div[class*="-model"] .title-div {
+    width: 100%;
+    height: .3rem;
+    border-left: 3px solid #31baed;
+    line-height: .3rem;
+    text-indent: .25rem;
+    font-size: .18rem;
+    font-weight: bold;
+    color: #5e5e5e;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model {
+    width: 100%;
+    height: 3.3rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model {
+    float: left;
+    position: relative;
+    margin-right: .15rem;
+    width: 4.9rem;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-list .slider-item {
+    float: left;
+    width: 4.9rem;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-list .slider-item .slider-item-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-list .slider-item .slider-item-link .slider-item-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .3rem;
+    padding: 0 .2rem;
+    background: rgba(60, 60, 60, .4);
+    line-height: .3rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div .slider-title{
+    float: left;
+    display: inline-block;
+    font-size: .12rem;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div .slider-points-list{
+    float: right;
+    display: inline-block;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div .slider-points-list .slider-point-item{
+    float: left;
+    position: relative;
+    top: 50%;
+    margin-top: -.02rem;
+    margin-right: .05rem;
+    width: .1rem;
+    height: .04rem;
+    background: #a0a0a0;
+    cursor: pointer;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div .slider-points-list .slider-point-item:last-child{
+    margin-right: 0;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .industry-slider-model .slider-title-div .slider-points-list .active {
+    background: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model {
+    float: right;
+    position: relative;
+    width: 6.35rem;
+    height: 100%;
+}
+/*.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .home-notice-div{
+    width: 100%;
+    height: 2.65rem;
+    overflow: hidden;
+}*/
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-nav-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: .1rem;
+    width: 100%;
+    height: .4rem;
+    border-bottom: 2px solid #ebebeb;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-nav-list .news-nav-item {
+    position: relative;
+    float: left;
+    display: inline-block;
+    margin-right: .6rem;
+    height: 100%;
+    line-height: .4rem;
+    cursor: pointer;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-nav-list li.active {
+    border-bottom: 2px solid #09a7bc;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-nav-list li.active:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #09a7bc;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-content-list {
+    margin-top: .15rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.7rem;
+    padding-left: .2rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-content-list .news-content-item{
+    width: 100%;
+    height: .3rem;
+    list-style-type: disc;
+    color: #09a7bc;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-content-list .news-content-item .news-content-link {
+    color: #000000;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-content-list .news-content-item .news-content-link .news-content-title {
+    float: left;
+    width: 5.2rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-content-list .news-content-item .news-content-link .news-content-time {
+    float: right;
+    width: .8rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .news-more-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: .4rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .slider-news-model .home-link {
+    display: block;
+    width: 100%;
+    height: .64rem;
+    overflow: hidden;
+}
+
+
+
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div {
+    width: 100%;
+    height: 3.13rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part {
+    float: left;
+    width: 5.4rem;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div {
+    width: 100%;
+    height: 2.21rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .big-image-div {
+    float: left;
+    position: relative;
+    width: 3.75rem;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .big-image-div .big-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .small-image-list {
+    float: right;
+    width: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .small-image-list .small-item {
+    position: relative;
+    margin-bottom: .2rem;
+    width: 100%;
+    height: 1rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .small-image-list .small-item:last-child {
+    margin-bottom: 0;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .image-show-div .small-image-list .small-item .small-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .introduction-div {
+    width: 100%;
+    height: .92rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .introduction-div .introduction-link {
+    line-height: .52rem;
+    font-size: .16rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .left-part .introduction-div .introduction-content {
+    font-size: .16rem;
+    word-break: break-all;
+    line-height: .25rem;
+    color: #848484;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part {
+    float: right;
+    width: 5.4rem;
+    height: 100%;
+    border-top: 2px solid #f1f1f1;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part .industry-info-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: .15rem;
+    width: 100%;
+    height: 3rem;
+    padding-left: .2rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part .industry-info-list .info-item {
+    width: 100%;
+    height: .34rem;
+    line-height: .34rem;
+    list-style-type: disc;
+    color: #09a7bc;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part .industry-info-list .info-item span{
+    color: #5e5e5e;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part .industry-info-list .info-item .info-title {
+    float: left;
+    width: 4.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.intelligent-pass .intelligent-pass-container .industry-info-model .content-div .right-part .industry-info-list .info-item .info-time {
+    float: right;
+    width: .8rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model{
+    height: .75rem;
+    width: 100%;
+    margin-bottom: .3rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div {
+    margin-top: .3rem;
+    width: 100%;
+    /*height: .75rem;*/
+    text-align: center;
+    line-height: .75rem;
+    background: url("/static/front/assets/image/module/intelligent/notice-bg-h.png");
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div p{
+    display: inline-block;
+    height: 100%;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .title {
+    margin-right: .55rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .title .title-icon {
+    margin-right: .15rem;
+    width: .32rem;
+    height: .32rem;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .title .title-icon:before {
+    font-size: .30rem;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .title .title-content {
+    font-size: .2rem;
+    color: inherit;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .content .number {
+    margin: 0 .1rem;
+    padding: .05rem .2rem;
+    background: #ffffff;
+    border-radius: .25rem;
+    font-size: .22rem;
+    color: #1fade9;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .content:after {
+    font-size: .18rem;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .content[type="tip"]:after {
+    /*截止今日，已有*/
+    content: '\622a\6b62\4eca\65e5\ff0c\5df2\6709';
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .content[type="company"]:after {
+    /*家企业使用*/
+    content: '\5bb6\4f01\4e1a\4f7f\7528\ff0c';
+}
+.intelligent-pass .intelligent-pass-container .industry-number-model .number-div .content[type="product"]:after {
+    /*项产品完成通关*/
+    content: '\9879\4ea7\54c1\5b8c\6210\901a\5173';
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model {
+    width: 100%;
+    height: 3.4rem;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div {
+    margin-top: .3rem;
+    width: 100%;
+    height: 2.75rem;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .left-part {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 6rem;
+    height: 100%;
+    padding: .1rem;
+    -webkit-box-shadow: 0 0 9px 0 #a0a0a0;
+    -moz-box-shadow: 0 0 9px 0 #a0a0a0;
+    box-shadow: 0 0 9px 0 #a0a0a0;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .left-part .line-chart-title-div {
+    width: 100%;
+    height: .14rem;
+    line-height: .14rem;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .left-part .line-chart-title-div .title{
+    float: left;
+    font-size: .12rem;
+    color: #8d8d8d;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .left-part .line-chart-title-div .time {
+    float: right;
+    border: none;
+    font-size: .12rem;
+    outline: none;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .left-part .line-chart-content {
+    width: 100%;
+    /*height: 2.4rem;*/
+    height: 2.5rem;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .right-part {
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 4.93rem;
+    height: 100%;
+    padding: .1rem;
+    -webkit-box-shadow: 0 0 9px 0 #a0a0a0;
+    -moz-box-shadow: 0 0 9px 0 #a0a0a0;
+    box-shadow: 0 0 9px 0 #a0a0a0;
+}
+.intelligent-pass .intelligent-pass-container .data-chart-model .content-div .right-part .sector-chart-content {
+    width: 100%;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model {
+    margin-top: .3rem;
+    height: 4.44rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .join-model {
+    float: right;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: .43rem;
+    width: 2.3rem;
+    height: 3.22rem;
+    overflow: hidden;
+    background-image: url("/static/front/assets/image/module/intelligent/join-bg.jpg");
+    border-top: 1px solid transparent;
+
+    margin-top: 43px\9;
+    width: 230px\9;
+    height: 322px\9;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .join-model .join-link {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.35rem;
+    width: 2.1rem;
+    height: .7rem;
+    border-radius: .35rem;
+    border: 1px solid #ffffff;
+
+    margin-top: 135px\9;
+    width: 210px\9;
+    height: 70px\9;
+    border-radius: 35px\9;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .join-model .join-link .join-button {
+    margin: .12rem .15rem;
+    width: 1.81rem;
+    height: .46rem;
+    border-radius: .23rem;
+    border: none;
+    background: #ffffff;
+    color: #2d5b9b;
+    font-size: .22rem;
+    cursor: pointer;
+
+    margin: 12px 15px\9;
+    width: 181px\9;
+    height: 46px\9;
+    border-radius: 23px\9;
+    font-size: 22px\9;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .join-model .join-tip {
+    margin-top: .18rem;
+    width: 100%;
+    font-size: .18rem;
+    text-align: center;
+    line-height: .18rem;
+    color: #ffffff;
+
+    margin-top: 18px\9;
+    font-size: 18px\9;
+    line-height: 18px\9;
+}
+
+
+
+
+
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 8.9rem;
+    height: 3.65rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item {
+    float: left;
+    margin: .15rem 0;
+    margin-right: .5rem;
+    width: 1rem;
+    height: 1.6rem;
+    text-align: center;
+    cursor: pointer;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item:last-child {
+    margin-right: 0;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: .3rem;
+    width: 7.82rem;
+    height: 1.15rem;
+    background: #fff;
+    border: 1px solid #AAAAAA;
+    text-align: justify;
+    z-index: 1;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[class*='active'] .item-tips{
+    display: block;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: .15rem;
+    margin-left: -.1rem;
+    width: 0;
+    height: 0;
+    border: .1rem solid transparent;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips:after{
+    border-bottom: .2rem solid #ffffff;
+    border-top: none;
+    bottom: 99%;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips:before{
+    border-bottom: .2rem solid #AAAAAA;
+    bottom: 100%;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .func-item-icon-div {
+    display: inline-block;
+    position: relative;
+    margin-top: .25rem;
+    width: .8rem;
+    height: .8rem;
+    background: transparent;
+    border: none;
+    border-radius: .4rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .func-item-icon-div .func-item-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    max-width: none;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="1"] .func-item-icon-div {
+    background: #ffc248;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="1"] .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="1"] .item-tips:after{
+    left: .5rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="2"] .func-item-icon-div {
+    background: #54b8b8;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="2"]  .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="2"] .item-tips:after{
+    left: 1.96rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="3"] .func-item-icon-div {
+    background: #2bb9ee;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="3"]  .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="3"] .item-tips:after{
+    left: 3.52rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="4"] .func-item-icon-div {
+    background: #ff8b63;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="4"]  .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="4"] .item-tips:after{
+    left: 5rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="5"] .func-item-icon-div {
+    background: #6b92f7;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="5"]  .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="5"] .item-tips:after{
+    left: 6.5rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="6"] .func-item-icon-div {
+    background: #6fc8c8;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="6"]  .item-tips:before,
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item[data-index="6"] .item-tips:after{
+    left: 8rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips .item-tips-title{
+    color:#1b9fdd;
+    font-size: .2rem;
+    margin-bottom: .2rem;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .item-tips .item-tips-content{
+    line-height: 1.5;
+}
+.intelligent-pass .intelligent-pass-container .func-list-model .func-list .func-item .func-item-title {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 50%;
+    margin-top: .05rem;
+    min-width: 100%;
+    text-align: center;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model {
+    width: 100%;
+    height: 5.6rem;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div {
+    margin-top: .3rem;
+    width: 100%;
+    height: 5rem;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list {
+    float: left;
+    width: 2.67rem;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list .nav-item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: .24rem;
+    width: 100%;
+    height: 1.5rem;
+    padding: 0 .3rem;
+    border: 1px solid transparent;
+    color: #707070;
+    line-height: 1.5rem;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list .nav-item:last-child {
+    margin-bottom: 0;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list li.active {
+    color: #ffffff;
+    background-image: linear-gradient(132deg, #39a6e4 0%, #33b7ec 60%, #2dc7f3 100%);
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list .nav-item p[class*="nav-title-"] {
+    width: 100%;
+    line-height: .25rem;
+    color: inherit;
+    letter-spacing: 2px;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-nav-list .nav-item p.nav-title-cn {
+    margin-top: .55rem;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div {
+    float: right;
+    width: 8.43rem;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-image-div {
+    position: relative;
+    width: 100%;
+    height: 1.6rem;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-image-div .content-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 3.4rem;
+    padding: .35rem;
+    background: #f5f5f5;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-limit-div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-cover-div{
+    width: 7.93rem;
+    height: 100%;
+    overflow: auto;
+
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-cover-div .content-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 7.73rem;
+    min-height: 100%;
+    padding-left: .2rem;
+    text-align: justify;
+    text-justify: inter-ideograph;/*IE*/
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-cover-div .content-list .content-item {
+    margin-bottom: .3rem;
+    list-style-type: disc;
+    color: #336eca;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-cover-div .content-list .content-item:last-child {
+    margin-bottom: 0;
+}
+.intelligent-pass .intelligent-pass-container .service-platform-model .content-div .service-content-div .content-list-div .content-list-cover-div .content-list .content-item p {
+    font-size: .16rem;
+    line-height: .25rem;
+    color: #000000;
+    word-break: break-all;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model {
+    margin-top: .3rem;
+    width: 100%;
+    height: 2.77rem;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: .3rem;
+    width: 100%;
+    height: 2.15rem;
+    padding: .4rem .8rem;
+    background: #3465b8;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list{
+    width: 100%;
+    height: 100%;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: .82rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    border-radius: .7rem;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item:last-child {
+    margin-right: 0;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item > p {
+    width: 100%;
+    font-size: .2rem;
+    line-height: .25rem;
+    text-align: center;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.number {
+    margin-top: .3rem;
+    font-size: .22rem;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.number:after {
+    font-size: .16rem;
+    color: #ffffff;
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.number[type="minute"]:after {
+    /*分钟*/
+    content: '\5206\949f';
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.number[type="year"]:after {
+    /*年*/
+    content: '\5e74';
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.number[type="percentage"]:after {
+    /*%*/
+    content: '\0025';
+}
+.intelligent-pass .intelligent-pass-container .platform-advantage-model .content-div .advantage-list .advantage-list-item p.tip {
+    font-size: .16rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

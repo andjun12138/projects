@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.security.mapper.MyUserDetailsMapper" >
+    <resultMap id="MyUserDetailsMap" type="com.security.entity.MyUserDetails" >
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="enabled" property="enabled" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+
+    <select id="findByUserName" resultMap="MyUserDetailsMap">
+      SELECT username,password,enabled
+            FROM s_sys_user u
+            WHERE u.username = #{username}
+    </select>
+
+    <select id="findRoleByUserName" resultType="java.lang.String">
+        SELECT role_code
+            FROM s_sys_role r
+            LEFT JOIN s_sys_user_role ur ON r.id = ur.role_id
+            LEFT JOIN s_sys_user u ON u.id = ur.user_id
+            WHERE u.username = #{username}
+    </select>
+
+    <select id="findAuthorityByRoleCodes" resultType="java.lang.String">
+        SELECT url
+        FROM s_sys_menu m
+        LEFT JOIN s_sys_role_menu rm ON m.id = rm.menu_id
+        LEFT JOIN s_sys_role r ON r.id = rm.role_id
+        WHERE r.role_code IN
+        <foreach collection='roleCodes' item='roleCode' open='(' separator=',' close=')'>
+            #{roleCode}
+        </foreach>
+    </select>
+
+    <select id="findUrlsByUserName" resultType="java.lang.String">
+        SELECT url
+        FROM s_sys_menu m
+        LEFT JOIN s_sys_role_menu rm ON m.id = rm.menu_id
+        LEFT JOIN s_sys_role r ON r.id = rm.role_id
+        LEFT JOIN s_sys_user_role ur ON r.id = ur.role_id
+        LEFT JOIN s_sys_user u ON u.id = ur.user_id
+        WHERE u.username = #{username}
+    </select>
+
+</mapper>

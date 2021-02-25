@@ -1,0 +1,163 @@
+.employment-detail {
+    background-color: #eeeeee;
+}
+.employment-detail .employment-detail-container{
+    width: 12rem;
+    margin: 0 auto;
+}
+.employment-detail .employment-detail-container .path-list{
+    width: 100%;
+    height: .5rem;
+    line-height: .5rem;
+    font-size: .14rem;
+    color: #323232;
+}
+.employment-detail .employment-detail-container .path-list .path-item{
+    display: inline-block;
+}
+/* 基本信息 */
+.employment-detail .employment-detail-container .base-info-container{
+    width: 100%;
+    height: auto;
+    background-color: #455171;
+    padding: .24rem .3rem .36rem;
+    color: #ffffff;
+    margin-bottom: .2rem;
+}
+.employment-detail .employment-detail-container .base-info-container .tag-list .tag-item{
+    display: inline-block;
+    margin-right: .22rem;
+    height: .3rem;
+    line-height: .3rem;
+    font-size: .12rem;
+    background-color: #19a0e5;
+    margin-bottom: .3rem;
+    padding: 0 .13rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-title{
+    font-size: .24rem;
+    font-weight: bold;
+    margin-bottom: .36rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-introduction{
+    font-size: .14rem;
+    margin-bottom: .15rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-introduction{
+    font-size: .14rem;
+    margin-bottom: .15rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-other-info{
+    width: 100%;
+    overflow: hidden;
+}
+.employment-detail .employment-detail-container .base-info-container .job-other-info .job-salary{
+    display: block;
+    float: left;
+    width: 2rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-other-info .job-experience{
+    display: block;
+    float: left;
+    width: 2.5rem;
+}
+.employment-detail .employment-detail-container .base-info-container .job-other-info .job-date{
+    display: block;
+    float: left;
+    width: 3rem;
+}
+
+/* 详情 */
+.employment-detail .employment-detail-container .job-detail-container{
+    width: 100%;
+    overflow: hidden;
+}
+.employment-detail .employment-detail-container .job-detail-left{
+    float: left;
+    width: 8.78rem;
+    margin-right: .22rem;
+}
+.employment-detail .employment-detail-container .job-detail-right{
+    float: left;
+    width: 3rem;
+}
+.employment-detail .employment-detail-container .job-detail-left .job-description{
+    padding: .2rem .3rem .38rem;
+    background-color: #ffffff;
+    margin-bottom: .3rem;
+}
+.employment-detail .employment-detail-container .job-detail-left .job-description .job-tag-title{
+    position: relative;
+    padding: 0 0 .2rem .26rem;
+    font-size: .18rem;
+    color: #414141;
+    border-bottom: .01rem solid #dcdcdc;
+}
+.employment-detail .employment-detail-container .job-detail-left .job-description .job-tag-title:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: .02rem;
+    width: .1rem;
+    height: .1rem;
+    background-color: #fe9f65;
+}
+.employment-detail .employment-detail-container .job-detail-left .job-description .job-detail{
+    padding-top: .25rem;
+    line-height: .24rem;
+}
+.employment-detail .employment-detail-container .job-detail-left .work-address{
+    padding: .2rem .3rem .38rem;
+    background-color: #ffffff;
+    margin-bottom: .3rem;
+}
+.employment-detail .employment-detail-container .job-detail-left .work-address .job-tag-title{
+    position: relative;
+    padding: 0 0 .2rem .26rem;
+    font-size: .18rem;
+    color: #414141;
+    border-bottom: .01rem solid #dcdcdc;
+}
+.employment-detail .employment-detail-container .job-detail-left .work-address .job-tag-title:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: .02rem;
+    width: .1rem;
+    height: .1rem;
+    background-color: #19a0e5;
+}
+.employment-detail .employment-detail-container .job-detail-left .work-address .address-detail{
+    padding: .25rem 0;
+    line-height: .24rem;
+}
+
+
+.employment-detail .employment-detail-container .job-detail-right{
+    background-color: #ffffff;
+}
+.employment-detail .employment-detail-container .job-detail-right .top-part{
+    border-bottom: .01rem solid #dcdcdc;
+}
+.employment-detail .employment-detail-container .job-detail-right .top-part .company-name{
+    font-size: .16rem;
+    color: #555555;
+    font-weight: bold;
+    margin-bottom: .23rem;
+    margin-top: .23rem;
+    padding-left: .2rem;
+}
+.employment-detail .employment-detail-container .job-detail-right .top-part .company-address{
+    font-size: .14rem;
+    color: #555555;
+    margin-bottom: .23rem;
+    padding-left: .2rem;
+}
+.employment-detail .employment-detail-container .job-detail-right .bottom-part{
+    padding: .2rem;
+}
+.employment-detail .employment-detail-container .job-detail-right .bottom-part .contact-list .contact-item{
+    margin-bottom: .2rem;
+    font-size: .14rem;
+    color: #555555;
+}

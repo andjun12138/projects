@@ -1,0 +1,336 @@
+.header {
+    position: relative;
+    width: auto;
+    height: auto;
+    min-width: 1200px;
+    background: url("/static/front/assets/image/common/header/header-bg.jpg") no-repeat;
+    background-size: cover;
+    z-index: 10;
+    overflow: hidden;
+}
+.header div[class*="-container"] {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 1200px;
+    height: 100%;
+}
+.header input::placeholder {
+    color: #ffffff;
+}
+.header input:-moz-placeholder{
+    color: #ffffff;
+}
+.header input:-ms-input-placeholder{
+    color: #ffffff;
+}
+.header input::-moz-placeholder {
+    color: #ffffff;
+}
+.header input::-webkit-input-placeholder{
+    color: #ffffff;
+}
+.header .top {
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, .2);
+    color: #fefefe;
+}
+.header .top .top-container .top-left-part{
+    float: left;
+    width: 50%;
+    height: 100%;
+    line-height: 40px;
+}
+.header .top .top-container .top-right-part {
+    float: right;
+    width: 50%;
+    height: 100%;
+    text-align: right;
+    line-height: 40px;
+}
+.header .top .top-container .top-right-part .header-func-list {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.header .top .top-container .top-right-part .header-func-list .header-func-item {
+    float: left;
+    margin-right: 40px;
+}
+.header .top .top-container .top-right-part .header-func-list .header-func-item:last-child{
+    margin-right: 0;
+}
+.header .top .top-container .top-right-part .header-func-list .header-func-item .header-func-item-icon {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 21px;
+    height: 21px;
+    color: #fefefe;
+}
+.header .top .top-container .top-right-part .header-func-list .header-func-item .header-func-item-icon:before{
+    color: inherit;
+    font-size: 21px;
+    opacity: .7;
+}
+.header .top .top-container .top-right-part .header-func-list .header-func-item .header-func-item-content {
+    font-size: 12px;
+    padding: 5px 0;
+    color: #fefefe;
+}
+.header .content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.header .content .content-top-part {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    border: 1px solid transparent;
+}
+.header .content .content-top-part .content-top-container .company-logo-link{
+    display: inline-block;
+    margin-top: 24px;
+    margin-bottom: 22px;
+}
+.header .content .content-top-part .content-top-container .company-logo-link .company-logo{
+    width: auto;
+    height: 65px;
+}
+.header .content .content-top-part .content-top-container .content-right-part {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 652px;
+    height: 100%;
+    text-align: right;
+    line-height: 111px;
+}
+.header .content .content-top-part .content-top-container .content-right-part .number-show {
+    font-size: 30px;
+    color: #ffba6c;
+    font-weight: bold;
+}
+.header .content .content-top-part .content-top-container .content-right-part .number-show:before,
+.header .content .content-top-part .content-top-container .content-right-part .number-show:after {
+    content: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.header .content .content-top-part .content-top-container .content-right-part .number-show[type="company"]:before {
+    content: attr(before);
+    margin-right: 20px;
+}
+.header .content .content-top-part .content-top-container .content-right-part .number-show[type="company"]:after {
+    content: attr(after);
+    margin-left: 20px;
+}
+.header .content .content-top-part .content-top-container .content-right-part .number-show[type="result"]:after {
+    content: attr(after);
+    margin-left: 20px;
+}
+
+
+
+.header .content .content-middle-part {
+    width: 100%;
+    min-height: 133px;
+    border-top: 1px solid transparent;
+}
+.header .content .content-middle-part .content-middle-container .header-title{
+    width: 100%;
+    height: auto;
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 66px;
+    /* 字之间的间隔 */
+    letter-spacing: 7px;
+    color: #fefefe;
+}
+.header .content .content-right-part .header-search-div,
+.header .content .content-middle-part .content-middle-container .header-search-div {
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    /* 临时的，到时候要删除掉 */
+    margin-bottom: 40px;
+}
+.header .content .content-right-part .header-search-div .header-search-model,
+.header .content .content-middle-part .content-middle-container .header-search-div .header-search-model{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 auto;
+    width: 430px;
+    height: 100%;
+    line-height: 100%;
+    color: #ffffff;
+    padding: 5px 86px;
+    background: rgba(255, 255, 255, .3);
+    border-radius: 20px;
+}
+.header .content .content-right-part .header-search-div .header-search-model:before,
+.header .content .content-middle-part .content-middle-container .header-search-div .header-search-model:before{
+    content: '\e6f5';
+    position: absolute;
+    top: 60%;
+    left: 50px;
+    margin-top: -10px;
+    font-size: 20px;
+}
+.header .content .content-right-part .header-search-div .header-search-model .search-btn,
+.header .content .content-middle-part .content-middle-container .header-search-div .header-search-model .search-btn {
+    /* 搜索 */
+    /*content: '\641c\7d22';*/
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 86px;
+    height: 100%;
+    font-size: 12px;
+    background: rgba(255, 255, 255, .3);
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 999;
+}
+.header .content .content-right-part .header-search-div .header-search-model .header-search,
+.header .content .content-middle-part .content-middle-container .header-search-div .header-search-model .header-search {
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: inherit;
+    background: transparent;
+    outline: none;
+}
+.header .content .content-right-part .header-search-div .header-search-model .header-search::placeholder,
+.header .content .content-middle-part .content-middle-container .header-search-div .header-search-model .header-search::placeholder {
+    color: #ffffff;
+}
+.header .content .content-bottom-part{
+    width: 100%;
+    height: 76px;
+}
+.header .content .content-bottom-part .content-bottom-container{
+    text-align: center;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list {
+    display: inline-block;
+    height: 100%;
+    line-height: 76px;
+    white-space: nowrap;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item{
+    float: left;
+    margin-right: 66px;
+    font-size: 24px;
+    color: #ffd584;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item:last-child {
+    margin-right: 0;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item:before {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="technology"]:before {
+    /*通关数量*/
+    content: '\901a\5173\6570\91cf\003a';
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="advanced"]:before {
+    /*科技文献*/
+    content: '\79d1\6280\6587\732e\003a';
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="high-salary"]:before {
+    /*在孵企业*/
+    content: '\5728\5b75\4f01\4e1a\003a';
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="platform"]:before {
+    /*展会数量*/
+    content: '\5c55\4f1a\6570\91cf\003a';
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item:after {
+    /*家*/
+    content: '\5bb6';
+    margin-left: 10px;
+    font-size: 24px;
+    color: #ffd584;
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="advanced"]:after {
+    /*篇*/
+    content: '\7bc7';
+}
+.header .content .content-bottom-part .content-bottom-container .content-count-list .content-count-item[name="platform"]:after {
+    /*场*/
+    content: '\7bc7';
+}
+.header .bottom {
+    width: 100%;
+    height: 50px;
+    background: #273476;
+}
+.header .bottom .bottom-container .bottom-nav-list{
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item {
+    float: left;
+    width: 200px;
+    height: 100%;
+    text-align: center;
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item:hover {
+    background: rgba(255, 255, 255, .5);
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item .nav-item-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item .nav-item-icon {
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item .nav-item-icon:before{
+    font-size: 18px;
+    color: inherit;
+}
+.header .bottom .bottom-container .bottom-nav-list .nav-item .nav-item-content {
+    font-size: 16px;
+    color: #ffffff;
+}
+.header .bottom .bottom-container .bottom-nav-list .active{
+    background: rgba(255, 255, 255, .5);
+}
+.layer-open-div {
+    width: 90%;
+    padding: 5%;
+    font-size: 16px;
+    line-height: 30px;
+}
+.layer-open-div a{
+    color: #31baed;
+}
+
+
+

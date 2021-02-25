@@ -1,0 +1,18 @@
+{
+  "model": "prd",
+  "main":{
+    "dev":"esp.net",
+    "personal": "esp.net",
+    "bate": "hnesp.com",
+    "prd":"hnesp.com"
+  },
+  "children":{
+    "default": "www",
+    "admin": "admin",
+    "security": "security",
+    "file": "admin",
+    "message": "message",
+    "kjzy":"kjzy",
+    "zhzb":"zhzb"
+  }
+}

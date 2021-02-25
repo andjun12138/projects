@@ -17,6 +17,8 @@
         <module>redis</module>
         <module>flowable</module>
         <module>spring-cloud</module>
+        <module>spring-dubbo</module>
+        <module>spring-security</module>
         <module>project-common</module>
     </modules>
     <properties>

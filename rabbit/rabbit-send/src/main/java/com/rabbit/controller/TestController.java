@@ -41,7 +41,8 @@ public class TestController {
         for (int i = 0; i < 20;i++) {
             String context = "hello word" + i;
             System.out.println("Sender : " + context);
-            this.amqpTemplate.convertAndSend("amq.topic", "10.0.20.4.rabbitMQ.queue.test", context);
+            //this.amqpTemplate.convertAndSend("amq.topic", "10.0.20.4.rabbitMQ.queue.test", context);
+            this.amqpTemplate.convertAndSend("amq.topic", "localhost.rabbitMQ.queue.test", context);
         }
         return "view/success";
     }

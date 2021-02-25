@@ -18,9 +18,15 @@
         <module name="rabbit-receive" />
         <module name="rabbit-send" />
         <module name="redis" />
+        <module name="service-api" />
+        <module name="service-api (1)" />
+        <module name="service-api (2)" />
+        <module name="service-consumer" />
         <module name="service-feign" />
+        <module name="service-provider" />
         <module name="service-ribbon" />
         <module name="service-zuul" />
+        <module name="spring-security" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,10 +44,17 @@
       <module name="rabbit-receive" target="1.5" />
       <module name="rabbit-send" target="1.5" />
       <module name="redis" target="1.8" />
+      <module name="service-api" target="1.5" />
+      <module name="service-api (1)" target="1.5" />
+      <module name="service-api (2)" target="1.5" />
+      <module name="service-consumer" target="1.5" />
       <module name="service-feign" target="1.5" />
+      <module name="service-provider" target="1.5" />
       <module name="service-ribbon" target="1.5" />
       <module name="service-zuul" target="1.5" />
       <module name="spring-cloud" target="1.5" />
+      <module name="spring-dubbo" target="1.5" />
+      <module name="spring-security" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Date;
 
 /**
  * Created by liuxh on 2017/5/31.
@@ -23,14 +24,15 @@ public class TestController {
     private RedisService redisService;
     @Autowired
     private BaseEntityService baseEntityService;
+    @Autowired
+
 
 
     @RequestMapping("/index")
-    public String index(Model model) throws UnknownHostException {
+    public String index() throws UnknownHostException {
         System.out.println(this);
         InetAddress address = InetAddress.getLocalHost();//获取的是本地的IP地址 //PC-20140317PXKX/192.168.0.121
         String hostAddress = address.getHostAddress();//192.168.0.121
-        model.addAttribute("hostAddress",hostAddress);
         return "common";
     }
 
@@ -48,6 +50,15 @@ public class TestController {
         String result = "hello";
         //result = result + " " + redisService.get("session");
         model.addAttribute("result",result);
+        return "success";
+    }
+
+    @RequestMapping("/send")
+    public String sendMessage() {
+        for(int i = 1; i <= 5; i++) {
+            //要与监听频道一致 channel:test
+            redisService.convertAndSend("channel:test", String.format("我是消息{%d}号: %tT", i, new Date()));
+        }
         return "success";
     }
 }

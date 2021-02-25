@@ -21,7 +21,8 @@ import java.io.IOException;
 
 @Configuration
 public class TopicRabbitConfig {
-    private static String address = "10.0.20.4:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
+    //private static String address = "10.0.20.4:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
+    private static String address = "localhost:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
     private static String username = "root";
     private static String password = "123456";
     @Bean
@@ -45,7 +46,8 @@ public class TopicRabbitConfig {
     @Bean
     public SimpleMessageListenerContainer mqMessageContainer(HandleService handleService) throws AmqpException, IOException {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
-        container.setQueueNames(new String[]{"10.0.20.4.rabbitMQ.queue.1"});//与rabbitMQ中创建的队列一样
+        //container.setQueueNames(new String[]{"10.0.20.4.rabbitMQ.queue.1"});//与rabbitMQ中创建的队列一样
+        container.setQueueNames(new String[]{"localhost.rabbitMQ.queue.1"});//与rabbitMQ中创建的队列一样
         //container.setQueueNames(Queues());
         container.setPrefetchCount(100);//每个消费者获取的最大的消息数量
         container.setConcurrentConsumers(5);//消费者个数

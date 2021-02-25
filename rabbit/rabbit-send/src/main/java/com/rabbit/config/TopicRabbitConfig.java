@@ -17,8 +17,11 @@ import java.io.IOException;
 * */
 @Configuration
 public class TopicRabbitConfig {
-    private static String address = "10.0.20.4:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
-    private static String localHostName = "10.0.20.4";//本机的地址(真实的环境中用代码获取即可)
+    //private static String address = "10.0.20.4:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
+    //private static String localHostName = "10.0.20.4";//本机的地址(真实的环境中用代码获取即可)
+
+    private static String address = "localhost:5672";// (RabbitMQ的真实服务器地址) 本机地址,如果多个可以用逗号分隔
+    private static String localHostName = "localhost";//本机的地址(真实的环境中用代码获取即可)
     private static String username = "root";
     private static String password = "123456";
     private static String route_key = "%s.rabbitMQ.queue.*";  // 交换器中的routeKey命名规则
@@ -60,6 +63,9 @@ public class TopicRabbitConfig {
                                 或者没有消费者客户端与这个队列连接时，都不会自动删除这个队列。
              第五个参数 arguments : 设置队列的其他一些参数，如x-rnessage-ttl、x-expires、x-rnax-length、x-rnax-length-bytes、x-dead-letter-exchange、x-deadletter-routing-key, x-rnax-priority等
             */
+            /*
+            * 作用：创建一个队列
+            * */
             connectionFactory().createConnection().createChannel(false).queueDeclare(queueName, true, false, false, null);
              /*
              queueBind方法参数说明:
@@ -68,6 +74,10 @@ public class TopicRabbitConfig {
              第三个参数 routingKey : 用来绑定队列和交换器的路由键;
              补充:与queueBind相对于的queueUnBind解绑方法的参数一样
              */
+            /*
+             * 作用：创建队列与交换机绑定,这里因为在for循环里面，所以这个Exchange绑定了多个队列,注意routeKey路由规则来决定流向哪些队列
+             * 为什么要绑定呢？因为rabbitMQ不会直接把消息投放到队列中，而是把消息发送到Exchange中，有其路由到一个或多个队列中
+             * */
             connectionFactory().createConnection().createChannel(false).queueBind(queueName, exchangeName, routeKey);
             queueNames[i-1] = queueName;
         }
