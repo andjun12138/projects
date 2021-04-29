@@ -1,15 +1,20 @@
 package com.redis.config;
 
-import org.springframework.data.redis.connection.Message;
-import org.springframework.data.redis.connection.MessageListener;
-import org.springframework.stereotype.Component;
+import com.redis.entity.BaseEntity;
+import org.springframework.stereotype.Service;
 
-@Component
-public class RedisReceiver implements MessageListener {
+@Service
+public class RedisReceiver {
 
-    @Override
-    public void onMessage(Message message, byte[] pattern) {
-        System.out.println(new String(message.getBody()));
-        System.out.println(new String(message.getChannel()));
+    //第一个监听方法--监听频道doStart
+    public void doStart(BaseEntity baseEntity){
+        System.out.println(baseEntity);
+        System.out.println(baseEntity.getAccount());
+    }
+
+    //第二个监听方法--监听频道doInit
+    public void doInit(BaseEntity baseEntity){
+        System.out.println(baseEntity);
+        System.out.println(baseEntity.getAccount());
     }
 }

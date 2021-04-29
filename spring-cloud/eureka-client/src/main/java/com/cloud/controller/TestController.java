@@ -3,7 +3,6 @@ package com.cloud.controller;
 import com.cloud.service.BaseEntityService;
 import com.cloud.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,9 @@ import java.net.UnknownHostException;
 @RequestMapping(value="/test")
 @RefreshScope
 public class TestController {
+/*
     @Value("${config-server-hello}")
+*/
     String message;
 
     @Autowired
@@ -27,6 +28,7 @@ public class TestController {
 
     @RequestMapping("/index")
     public String index(Model model) throws UnknownHostException {
+        message="eureka-client";
         return message;
     }
     @RequestMapping("/update")

@@ -57,20 +57,42 @@ public class RedisConfig extends CachingConfigurerSupport {
         template.afterPropertiesSet();
         return template;
     }
+    //可以同时加两个消息监听
     @Bean
     RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
-                                            MessageListenerAdapter listenerAdapter) {
+                                            MessageListenerAdapter messageListenerAdapter,MessageListenerAdapter initListenerAdapter) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
+        // 以下为修改默认的序列化方式，网上大多数消息发布订阅都是String类型,但是实际中数据类型肯定不止String类型
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(
+                Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+
         // 可以添加多个 messageListener，配置不同的交换机
-       // 消息监听容器增加监听的消息，第一个参数是监听适配器，第2个参数是监听的频道。
-        container.addMessageListener(listenerAdapter, new PatternTopic("channel:test"));
+        // 针对每一个消息处理可以设置不同的序列化方式--不可或缺，不然会接收不到消息
+        messageListenerAdapter.setSerializer(jackson2JsonRedisSerializer);
+        // 消息监听容器增加监听的消息，第一个参数是监听适配器，第2个参数是监听的频道。
+        container.addMessageListener(messageListenerAdapter, new PatternTopic("channel:doStart"));
+        // 针对每一个消息处理可以设置不同的序列化方式
+        initListenerAdapter.setSerializer(jackson2JsonRedisSerializer);
+        // 消息监听容器增加监听的消息，第一个参数是监听适配器，第2个参数是监听的频道。
+        container.addMessageListener(initListenerAdapter, new PatternTopic("channel:doInit"));
         return container;
     }
     @Bean
-    MessageListenerAdapter listenerAdapter(RedisReceiver receiver) {
+    MessageListenerAdapter messageListenerAdapter(RedisReceiver receiver) {
         System.out.println("消息适配器1");
-        return new MessageListenerAdapter(receiver, "onMessage");
+        //doStart是receive中的接收方法
+        return new MessageListenerAdapter(receiver, "doStart");
+    }
+    @Bean
+    MessageListenerAdapter initListenerAdapter(RedisReceiver receiver) {
+        System.out.println("消息适配器1");
+        //doInit是receive中的接收方法
+        return new MessageListenerAdapter(receiver, "doInit");
     }
 
 }

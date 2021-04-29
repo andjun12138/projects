@@ -1,5 +1,6 @@
 package com.redis.controller;
 
+import com.redis.entity.BaseEntity;
 import com.redis.service.BaseEntityService;
 import com.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Date;
 
 /**
  * Created by liuxh on 2017/5/31.
@@ -57,7 +57,13 @@ public class TestController {
     public String sendMessage() {
         for(int i = 1; i <= 5; i++) {
             //要与监听频道一致 channel:test
-            redisService.convertAndSend("channel:test", String.format("我是消息{%d}号: %tT", i, new Date()));
+            BaseEntity startBaseEntity = new BaseEntity();
+            startBaseEntity.setAccount("start");
+            redisService.convertAndSend("channel:doStart", startBaseEntity);
+            BaseEntity baseEntity = new BaseEntity();
+            baseEntity.setAccount("init");
+            //注意，这个类有两点需要注意：1、必须实现序列化。2、必须有无参构造方法。
+            redisService.convertAndSend("channel:doInit", baseEntity);
         }
         return "success";
     }

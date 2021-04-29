@@ -1,6 +1,8 @@
 package com.redis.entity;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity implements Serializable {
     private int id;
     private int type;
     private String account;

@@ -182,7 +182,9 @@ public class RedisService {
         return zset.rangeByScore(key, scoure, scoure1);
     }
 
-    public void convertAndSend(String channel,String message){
+    public void convertAndSend(String channel,Object message){
         redisTemplate.convertAndSend(channel, message);
     }
+
+
 }

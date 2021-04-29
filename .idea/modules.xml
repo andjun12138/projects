@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/spring-cloud/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/flowable/flowable.iml" filepath="$PROJECT_DIR$/flowable/flowable.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka-consumer/kafka-consumer.iml" filepath="$PROJECT_DIR$/kafka/kafka-consumer/kafka-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka-producer/kafka-producer.iml" filepath="$PROJECT_DIR$/kafka/kafka-producer/kafka-producer.iml" />
       <module fileurl="file://$PROJECT_DIR$/mongodb/mongodb.iml" filepath="$PROJECT_DIR$/mongodb/mongodb.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-common/project-common.iml" filepath="$PROJECT_DIR$/project-common/project-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/projects.iml" filepath="$PROJECT_DIR$/projects.iml" />
