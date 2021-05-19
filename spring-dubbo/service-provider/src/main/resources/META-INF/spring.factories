@@ -1,0 +1,5 @@
+org.springframework.context.ApplicationListener=\
+com.provider.config.DubboHolderListener
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.provider.config.ProviderConfig
